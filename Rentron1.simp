@@ -56,6 +56,26 @@
         <phone-number />
         <description />
         <color>#00000000</color>
+        <working-schedule uid="ws-43db98978ca64e81afaaa1a2db07bdfb" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Mohamad Abou</first-name>
+        <last-name>Hamad</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
+        <working-schedule uid="ws-2ccd9bb598aa4041a45a02d8e555976c" hours="8" monday="8" tuesday="8" wednesday="8" thursday="8" friday="8" saturday="0" sunday="0" />
+      </person>
+      <person id="">
+        <first-name>Mohamad Abou</first-name>
+        <last-name>Hamad</last-name>
+        <role />
+        <e-mail />
+        <phone-number />
+        <description />
+        <color>#00000000</color>
       </person>
     </persons>
     <teams />
@@ -88,7 +108,7 @@
   </types>
   <items>
     <item id="6876a80fcac54c4c8916ae523321de88" cid="PROP021" type="property" name="utilities" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:25:38" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
         <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
         <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -119,7 +139,7 @@
       <structural-feature type="User" type-id="Class:5adbd19da3ce4282bc34baf8cf1e4939" />
     </item>
     <item id="da5b9d69b63e4726a811cb955fbfe2f4" cid="PROP025" type="property" name="message" owner="2310e11c3a114b4a97c6a87dc7f563ad" creator="" creation-date="05/09/2024 16:29:53" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
         <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
         <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -144,7 +164,7 @@
       <structural-feature type="String" type-id="Uml.String" />
     </item>
     <item id="d9a7e0ba008d47bc983169bf32e034fa" cid="PROP020" type="property" name="area" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:25:28" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
         <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
         <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -169,7 +189,7 @@
       <structural-feature type="double" type-id="double" />
     </item>
     <item id="c28b8680d32b4060b18ce32f344fc2f2" cid="PROP017" type="property" name="price" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:23:55" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
         <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
         <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -197,7 +217,7 @@
       <structural-feature type="User" type-id="Class:5adbd19da3ce4282bc34baf8cf1e4939" />
     </item>
     <item id="78d9d4f3a5604f1ebab6697096fb8853" cid="PROP018" type="property" name="rooms" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:25:20" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
         <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
         <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -225,7 +245,7 @@
       <structural-feature type="Property Manager" type-id="Class:403a0cde0a2149cf921d4528a0e7be22" />
     </item>
     <item id="1794ed0b7ca5475a97e775ca004fa62d" cid="PROP026" type="property" name="urgence" owner="2310e11c3a114b4a97c6a87dc7f563ad" creator="" creation-date="05/09/2024 16:30:03" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
         <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
         <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -250,7 +270,7 @@
       <structural-feature type="int" type-id="int" />
     </item>
     <item id="95429b4afb4b4363b4a8b64d1553ea4a" cid="PROP022" type="property" name="bathrooms" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:25:39" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
         <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
         <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -275,7 +295,7 @@
       <structural-feature type="double" type-id="double" />
     </item>
     <item id="b58b28292b0a4ed9832020611c78b56c" cid="PROP019" type="property" name="floors" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:25:24" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
         <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
         <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -303,7 +323,7 @@
       <structural-feature type="Landlord" type-id="Class:fb511e41d2d3443e8edea26fae2890a8" />
     </item>
     <item id="2ada21f95f854e4e83fcc9b94936a232" cid="PROP024" type="property" name="type" owner="2310e11c3a114b4a97c6a87dc7f563ad" creator="" creation-date="05/09/2024 16:29:42" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
         <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
         <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -331,7 +351,7 @@
       <structural-feature type="Client" type-id="Class:0f3939f9f94042d293f864692c370d04" />
     </item>
     <item id="a00fb12fb15d4a43bcdf8ecaa7e5f6da" cid="PROP016" type="property" name="type" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:21:09" visibility="private">
-      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
         <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
         <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
@@ -370,7 +390,7 @@
       </meta>
       <abstract-items />
       <sub-models />
-      <diagram type="uml-class" id="pd8a062d6cf3c458f887cc0631d105ee0_549176122" name="ClassDiagram1" order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="119,360">
+      <diagram type="uml-class" id="pd8a062d6cf3c458f887cc0631d105ee0_549176122" name="ClassDiagram1" order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="145,99">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -387,11 +407,41 @@
           <version />
         </meta>
         <abstract-items>
+          <item id="0f3939f9f94042d293f864692c370d04" cid="C002" type="class" name="Client" creator="" creation-date="05/09/2024 16:13:43" visibility="undefined" />
           <item id="3eff360cd84246efbdabc06e4ac68411" cid="PROP004" type="property" name="emailAddress" owner="5adbd19da3ce4282bc34baf8cf1e4939" creator="" creation-date="05/09/2024 16:17:15" visibility="private">
             <structural-feature type="String" type-id="Uml.String" />
           </item>
+          <item id="5adbd19da3ce4282bc34baf8cf1e4939" cid="C001" type="class" name="User" creator="" creation-date="05/09/2024 16:13:39" visibility="undefined">
+            <owned-items />
+            <attributes>
+              <attribute id="a9a189a89851343f3878d07fc28a6249d421" cid="PROP001" name="firstName" creation-date="05/09/2024 16:16:57" property-ref="174d9d118af4432eb4cc632628b74722" />
+              <attribute id="a4d2d29ec18bd42af8e7f8ac3e8c846bc226" cid="PROP002" name="lastName" creation-date="05/09/2024 16:17:01" property-ref="56c75ef613444e9d92ff21dbd7cdfce3" />
+              <attribute id="af2611c6e616a40dd88cbbaad6bcbdc8b943" cid="PROP003" name="birthYear" creation-date="05/09/2024 16:17:08" property-ref="0db7b8e415584b01bfac8d96681092cf" />
+              <attribute id="aabf68d873a734206919c57e4f237c908490" cid="PROP004" name="emailAddress" creation-date="05/09/2024 16:17:15" property-ref="3eff360cd84246efbdabc06e4ac68411" />
+              <attribute id="a74a6762a959c4e05bc2a828583ae01db37" cid="PROP005" name="password" creation-date="05/09/2024 16:17:27" property-ref="524e7036f2ea4044ba25ab0a7bc91b4f" />
+            </attributes>
+            <source-codes>
+              <source-code language="ActionScript" />
+            </source-codes>
+          </item>
+          <item id="6363d34a69f14491900fec8d92ea6094" cid="C007" type="class" name="Date" creator="" creation-date="05/09/2024 16:30:55" visibility="undefined">
+            <owned-items />
+            <attributes>
+              <attribute id="ab55e1e3ac08d4925a2ab74922f87e9d6580" cid="PROP028" name="year" creation-date="05/09/2024 16:31:07" property-ref="bcd2ce3b6db14f7f8d7c206f0ca796ad" />
+              <attribute id="a30c1338a58444f86bf3e5542b1ef0ec2514" cid="PROP029" name="month" creation-date="05/09/2024 16:31:11" property-ref="0780cf19feb74417bb0608f549a9917a" />
+              <attribute id="a9e3b9dceb9004a1e930682caca84c839957" cid="PROP030" name="day" creation-date="05/09/2024 16:31:18" property-ref="0859f53cd3424198bcfa58aa8f58e223" />
+              <attribute id="a3b276bdf70cf4892ae4ed70c7de94b72619" cid="PROP031" name="time" creation-date="05/09/2024 16:31:23" property-ref="4745ab38883e45428c184dfbc2eb3767" />
+            </attributes>
+            <source-codes>
+              <source-code language="ActionScript" />
+            </source-codes>
+          </item>
           <item id="56c75ef613444e9d92ff21dbd7cdfce3" cid="PROP002" type="property" name="lastName" owner="5adbd19da3ce4282bc34baf8cf1e4939" creator="" creation-date="05/09/2024 16:17:01" visibility="private">
             <structural-feature type="String" type-id="Uml.String" />
+          </item>
+          <item id="403a0cde0a2149cf921d4528a0e7be22" cid="C004" type="class" name="Property Manager" creator="" creation-date="05/09/2024 16:14:04" visibility="undefined" />
+          <item id="0859f53cd3424198bcfa58aa8f58e223" cid="PROP030" type="property" name="day" owner="6363d34a69f14491900fec8d92ea6094" creator="" creation-date="05/09/2024 16:31:18" visibility="private">
+            <structural-feature type="int" type-id="int" />
           </item>
           <item id="4a6e0610b15d4d83a3932dae3228a111" cid="C005" type="class" name="Property" creator="" creation-date="05/09/2024 16:20:54" visibility="undefined">
             <owned-items />
@@ -409,72 +459,45 @@
               <source-code language="ActionScript" />
             </source-codes>
           </item>
-          <item id="5adbd19da3ce4282bc34baf8cf1e4939" cid="C001" type="class" name="User" creator="" creation-date="05/09/2024 16:13:39" visibility="undefined">
-            <owned-items />
-            <attributes>
-              <attribute id="a9a189a89851343f3878d07fc28a6249d421" cid="PROP001" name="firstName" creation-date="05/09/2024 16:16:57" property-ref="174d9d118af4432eb4cc632628b74722" />
-              <attribute id="a4d2d29ec18bd42af8e7f8ac3e8c846bc226" cid="PROP002" name="lastName" creation-date="05/09/2024 16:17:01" property-ref="56c75ef613444e9d92ff21dbd7cdfce3" />
-              <attribute id="af2611c6e616a40dd88cbbaad6bcbdc8b943" cid="PROP003" name="birthYear" creation-date="05/09/2024 16:17:08" property-ref="0db7b8e415584b01bfac8d96681092cf" />
-              <attribute id="aabf68d873a734206919c57e4f237c908490" cid="PROP004" name="emailAddress" creation-date="05/09/2024 16:17:15" property-ref="3eff360cd84246efbdabc06e4ac68411" />
-              <attribute id="a74a6762a959c4e05bc2a828583ae01db37" cid="PROP005" name="password" creation-date="05/09/2024 16:17:27" property-ref="524e7036f2ea4044ba25ab0a7bc91b4f" />
-            </attributes>
-            <source-codes>
-              <source-code language="ActionScript" />
-            </source-codes>
-          </item>
-          <item id="4745ab38883e45428c184dfbc2eb3767" cid="PROP031" type="property" name="time" owner="6363d34a69f14491900fec8d92ea6094" creator="" creation-date="05/09/2024 16:31:23" visibility="private">
-            <structural-feature type="String" type-id="Uml.String" />
-          </item>
-          <item id="403a0cde0a2149cf921d4528a0e7be22" cid="C004" type="class" name="Property Manager" creator="" creation-date="05/09/2024 16:14:04" />
-          <item id="2ae800de0ebd415a9083efebe5d73048" cid="PROP023" type="property" name="parking" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:27:31" visibility="private">
-            <structural-feature type="int" type-id="int" />
-          </item>
-          <item id="524e7036f2ea4044ba25ab0a7bc91b4f" cid="PROP005" type="property" name="password" owner="5adbd19da3ce4282bc34baf8cf1e4939" creator="" creation-date="05/09/2024 16:17:27" visibility="private">
-            <structural-feature type="String" type-id="Uml.String" />
-          </item>
-          <item id="d7294b9be34d4a19971fd5708fbe7a97" cid="PROP027" type="property" name="date" owner="2310e11c3a114b4a97c6a87dc7f563ad" creator="" creation-date="05/09/2024 16:30:41" visibility="private">
-            <structural-feature type="Date" type-id="Date" />
-          </item>
-          <item id="6363d34a69f14491900fec8d92ea6094" cid="C007" type="class" name="Date" creator="" creation-date="05/09/2024 16:30:55" visibility="undefined">
-            <owned-items />
-            <attributes>
-              <attribute id="ab55e1e3ac08d4925a2ab74922f87e9d6580" cid="PROP028" name="year" creation-date="05/09/2024 16:31:07" property-ref="bcd2ce3b6db14f7f8d7c206f0ca796ad" />
-              <attribute id="a30c1338a58444f86bf3e5542b1ef0ec2514" cid="PROP029" name="month" creation-date="05/09/2024 16:31:11" property-ref="0780cf19feb74417bb0608f549a9917a" />
-              <attribute id="a9e3b9dceb9004a1e930682caca84c839957" cid="PROP030" name="day" creation-date="05/09/2024 16:31:18" property-ref="0859f53cd3424198bcfa58aa8f58e223" />
-              <attribute id="a3b276bdf70cf4892ae4ed70c7de94b72619" cid="PROP031" name="time" creation-date="05/09/2024 16:31:23" property-ref="4745ab38883e45428c184dfbc2eb3767" />
-            </attributes>
-            <source-codes>
-              <source-code language="ActionScript" />
-            </source-codes>
-          </item>
-          <item id="1d9d801c68a44902897fa0612d466b31" cid="REL004" type="relationship" creator="" creation-date="05/09/2024 16:19:02" from="fb511e41d2d3443e8edea26fae2890a8" to="5adbd19da3ce4282bc34baf8cf1e4939" visibility="package">
-            <owned-items />
-            <relation from="fb511e41d2d3443e8edea26fae2890a8" to="5adbd19da3ce4282bc34baf8cf1e4939" derived="false">
-              <start-role id="umlar-c07847a3-ec6e-4ab8-89f3-93277f99f6ce" name="" navigability="" association-type="association" visibility="private" property-ref="ef65f1548c264db9960c7c0e859528f6" />
-              <end-role id="umlar-9831d4b2-40ce-4b2f-8007-f244c012bfc1" name="" navigability="" association-type="association" visibility="private" property-ref="146923f4f77a4f7a92af1262a5865dbb" />
-            </relation>
-          </item>
-          <item id="0859f53cd3424198bcfa58aa8f58e223" cid="PROP030" type="property" name="day" owner="6363d34a69f14491900fec8d92ea6094" creator="" creation-date="05/09/2024 16:31:18" visibility="private">
-            <structural-feature type="int" type-id="int" />
-          </item>
-          <item id="0db7b8e415584b01bfac8d96681092cf" cid="PROP003" type="property" name="birthYear" owner="5adbd19da3ce4282bc34baf8cf1e4939" creator="" creation-date="05/09/2024 16:17:08" visibility="private">
-            <structural-feature type="int" type-id="int" />
-          </item>
-          <item id="bcd2ce3b6db14f7f8d7c206f0ca796ad" cid="PROP028" type="property" name="year" owner="6363d34a69f14491900fec8d92ea6094" creator="" creation-date="05/09/2024 16:31:07" visibility="private">
+          <item id="0780cf19feb74417bb0608f549a9917a" cid="PROP029" type="property" name="month" owner="6363d34a69f14491900fec8d92ea6094" creator="" creation-date="05/09/2024 16:31:11" visibility="private">
             <structural-feature type="int" type-id="int" />
           </item>
           <item id="7b8cd9b0deae4c0a96b39924532d1435" cid="REL005" type="relationship" creator="" creation-date="05/09/2024 16:19:06" from="0f3939f9f94042d293f864692c370d04" to="5adbd19da3ce4282bc34baf8cf1e4939" visibility="package">
             <owned-items />
             <relation from="0f3939f9f94042d293f864692c370d04" to="5adbd19da3ce4282bc34baf8cf1e4939" derived="false">
-              <start-role id="umlar-1212c179-d1c1-4203-a9dd-191f187e5fc5" name="" navigability="" association-type="association" visibility="private" property-ref="33f65938a4de44768f7279ec68035637" />
-              <end-role id="umlar-9d856e82-9433-4007-9024-38bf1c9575f2" name="" navigability="" association-type="association" visibility="private" property-ref="99c619fc6ec04afbb3945ec0f8372e9c" />
+              <start-role id="umlar-f68851bb-75e9-4721-b47a-97acfd9c1e54" name="" navigability="" association-type="association" visibility="private" property-ref="33f65938a4de44768f7279ec68035637" />
+              <end-role id="umlar-5b07e066-7d34-4a01-8060-e5cb189940f6" name="" navigability="" association-type="association" visibility="private" property-ref="99c619fc6ec04afbb3945ec0f8372e9c" />
             </relation>
           </item>
+          <item id="d7294b9be34d4a19971fd5708fbe7a97" cid="PROP027" type="property" name="date" owner="2310e11c3a114b4a97c6a87dc7f563ad" creator="" creation-date="05/09/2024 16:30:41" visibility="private">
+            <structural-feature type="Date" type-id="Date" />
+          </item>
+          <item id="3e3e44095e0a4ef0b61dd2ddc460ac4a" cid="REL003" type="relationship" creator="" creation-date="05/09/2024 16:18:56" from="403a0cde0a2149cf921d4528a0e7be22" to="5adbd19da3ce4282bc34baf8cf1e4939" visibility="package">
+            <owned-items />
+            <relation from="403a0cde0a2149cf921d4528a0e7be22" to="5adbd19da3ce4282bc34baf8cf1e4939" derived="false">
+              <start-role id="umlar-2f7a9a48-4e7e-4994-8e06-d6524229ab1e" name="" navigability="" association-type="association" visibility="private" property-ref="4fb902ace6754f238e9389d2801693fe" />
+              <end-role id="umlar-425e6961-df43-48d5-a69a-bb18db361a80" name="" navigability="" association-type="association" visibility="private" property-ref="08427a70a7c64930bdcc7127da13ec91" />
+            </relation>
+          </item>
+          <item id="2ae800de0ebd415a9083efebe5d73048" cid="PROP023" type="property" name="parking" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:27:31" visibility="private">
+            <structural-feature type="int" type-id="int" />
+          </item>
+          <item id="bcd2ce3b6db14f7f8d7c206f0ca796ad" cid="PROP028" type="property" name="year" owner="6363d34a69f14491900fec8d92ea6094" creator="" creation-date="05/09/2024 16:31:07" visibility="private">
+            <structural-feature type="int" type-id="int" />
+          </item>
+          <item id="4745ab38883e45428c184dfbc2eb3767" cid="PROP031" type="property" name="time" owner="6363d34a69f14491900fec8d92ea6094" creator="" creation-date="05/09/2024 16:31:23" visibility="private">
+            <structural-feature type="String" type-id="Uml.String" />
+          </item>
+          <item id="fb511e41d2d3443e8edea26fae2890a8" cid="C003" type="class" name="Landlord" creator="" creation-date="05/09/2024 16:13:45" visibility="undefined" />
           <item id="174d9d118af4432eb4cc632628b74722" cid="PROP001" type="property" name="firstName" owner="5adbd19da3ce4282bc34baf8cf1e4939" creator="" creation-date="05/09/2024 16:16:57" visibility="private">
             <structural-feature type="String" type-id="Uml.String" />
           </item>
-          <item id="fb511e41d2d3443e8edea26fae2890a8" cid="C003" type="class" name="Landlord" creator="" creation-date="05/09/2024 16:13:45" />
-          <item id="0f3939f9f94042d293f864692c370d04" cid="C002" type="class" name="Client" creator="" creation-date="05/09/2024 16:13:43" />
+          <item id="524e7036f2ea4044ba25ab0a7bc91b4f" cid="PROP005" type="property" name="password" owner="5adbd19da3ce4282bc34baf8cf1e4939" creator="" creation-date="05/09/2024 16:17:27" visibility="private">
+            <structural-feature type="String" type-id="Uml.String" />
+          </item>
+          <item id="0db7b8e415584b01bfac8d96681092cf" cid="PROP003" type="property" name="birthYear" owner="5adbd19da3ce4282bc34baf8cf1e4939" creator="" creation-date="05/09/2024 16:17:08" visibility="private">
+            <structural-feature type="int" type-id="int" />
+          </item>
           <item id="2310e11c3a114b4a97c6a87dc7f563ad" cid="C006" type="class" name="Ticket" creator="" creation-date="05/09/2024 16:29:33" visibility="undefined">
             <owned-items />
             <attributes>
@@ -487,15 +510,12 @@
               <source-code language="ActionScript" />
             </source-codes>
           </item>
-          <item id="3e3e44095e0a4ef0b61dd2ddc460ac4a" cid="REL003" type="relationship" creator="" creation-date="05/09/2024 16:18:56" from="403a0cde0a2149cf921d4528a0e7be22" to="5adbd19da3ce4282bc34baf8cf1e4939" visibility="package">
+          <item id="1d9d801c68a44902897fa0612d466b31" cid="REL004" type="relationship" creator="" creation-date="05/09/2024 16:19:02" from="fb511e41d2d3443e8edea26fae2890a8" to="5adbd19da3ce4282bc34baf8cf1e4939" visibility="package">
             <owned-items />
-            <relation from="403a0cde0a2149cf921d4528a0e7be22" to="5adbd19da3ce4282bc34baf8cf1e4939" derived="false">
-              <start-role id="umlar-4a1babf8-ece5-49ca-91f2-729d238ee374" name="" navigability="" association-type="association" visibility="private" property-ref="4fb902ace6754f238e9389d2801693fe" />
-              <end-role id="umlar-d2bea5ca-6df1-4a96-918c-18ff04468e67" name="" navigability="" association-type="association" visibility="private" property-ref="08427a70a7c64930bdcc7127da13ec91" />
+            <relation from="fb511e41d2d3443e8edea26fae2890a8" to="5adbd19da3ce4282bc34baf8cf1e4939" derived="false">
+              <start-role id="umlar-9ca05462-a22f-40a7-9348-d1d2f660ec85" name="" navigability="" association-type="association" visibility="private" property-ref="ef65f1548c264db9960c7c0e859528f6" />
+              <end-role id="umlar-6114741b-5f3c-4e2e-a5bd-da56199dd817" name="" navigability="" association-type="association" visibility="private" property-ref="146923f4f77a4f7a92af1262a5865dbb" />
             </relation>
-          </item>
-          <item id="0780cf19feb74417bb0608f549a9917a" cid="PROP029" type="property" name="month" owner="6363d34a69f14491900fec8d92ea6094" creator="" creation-date="05/09/2024 16:31:11" visibility="private">
-            <structural-feature type="int" type-id="int" />
           </item>
         </abstract-items>
         <layer id="d40c4fca26884abaac755e498c1c4feb" name="Default" visible="true" enabled="true" locked="false">
