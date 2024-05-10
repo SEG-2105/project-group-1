@@ -4,8 +4,9 @@ public class Ticket {
     private String type;
     private String message;
     private int urgency;
+    private Date date;
 
-    public Ticket(String type,String message,int urgency){
+    public Ticket(String type,String message,int urgency,Date date){
         setType(type);
         setMessage(message);
         setUrgency(urgency);
