@@ -5,6 +5,7 @@ public class Ticket {
     private String message;
     private int urgency;
     private Date date;
+    private String status;
 
     public Ticket(String type,String message,int urgency,Date date){
         setType(type);
