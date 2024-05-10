@@ -8,17 +8,24 @@ public class User {
     private String password;
 
     public User(String firstName,String lastName,int birthYear,String emailAddress,String password){
+        setName(firstName,lastName);
+        setBirthYear(birthYear);
+        setCredentials(emailAddress,password);
+    }
+    public User(String firstName,String lastName,String emailAddress, String password){
+        setName(firstName, lastName);
+        setCredentials(emailAddress, password);
+    }
+    private void setName(String firstName,String lastName){
         this.firstName=firstName;
         this.lastName=lastName;
-        this.birthYear=birthYear;
+    }
+    private void setCredentials(String emailAddress,String password){
         this.emailAddress=emailAddress;
         this.password=password;
     }
-    public User(String firstName,String lastName,String emailAddress, String password){
-        this.firstName=firstName;
-        this.lastName=lastName;
-        this.emailAddress=emailAddress;
-        this.password=password;
+    private void setBirthYear(int birthYear){
+        this.birthYear=birthYear;
     }
     public String toString(){
         return ""+firstName+" "+lastName+" "+emailAddress+" "+birthYear;
