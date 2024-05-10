@@ -20,4 +20,7 @@ public class User {
         this.emailAddress=emailAddress;
         this.password=password;
     }
+    public String toString(){
+        return ""+firstName+" "+lastName+" "+emailAddress+" "+birthYear;
+    }
 }
