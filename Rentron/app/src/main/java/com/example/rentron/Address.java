@@ -12,4 +12,10 @@ public class Address {
         this.postalCode=postalCode;
         this.streetNumber=streetNumber;
     }
+    public Address(int streetNumber,String streetName,PostalCode postalCode,String aptNumber){
+        this.streetName=streetName;
+        this.postalCode=postalCode;
+        this.streetNumber=streetNumber;
+        this.aptNumber=aptNumber;
+    }
 }
