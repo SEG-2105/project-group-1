@@ -13,23 +13,24 @@ public class Property {
     private boolean hydro;
     private boolean heating;
     private boolean water;
+    private boolean occupied=false;
     public Property(Address address,String type,
                     double rooms, double bathrooms, double floors,double rent,int parking,
                     int area,boolean laundry,boolean hydro,boolean heating,boolean water){
-        setUtilties(hydro,heating,water);
+        setUtilities(hydro,heating,water);
         setMain(address,type,rooms,bathrooms,floors,area,rent);
         setAmenities(parking,laundry);
     }
-    public void setUtilties(boolean hydro,boolean heating,boolean water){
+    private void setUtilities(boolean hydro,boolean heating,boolean water){
         this.hydro=hydro;
         this.heating=heating;
         this.water=water;
     }
-    public void setAmenities(int parking,boolean laundry){
+    private void setAmenities(int parking,boolean laundry){
         this.laundry=laundry;
         this.parking=parking;
     }
-    public void setMain(Address address,String type,double rooms,double bathrooms,double floors,int area,double rent){
+    private void setMain(Address address,String type,double rooms,double bathrooms,double floors,int area,double rent){
         this.address=address;
         this.type=type;
         this.rooms=rooms;
