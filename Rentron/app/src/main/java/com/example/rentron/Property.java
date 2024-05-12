@@ -1,5 +1,8 @@
 package com.example.rentron;
 
+import java.util.ArrayList;
+import java.util.LinkedList;
+
 public class Property {
     private Address address;
     private String type;
@@ -15,6 +18,7 @@ public class Property {
     private boolean water;
     private boolean occupied=false;
     private boolean availability=false;
+    private ArrayList<Client> c;
     public Property(Address address,String type,
                     double rooms, double bathrooms, double floors,double rent,int parking,
                     int area,boolean laundry,boolean hydro,boolean heating,boolean water){
@@ -39,6 +43,20 @@ public class Property {
         this.floors=floors;
         this.area=area;
         this.rent=rent;
+    }
+    private void changeAvalibility(){
+        if(availability){
+            this.availability=false;
+        }
+        else{
+           this.availability=true;
+        }
+    }
+    private void addOccupant(Client client){
+        this.c.add(client);
+    }
+    private void removeOccupant(Client client){
+        this.c.remove(client);
     }
 
 }
