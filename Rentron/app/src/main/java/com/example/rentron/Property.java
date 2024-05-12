@@ -14,6 +14,7 @@ public class Property {
     private boolean heating;
     private boolean water;
     private boolean occupied=false;
+    private boolean availability=false;
     public Property(Address address,String type,
                     double rooms, double bathrooms, double floors,double rent,int parking,
                     int area,boolean laundry,boolean hydro,boolean heating,boolean water){
