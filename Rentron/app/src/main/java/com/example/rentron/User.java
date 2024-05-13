@@ -6,7 +6,6 @@ public class User {
     private String emailAddress;
     private int birthYear;
     private String password;
-
     public User(String firstName,String lastName,int birthYear,String emailAddress,String password){
         setName(firstName,lastName);
         setBirthYear(birthYear);
@@ -16,9 +15,9 @@ public class User {
         setName(firstName, lastName);
         setCredentials(emailAddress, password);
     }
-    private void setName(String firstName,String lastName){
-        this.firstName=firstName;
-        this.lastName=lastName;
+    private void setName(String firstName,String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
     private void setCredentials(String emailAddress,String password){
         this.emailAddress=emailAddress;
@@ -26,6 +25,9 @@ public class User {
     }
     private void setBirthYear(int birthYear){
         this.birthYear=birthYear;
+    }
+    public boolean sendEmail(String message,String email){
+        return true;
     }
     @Override
     public String toString(){

@@ -1,7 +1,13 @@
 package com.example.rentron;
 
+import android.graphics.Typeface;
+
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.logging.ErrorManager;
 
 public class Property {
     private Address address;
@@ -45,12 +51,12 @@ public class Property {
         this.area=area;
         this.rent=rent;
     }
-    protected void changeAvalibility(){
-        if(availability){
-            this.availability=false;
-        }
-        else{
-           this.availability=true;
+    protected void changeAvailability(){
+        if(!availability & pm!=null){
+            this.availability=true;
+        } else{
+           this.availability=false;
+           System.out.println("No property manager was found thus you cannot make it available");
         }
     }
     protected int getIndexOf(Client c){
@@ -65,6 +71,7 @@ public class Property {
     protected void assignManager(PropertyManager pm){
         this.pm=pm;
     }
+    @NonNull
     public String toString(){
         return "Address"+address+"\nNumber of Rooms:"+rooms+"\n Number of Bathrooms"+bathrooms;
     }

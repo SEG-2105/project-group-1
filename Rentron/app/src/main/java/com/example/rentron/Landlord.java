@@ -13,10 +13,10 @@ public class Landlord extends User{
     }
     private void requestManager(Property property,PropertyManager propertyManager){
         // This method sends a request to the property manager as to a specific property
-        // It will send a request which sends the cred
+        // It will send a request which sends the details on the property and the client
     }
     private void assignManager(PropertyManager propertyManager){
-
+        //After the manager accepts the request he is added to the property and an email is sent his account.
     }
     private void addOccupant(Client c,Property p){
         int x=properties.indexOf(p);
@@ -29,6 +29,6 @@ public class Landlord extends User{
         properties.get(x).removeOccupant(c);
     }
     private void changeAvailability(Property p){
-        p.changeAvalibility();
+        p.changeAvailability();
     }
 }

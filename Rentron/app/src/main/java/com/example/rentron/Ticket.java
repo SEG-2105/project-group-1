@@ -6,6 +6,7 @@ public class Ticket {
     private int urgency;
     private Date date;
     private String status;
+    private Property property;
 
     public Ticket(String type,String message,int urgency,Date date){
         setType(type);
@@ -24,7 +25,7 @@ public class Ticket {
             this.type=type;
         }
         else{
-            throw new IllegalArgumentException(type+" is not a type please ");
+            throw new IllegalArgumentException(type+" is not a type please choose one of the 4 <Maintenance,Security,Damage and Infestation>");
         }
     }
 

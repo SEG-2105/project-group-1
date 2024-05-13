@@ -5,6 +5,6 @@ public class PropertyManager extends User{
         super(firstName, lastName, emailAddress, password);
     }
     private void acceptRequest(){
-
+        
     }
 }
