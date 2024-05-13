@@ -19,6 +19,7 @@ public class Property {
     private boolean occupied=false;
     private boolean availability=false;
     private ArrayList<Client> c;
+    private PropertyManager pm;
     public Property(Address address,String type,
                     double rooms, double bathrooms, double floors,double rent,int parking,
                     int area,boolean laundry,boolean hydro,boolean heating,boolean water){
@@ -44,7 +45,7 @@ public class Property {
         this.area=area;
         this.rent=rent;
     }
-    private void changeAvalibility(){
+    protected void changeAvalibility(){
         if(availability){
             this.availability=false;
         }
@@ -52,11 +53,19 @@ public class Property {
            this.availability=true;
         }
     }
-    private void addOccupant(Client client){
+    protected int getIndexOf(Client c){
+        return this.c.indexOf(c);
+    }
+    protected void addOccupant(Client client){
         this.c.add(client);
     }
-    private void removeOccupant(Client client){
+    protected void removeOccupant(Client client){
         this.c.remove(client);
     }
-
+    protected void assignManager(PropertyManager pm){
+        this.pm=pm;
+    }
+    public String toString(){
+        return "Address"+address+"\nNumber of Rooms:"+rooms+"\n Number of Bathrooms"+bathrooms;
+    }
 }
