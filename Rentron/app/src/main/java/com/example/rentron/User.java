@@ -1,5 +1,7 @@
 package com.example.rentron;
 
+import androidx.annotation.NonNull;
+
 public class User {
     private String firstName;
     private String lastName;
@@ -29,7 +31,7 @@ public class User {
     public boolean sendEmail(String message,String email){
         return true;
     }
-    @Override
+    @NonNull
     public String toString(){
         return firstName+" "+lastName+" "+emailAddress+" "+birthYear;
     }

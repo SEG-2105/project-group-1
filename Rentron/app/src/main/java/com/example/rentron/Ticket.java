@@ -30,6 +30,7 @@ public class Ticket {
     }
 
     public void setMessage(String message) {
+
         this.message = message;
     }
     public void setUrgency(int urgency){
