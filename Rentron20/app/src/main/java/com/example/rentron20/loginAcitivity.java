@@ -42,17 +42,15 @@ public class loginAcitivity extends AppCompatActivity {
                 Button login=(Button)findViewById(R.id.loginlog);
                 login.setOnClickListener(new View.OnClickListener(){
                     public void onClick(View v){
-                        switch(position){
-                            case 0:
-                                login(email,password);
-                                startActivity(new Intent(loginAcitivity.this,ClientActivity.class));
-                                break;
-                            case 1:
-                                login(email,password);
-                                startActivity(new Intent(loginAcitivity.this, LandlordView.class));
-                            case 2:
-                                login(email,password);
-                                startActivity(new Intent(loginAcitivity.this,PropertyManagerView.class));
+                        MainActivity.user=login(email,password);
+                        String a=MainActivity.user.getClass().toString();
+                        if(a.equals(new Client().getClass().toString())){
+                            startActivity(new Intent(loginAcitivity.this,ClientActivity.class));
+                        }else if(a.equals(new Landlord().getClass().toString())){
+                            startActivity(new Intent(loginAcitivity.this, LandlordView.class));
+                        }else if(a.equals(new PropertyManager().getClass().toString())){
+                            startActivity(new Intent(loginAcitivity.this,PropertyManagerView.class));
+
                         }
                     }
 
@@ -67,17 +65,17 @@ public class loginAcitivity extends AppCompatActivity {
         });
 
     }
-    public boolean login(EditText email,EditText password){
+    public User login(EditText email,EditText password){
         TextView tv=findViewById(R.id.errorbox);
         try{
             User a=(MainActivity.users.get(MainActivity.checkEmail(email.getEditableText().toString())));
             boolean p=(a.getPassword()).equals(password.getEditableText().toString());
             tv.setText(String.valueOf(p));
-            return p;
+            return a;
 
         }catch(Exception e){
             tv.setText("Your password or email address are incorrect");
-            return false;
+            return null;
         }
 
     }
