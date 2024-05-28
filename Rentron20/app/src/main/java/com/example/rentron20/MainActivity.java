@@ -19,8 +19,11 @@ import android.widget.Spinner;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+
 public class MainActivity extends AppCompatActivity {
     public static User user;
+    public ArrayList<User> users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -36,8 +39,13 @@ public class MainActivity extends AppCompatActivity {
         EditText last_name=(EditText)findViewById(R.id.lastname);
         EditText email_address=(EditText)findViewById(R.id.email);
         EditText password=(EditText)findViewById(R.id.password);
-
-
+        Button admin=(Button)findViewById(R.id.adminbutton);
+        admin.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                Intent i=new Intent(MainActivity.this,AdminActivity.class);
+                startActivity(i);
+            }
+        });
         Spinner spinner=(Spinner)findViewById(R.id.spinner3);
         ArrayAdapter<CharSequence> adapter =ArrayAdapter.createFromResource(this,R.array.user_array,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
@@ -53,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
                                 case 0:
                                 {tv.setText((String)spinner.getItemAtPosition(position));
                                     user=new Client(first_name.getEditableText().toString(),last_name.getEditableText().toString(),0,email_address.getEditableText().toString(),password.getEditableText().toString());
+                                    users.add(user);
                                     Intent i=new Intent(MainActivity.this,ClientActivity.class);
                                     startActivity(i);
                                     tv.setText(user.toString());
@@ -61,11 +70,13 @@ public class MainActivity extends AppCompatActivity {
                                 {tv.setText((String)spinner.getItemAtPosition(position));
                                     user= new Landlord(first_name.getEditableText().toString(),last_name.getEditableText().toString(),0,email_address.getEditableText().toString(),password.getEditableText().toString());
                                     Intent j=new Intent(MainActivity.this,LandlordView.class);
+                                    users.add(user);
                                     startActivity(j);
                                     break;}
                                 case 2:
                                 {tv.setText((String)spinner.getItemAtPosition(position));
                                     user=new PropertyManager(first_name.getEditableText().toString(),last_name.getEditableText().toString(),email_address.getEditableText().toString(),password.getEditableText().toString());
+                                    users.add(user);
                                     Intent k=new Intent(MainActivity.this,PropertyManagerView.class);
                                     startActivity(k);
                                     break;}
@@ -85,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                 });
 
+
             }
 
             @Override
@@ -98,5 +110,21 @@ public class MainActivity extends AppCompatActivity {
 
     public static User getUser() {
         return user;
+    }
+    public static void resetUser(){
+        user=null;
+    }
+    public void addTobase(){
+        users.add(user);
+    }
+    public void removeFromBase(){
+        users.remove(user);
+    }
+    public String usersToString(){
+        String temp="";
+        for(int i=0;i<users.size();i++){
+            temp=temp+users.get(i).toString()+"\n";
+        }
+        return temp;
     }
 }

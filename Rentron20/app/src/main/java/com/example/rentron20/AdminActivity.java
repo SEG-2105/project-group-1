@@ -1,9 +1,6 @@
 package com.example.rentron20;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -14,30 +11,19 @@ import androidx.core.view.WindowInsetsCompat;
 
 import org.w3c.dom.Text;
 
-public class ClientActivity extends AppCompatActivity {
-    MainActivity main;
+public class AdminActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_client);
+        setContentView(R.layout.activity_admin);
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
             Insets systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars());
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        User user=MainActivity.getUser();
-        TextView tv=(TextView)findViewById(R.id.welcometextview);
-        tv.setText("We welcome you ,"+user.getFirstName());
-        Button logoff=(Button)findViewById(R.id.logoutclient);
-        logoff.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                MainActivity.resetUser();
-                startActivity(new Intent(ClientActivity.this,MainActivity.class));
-            }
-        });
-    }
-    public void deleteAccount(){
+        TextView tv=(TextView) findViewById(R.id.adminmenu);
+        tv.setText(user.usersToString());
     }
 }

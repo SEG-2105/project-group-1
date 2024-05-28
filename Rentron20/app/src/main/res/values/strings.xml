@@ -24,4 +24,5 @@
     <string name="logout">logout</string>
     <string name="Signup">Signup</string>
     <string name="login">login</string>
+    <string name="admin">Admin</string>
 </resources>

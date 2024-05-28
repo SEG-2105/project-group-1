@@ -26,6 +26,12 @@ public class User {
     private void setBirthYear(int birthYear){
         this.birthYear=birthYear;
     }
+    public String getFirstName(){
+        return firstName;
+    }
+    public String getLastName(){
+        return lastName;
+    }
     public boolean sendEmail(String message,String email){
         return true;
     }
