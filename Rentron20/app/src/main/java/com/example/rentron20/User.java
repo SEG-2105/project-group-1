@@ -35,7 +35,12 @@ public class User {
     public boolean sendEmail(String message,String email){
         return true;
     }
-    @Override
+    public String getEmailAddress(){
+        return emailAddress;
+    }
+    public String getPassword(){
+        return password;
+    }
     public String toString(){
         return firstName+" "+lastName+" "+emailAddress+" "+birthYear;
     }

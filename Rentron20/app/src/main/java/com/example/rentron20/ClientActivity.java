@@ -39,5 +39,6 @@ public class ClientActivity extends AppCompatActivity {
         });
     }
     public void deleteAccount(){
+        MainActivity.remove(MainActivity.getUser());
     }
 }

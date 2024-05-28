@@ -19,11 +19,25 @@ import android.widget.Spinner;
 
 import org.w3c.dom.Text;
 
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     public static User user;
-    public ArrayList<User> users;
+    public static ArrayList<User> users=new ArrayList<User>();
+
+    public static int checkEmail(String email) {
+        int i=0;
+        for(User u:users){
+            if(u.getEmailAddress().equals(email)){
+                return i;
+            }
+            else{
+                i++;
+            }
+        }
+        return -1;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,29 +71,36 @@ public class MainActivity extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
                 bt3.setOnClickListener(new View.OnClickListener(){
                     public void onClick(View v){
-                            switch(position){
-                                case 0:
-                                {tv.setText((String)spinner.getItemAtPosition(position));
-                                    user=new Client(first_name.getEditableText().toString(),last_name.getEditableText().toString(),0,email_address.getEditableText().toString(),password.getEditableText().toString());
-                                    users.add(user);
-                                    Intent i=new Intent(MainActivity.this,ClientActivity.class);
+                        if(validate(first_name,last_name,email_address,password)){
+                            switch (position) {
+                                case 0: {
+                                    tv.setText((String) spinner.getItemAtPosition(position));
+                                    user = new Client(first_name.getEditableText().toString(), last_name.getEditableText().toString(), 0, email_address.getEditableText().toString(), password.getEditableText().toString());
+                                    Intent i = new Intent(MainActivity.this, ClientActivity.class);
+                                    add(user);
                                     startActivity(i);
                                     tv.setText(user.toString());
-                                    break;}
-                                case 1:
-                                {tv.setText((String)spinner.getItemAtPosition(position));
-                                    user= new Landlord(first_name.getEditableText().toString(),last_name.getEditableText().toString(),0,email_address.getEditableText().toString(),password.getEditableText().toString());
-                                    Intent j=new Intent(MainActivity.this,LandlordView.class);
-                                    users.add(user);
+                                    break;
+                                }
+                                case 1: {
+                                    tv.setText((String) spinner.getItemAtPosition(position));
+                                    user = new Landlord(first_name.getEditableText().toString(), last_name.getEditableText().toString(), 0, email_address.getEditableText().toString(), password.getEditableText().toString());
+                                    add(user);
+                                    Intent j = new Intent(MainActivity.this, LandlordView.class);
                                     startActivity(j);
-                                    break;}
-                                case 2:
-                                {tv.setText((String)spinner.getItemAtPosition(position));
-                                    user=new PropertyManager(first_name.getEditableText().toString(),last_name.getEditableText().toString(),email_address.getEditableText().toString(),password.getEditableText().toString());
-                                    users.add(user);
-                                    Intent k=new Intent(MainActivity.this,PropertyManagerView.class);
+                                    break;
+                                }
+                                case 2: {
+                                    tv.setText((String) spinner.getItemAtPosition(position));
+                                    user = new PropertyManager(first_name.getEditableText().toString(), last_name.getEditableText().toString(), email_address.getEditableText().toString(), password.getEditableText().toString());
+                                    add(user);
+                                    Intent k = new Intent(MainActivity.this, PropertyManagerView.class);
                                     startActivity(k);
-                                    break;}
+                                    break;
+                                }
+                            }
+                        }else{
+                            tv.setText("One or more of your inputs are wrong");
                         }
 
                     }
@@ -107,6 +128,13 @@ public class MainActivity extends AppCompatActivity {
     public boolean isEmpty(){
         return true;
     }
+    public boolean validate(EditText firstName,EditText lastname,EditText email,EditText password){
+        boolean a=firstName.getEditableText().toString().length()<40;
+        boolean b= lastname.getEditableText().toString().length()<40;
+        boolean c=email.getEditableText().toString().contains("@") & email.getEditableText().toString().contains(".") ;
+        boolean d=password.getEditableText().toString().length()<40;
+        return (a & b & c & d);
+    }
 
     public static User getUser() {
         return user;
@@ -114,17 +142,26 @@ public class MainActivity extends AppCompatActivity {
     public static void resetUser(){
         user=null;
     }
-    public void addTobase(){
-        users.add(user);
-    }
-    public void removeFromBase(){
-        users.remove(user);
-    }
-    public String usersToString(){
-        String temp="";
-        for(int i=0;i<users.size();i++){
-            temp=temp+users.get(i).toString()+"\n";
+    public static void add(User p){
+        try{
+            users.add(p);
+        }catch(Exception e){
+
         }
-        return temp;
+    }
+    public static void remove(User p){
+        try{
+            users.remove(p);
+        }catch(Exception e){
+
+        }
+
+    }
+    public static String usersToString(){
+       String temp="";
+       for(User a:users){
+           temp=temp+a.toString()+" "+a.getClass()+"\n";
+       }
+       return temp;
     }
 }

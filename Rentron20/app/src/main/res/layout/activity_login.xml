@@ -17,14 +17,14 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress"
+            android:id="@+id/editemail"
             android:layout_width="match_parent"
             android:layout_height="125dp"
             android:ems="10"
             android:inputType="textEmailAddress" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/editpassword"
             android:layout_width="match_parent"
             android:layout_height="106dp"
             android:ems="10"
@@ -35,5 +35,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/login" />
+
+        <TextView
+            android:id="@+id/errorbox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

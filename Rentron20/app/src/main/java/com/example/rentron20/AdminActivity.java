@@ -23,7 +23,11 @@ public class AdminActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        TextView tv=(TextView) findViewById(R.id.adminmenu);
-        tv.setText(user.usersToString());
+        TextView tv = (TextView) findViewById(R.id.adminmenu);
+        try {
+            tv.setText(MainActivity.usersToString());
+        }catch(Exception e){
+            tv.setText("No current users");
+        }
     }
 }
