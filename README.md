@@ -1,2 +1,2 @@
-![alt text](http://url/to/classdiagram.png)
+![alt text](/classdiagram.png)
 
