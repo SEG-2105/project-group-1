@@ -19,7 +19,7 @@
       </counter>
       <counter>
         <item-type type-id="property" type="Property" />
-        <value>41</value>
+        <value>45</value>
       </counter>
       <counter>
         <item-type type-id="relationship" type="Association" />
@@ -118,6 +118,7 @@
       <types>
         <type id="Class:5adbd19da3ce4282bc34baf8cf1e4939" name="User" class-ref="5adbd19da3ce4282bc34baf8cf1e4939" />
         <type id="double" name="double" />
+        <type id="occupied" name="occupied" />
         <type id="integer" name="integer" />
         <type id="int" name="int" />
         <type id="Date" name="Date" />
@@ -127,6 +128,8 @@
         <type id="in" name="in" />
         <type id="Address" name="Address" />
         <type id="Class:403a0cde0a2149cf921d4528a0e7be22" name="Property Manager" class-ref="403a0cde0a2149cf921d4528a0e7be22" />
+        <type id="ArrayList&lt;Client&gt;" name="ArrayList&lt;Client&gt;" />
+        <type id="PropertyManager" name="PropertyManager" />
         <type id="hydro" name="hydro" />
         <type id="ArrayList&lt;Property&gt;" name="ArrayList&lt;Property&gt;" />
         <type id="Class:fb511e41d2d3443e8edea26fae2890a8" name="Landlord" class-ref="fb511e41d2d3443e8edea26fae2890a8" />
@@ -134,6 +137,31 @@
     </custom-types>
   </types>
   <items>
+    <item id="44ce27f3b1a44a689cb1dbd60e30572f" cid="PROP032" type="property" name="hydro" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/28/2024 19:12:38" visibility="private">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+        <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
+        <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
+        <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
+        <text-style type="tagged-value" color="#555555" font="Segoe UI;9.75;" />
+        <text-style type="stereotype" color="#555555" font="Segoe UI;9;I" />
+        <background type="solid" colors="#F2F2F2,#F2F2F2" />
+        <border color="#555555" width="2" />
+        <label-connector color="#80000000" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+            <text-style type="name" color="#E9E9E9" font="Segoe UI;11.25;B" />
+            <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
+            <text-style type="text" color="#E9E9E9" font="Segoe UI;9.75;" horizontal-alignment="left" />
+            <text-style type="tagged-value" color="#E9E9E9" font="Segoe UI;9.75;" />
+            <text-style type="stereotype" color="#E9E9E9" font="Segoe UI;9;I" />
+            <background type="solid" colors="#203D85,#203D85" />
+            <border color="#203D85" width="2" />
+            <label-connector color="#80000000" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+      <structural-feature type="boolean" type-id="boolean" />
+    </item>
     <item id="1794ed0b7ca5475a97e775ca004fa62d" cid="PROP026" type="property" name="urgence" owner="2310e11c3a114b4a97c6a87dc7f563ad" creator="" creation-date="05/09/2024 16:30:03" visibility="private">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
@@ -185,9 +213,9 @@
           </alternate-style>
         </alternate-styles>
       </style>
-      <structural-feature type="int" type-id="int" />
+      <structural-feature type="double" type-id="double" />
     </item>
-    <item id="2ae800de0ebd415a9083efebe5d73048" cid="PROP023" type="property" name="parking" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:27:31" visibility="private">
+    <item id="2ae800de0ebd415a9083efebe5d73048" cid="PROP023" type="property" name="rent" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:27:31" visibility="private">
       <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
         <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
@@ -210,7 +238,7 @@
           </alternate-style>
         </alternate-styles>
       </style>
-      <structural-feature type="int" type-id="int" />
+      <structural-feature type="double" type-id="double" />
     </item>
     <item id="33f65938a4de44768f7279ec68035637" cid="PROP014" type="property" owner="7b8cd9b0deae4c0a96b39924532d1435" creator="" creation-date="05/09/2024 16:19:06" visibility="private">
       <structural-feature type="Client" type-id="Class:0f3939f9f94042d293f864692c370d04" />
@@ -269,7 +297,7 @@
           </alternate-style>
         </alternate-styles>
       </style>
-      <structural-feature type="int" type-id="int" />
+      <structural-feature type="double" type-id="double" />
     </item>
     <item id="da5b9d69b63e4726a811cb955fbfe2f4" cid="PROP025" type="property" name="message" owner="2310e11c3a114b4a97c6a87dc7f563ad" creator="" creation-date="05/09/2024 16:29:53" visibility="private">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
@@ -296,7 +324,158 @@
       </style>
       <structural-feature type="String" type-id="Uml.String" />
     </item>
-    <item id="a00fb12fb15d4a43bcdf8ecaa7e5f6da" cid="PROP016" type="property" name="type" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:21:09" visibility="private">
+    <item id="fef0ce469c4643e59c39439c47538d32" cid="PROP040" type="property" name="water" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/28/2024 19:27:52" visibility="private">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+        <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
+        <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
+        <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
+        <text-style type="tagged-value" color="#555555" font="Segoe UI;9.75;" />
+        <text-style type="stereotype" color="#555555" font="Segoe UI;9;I" />
+        <background type="solid" colors="#F2F2F2,#F2F2F2" />
+        <border color="#555555" width="2" />
+        <label-connector color="#80000000" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+            <text-style type="name" color="#E9E9E9" font="Segoe UI;11.25;B" />
+            <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
+            <text-style type="text" color="#E9E9E9" font="Segoe UI;9.75;" horizontal-alignment="left" />
+            <text-style type="tagged-value" color="#E9E9E9" font="Segoe UI;9.75;" />
+            <text-style type="stereotype" color="#E9E9E9" font="Segoe UI;9;I" />
+            <background type="solid" colors="#203D85,#203D85" />
+            <border color="#203D85" width="2" />
+            <label-connector color="#80000000" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+      <structural-feature type="boolean" type-id="boolean" />
+    </item>
+    <item id="87d222cc712e43fdb329f668b9e394e9" cid="PROP043" type="property" name="availability" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/28/2024 19:29:12" visibility="private">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+        <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
+        <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
+        <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
+        <text-style type="tagged-value" color="#555555" font="Segoe UI;9.75;" />
+        <text-style type="stereotype" color="#555555" font="Segoe UI;9;I" />
+        <background type="solid" colors="#F2F2F2,#F2F2F2" />
+        <border color="#555555" width="2" />
+        <label-connector color="#80000000" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+            <text-style type="name" color="#E9E9E9" font="Segoe UI;11.25;B" />
+            <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
+            <text-style type="text" color="#E9E9E9" font="Segoe UI;9.75;" horizontal-alignment="left" />
+            <text-style type="tagged-value" color="#E9E9E9" font="Segoe UI;9.75;" />
+            <text-style type="stereotype" color="#E9E9E9" font="Segoe UI;9;I" />
+            <background type="solid" colors="#203D85,#203D85" />
+            <border color="#203D85" width="2" />
+            <label-connector color="#80000000" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+      <structural-feature type="boolean" type-id="boolean" />
+      <property default-value="false" />
+    </item>
+    <item id="d6d656eb43f743ba8bf6aebc2f03f161" cid="PROP042" type="property" name="clients" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/28/2024 19:29:04" visibility="private">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+        <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
+        <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
+        <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
+        <text-style type="tagged-value" color="#555555" font="Segoe UI;9.75;" />
+        <text-style type="stereotype" color="#555555" font="Segoe UI;9;I" />
+        <background type="solid" colors="#F2F2F2,#F2F2F2" />
+        <border color="#555555" width="2" />
+        <label-connector color="#80000000" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+            <text-style type="name" color="#E9E9E9" font="Segoe UI;11.25;B" />
+            <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
+            <text-style type="text" color="#E9E9E9" font="Segoe UI;9.75;" horizontal-alignment="left" />
+            <text-style type="tagged-value" color="#E9E9E9" font="Segoe UI;9.75;" />
+            <text-style type="stereotype" color="#E9E9E9" font="Segoe UI;9;I" />
+            <background type="solid" colors="#203D85,#203D85" />
+            <border color="#203D85" width="2" />
+            <label-connector color="#80000000" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+      <structural-feature type="ArrayList&lt;Client&gt;" type-id="ArrayList&lt;Client&gt;" />
+    </item>
+    <item id="a00fb12fb15d4a43bcdf8ecaa7e5f6da" cid="PROP016" type="property" name="address" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:21:09" visibility="private">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+        <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
+        <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
+        <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
+        <text-style type="tagged-value" color="#555555" font="Segoe UI;9.75;" />
+        <text-style type="stereotype" color="#555555" font="Segoe UI;9;I" />
+        <background type="solid" colors="#F2F2F2,#F2F2F2" />
+        <border color="#555555" width="2" />
+        <label-connector color="#80000000" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+            <text-style type="name" color="#E9E9E9" font="Segoe UI;11.25;B" />
+            <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
+            <text-style type="text" color="#E9E9E9" font="Segoe UI;9.75;" horizontal-alignment="left" />
+            <text-style type="tagged-value" color="#E9E9E9" font="Segoe UI;9.75;" />
+            <text-style type="stereotype" color="#E9E9E9" font="Segoe UI;9;I" />
+            <background type="solid" colors="#203D85,#203D85" />
+            <border color="#203D85" width="2" />
+            <label-connector color="#80000000" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+      <structural-feature type="Address" type-id="Address" />
+    </item>
+    <item id="cd570289b5264592995ca082fa460ea5" cid="PROP041" type="property" name="occupied" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/28/2024 19:28:14" visibility="private">
+      <style style-name="Default" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+        <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
+        <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
+        <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
+        <text-style type="tagged-value" color="#555555" font="Segoe UI;9.75;" />
+        <text-style type="stereotype" color="#555555" font="Segoe UI;9;I" />
+        <background type="solid" colors="#F2F2F2,#F2F2F2" />
+        <border color="#555555" width="2" />
+        <label-connector color="#80000000" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+            <text-style type="name" color="#E9E9E9" font="Segoe UI;11.25;B" />
+            <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
+            <text-style type="text" color="#E9E9E9" font="Segoe UI;9.75;" horizontal-alignment="left" />
+            <text-style type="tagged-value" color="#E9E9E9" font="Segoe UI;9.75;" />
+            <text-style type="stereotype" color="#E9E9E9" font="Segoe UI;9;I" />
+            <background type="solid" colors="#203D85,#203D85" />
+            <border color="#203D85" width="2" />
+            <label-connector color="#80000000" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+      <structural-feature type="boolean" type-id="boolean" />
+    </item>
+    <item id="95429b4afb4b4363b4a8b64d1553ea4a" cid="PROP022" type="property" name="parking" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:25:39" visibility="private">
+      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+        <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
+        <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
+        <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
+        <text-style type="tagged-value" color="#555555" font="Segoe UI;9.75;" />
+        <text-style type="stereotype" color="#555555" font="Segoe UI;9;I" />
+        <background type="solid" colors="#F2F2F2,#F2F2F2" />
+        <border color="#555555" width="2" />
+        <label-connector color="#80000000" dash-style="Dash" />
+        <alternate-styles>
+          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
+            <text-style type="name" color="#E9E9E9" font="Segoe UI;11.25;B" />
+            <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
+            <text-style type="text" color="#E9E9E9" font="Segoe UI;9.75;" horizontal-alignment="left" />
+            <text-style type="tagged-value" color="#E9E9E9" font="Segoe UI;9.75;" />
+            <text-style type="stereotype" color="#E9E9E9" font="Segoe UI;9;I" />
+            <background type="solid" colors="#203D85,#203D85" />
+            <border color="#203D85" width="2" />
+            <label-connector color="#80000000" dash-style="Dash" />
+          </alternate-style>
+        </alternate-styles>
+      </style>
+      <structural-feature type="int" type-id="int" />
+    </item>
+    <item id="c28b8680d32b4060b18ce32f344fc2f2" cid="PROP017" type="property" name="type" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:23:55" visibility="private">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
         <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
@@ -321,60 +500,10 @@
       </style>
       <structural-feature type="String" type-id="Uml.String" />
     </item>
-    <item id="95429b4afb4b4363b4a8b64d1553ea4a" cid="PROP022" type="property" name="bathrooms" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:25:39" visibility="private">
-      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
-        <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
-        <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
-        <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
-        <text-style type="tagged-value" color="#555555" font="Segoe UI;9.75;" />
-        <text-style type="stereotype" color="#555555" font="Segoe UI;9;I" />
-        <background type="solid" colors="#F2F2F2,#F2F2F2" />
-        <border color="#555555" width="2" />
-        <label-connector color="#80000000" dash-style="Dash" />
-        <alternate-styles>
-          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
-            <text-style type="name" color="#E9E9E9" font="Segoe UI;11.25;B" />
-            <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
-            <text-style type="text" color="#E9E9E9" font="Segoe UI;9.75;" horizontal-alignment="left" />
-            <text-style type="tagged-value" color="#E9E9E9" font="Segoe UI;9.75;" />
-            <text-style type="stereotype" color="#E9E9E9" font="Segoe UI;9;I" />
-            <background type="solid" colors="#203D85,#203D85" />
-            <border color="#203D85" width="2" />
-            <label-connector color="#80000000" dash-style="Dash" />
-          </alternate-style>
-        </alternate-styles>
-      </style>
-      <structural-feature type="double" type-id="double" />
-    </item>
-    <item id="c28b8680d32b4060b18ce32f344fc2f2" cid="PROP017" type="property" name="price" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:23:55" visibility="private">
-      <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
-        <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
-        <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
-        <text-style type="text" color="#555555" font="Segoe UI;9.75;" horizontal-alignment="left" />
-        <text-style type="tagged-value" color="#555555" font="Segoe UI;9.75;" />
-        <text-style type="stereotype" color="#555555" font="Segoe UI;9;I" />
-        <background type="solid" colors="#F2F2F2,#F2F2F2" />
-        <border color="#555555" width="2" />
-        <label-connector color="#80000000" dash-style="Dash" />
-        <alternate-styles>
-          <alternate-style style-name="Alternate" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#322A2A2A" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
-            <text-style type="name" color="#E9E9E9" font="Segoe UI;11.25;B" />
-            <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
-            <text-style type="text" color="#E9E9E9" font="Segoe UI;9.75;" horizontal-alignment="left" />
-            <text-style type="tagged-value" color="#E9E9E9" font="Segoe UI;9.75;" />
-            <text-style type="stereotype" color="#E9E9E9" font="Segoe UI;9;I" />
-            <background type="solid" colors="#203D85,#203D85" />
-            <border color="#203D85" width="2" />
-            <label-connector color="#80000000" dash-style="Dash" />
-          </alternate-style>
-        </alternate-styles>
-      </style>
-      <structural-feature type="double" type-id="double" />
-    </item>
     <item id="99c619fc6ec04afbb3945ec0f8372e9c" cid="PROP015" type="property" owner="7b8cd9b0deae4c0a96b39924532d1435" creator="" creation-date="05/09/2024 16:19:06" visibility="private">
       <structural-feature type="User" type-id="Class:5adbd19da3ce4282bc34baf8cf1e4939" />
     </item>
-    <item id="6876a80fcac54c4c8916ae523321de88" cid="PROP021" type="property" name="utilities" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:25:38" visibility="private">
+    <item id="6876a80fcac54c4c8916ae523321de88" cid="PROP021" type="property" name="laundry" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/09/2024 16:25:38" visibility="private">
       <style style-name="Custom Style" shadow-type="smooth" shadow-offset="2,2" shadow-visible="true" shadow-color="#3A555555" shadow-radius="8" wrap-name-text="true" wrap-other-text="true" padding="2" margin="1" glow-color="#FFFFFF" accuracy="0.9">
         <text-style type="name" color="#555555" font="Segoe UI;11.25;B" />
         <text-style type="part-header" color="#1E1E1E" font="Verdana;9;I" />
@@ -442,7 +571,7 @@
       </meta>
       <abstract-items />
       <sub-models />
-      <diagram type="uml-class" id="pd8a062d6cf3c458f887cc0631d105ee0_549176122" name="ClassDiagram1" order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="145,99">
+      <diagram type="uml-class" id="pd8a062d6cf3c458f887cc0631d105ee0_549176122" name="ClassDiagram1" order-index="1" uid="" name-style="" auto-routed-paths="false" default-line-style="default" view-location="93,37" zoom="0.8">
         <style>
           <background-color index="1" color="#FFFFFFFF" />
           <background-color index="2" color="#FFFFFFFF" />
@@ -463,6 +592,9 @@
             <structural-feature type="int" type-id="int" />
           </item>
           <item id="403a0cde0a2149cf921d4528a0e7be22" cid="C004" type="class" name="Property Manager" creator="" creation-date="05/09/2024 16:14:04" visibility="undefined" />
+          <item id="b3628ff8efee4800b2998cff08208e67" cid="PROP044" type="property" name="pm" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/28/2024 19:29:36" visibility="private">
+            <structural-feature type="PropertyManager" type-id="PropertyManager" />
+          </item>
           <item id="ede4d6ab5e4e4822a061b21371be0181" cid="C008" type="class" name="Address" creator="" creation-date="05/28/2024 19:13:01" visibility="undefined">
             <owned-items />
             <attributes>
@@ -551,21 +683,23 @@
           <item id="91e4f2ca4b334bb0ba8ecd7ad73b1717" cid="PROP035" type="property" name="postalCode" owner="ede4d6ab5e4e4822a061b21371be0181" creator="" creation-date="05/28/2024 19:14:01" visibility="private">
             <structural-feature type="PostalCode" type-id="PostalCode" />
           </item>
-          <item id="44ce27f3b1a44a689cb1dbd60e30572f" cid="PROP032" type="property" name="address" owner="4a6e0610b15d4d83a3932dae3228a111" creator="" creation-date="05/28/2024 19:12:38" visibility="private">
-            <structural-feature type="Address" type-id="Address" />
-          </item>
           <item id="4a6e0610b15d4d83a3932dae3228a111" cid="C005" type="class" name="Property" creator="" creation-date="05/09/2024 16:20:54" visibility="undefined">
             <owned-items />
             <attributes>
-              <attribute id="a0544125c8dde4be4af4f75b524b8f01a21" cid="PROP016" name="type" creation-date="05/09/2024 16:21:09" property-ref="a00fb12fb15d4a43bcdf8ecaa7e5f6da" />
-              <attribute id="ab05d07248bb54e47bccf496cb4718b8d317" cid="PROP017" name="price" creation-date="05/09/2024 16:23:55" property-ref="c28b8680d32b4060b18ce32f344fc2f2" />
+              <attribute id="a0544125c8dde4be4af4f75b524b8f01a21" cid="PROP016" name="address" creation-date="05/09/2024 16:21:09" property-ref="a00fb12fb15d4a43bcdf8ecaa7e5f6da" />
+              <attribute id="ab05d07248bb54e47bccf496cb4718b8d317" cid="PROP017" name="type" creation-date="05/09/2024 16:23:55" property-ref="c28b8680d32b4060b18ce32f344fc2f2" />
               <attribute id="a3230a254549b40979eb024abf447c916249" cid="PROP018" name="rooms" creation-date="05/09/2024 16:25:20" property-ref="78d9d4f3a5604f1ebab6697096fb8853" />
               <attribute id="ad9dac3539efc45c588a9133a067db071209" cid="PROP019" name="floors" creation-date="05/09/2024 16:25:24" property-ref="b58b28292b0a4ed9832020611c78b56c" />
               <attribute id="a9353f70abac8405f83790c6d6ad4b8b5282" cid="PROP020" name="area" creation-date="05/09/2024 16:25:28" property-ref="d9a7e0ba008d47bc983169bf32e034fa" />
-              <attribute id="a9a4510459a8649a79c4ca2f8182050bf850" cid="PROP021" name="utilities" creation-date="05/09/2024 16:25:38" property-ref="6876a80fcac54c4c8916ae523321de88" />
-              <attribute id="a6d368db8131e4636b9fbc0ad8c3c76ba169" cid="PROP022" name="bathrooms" creation-date="05/09/2024 16:25:39" property-ref="95429b4afb4b4363b4a8b64d1553ea4a" />
-              <attribute id="aced2046202804859819d9535bc94736a891" cid="PROP023" name="parking" creation-date="05/09/2024 16:27:31" property-ref="2ae800de0ebd415a9083efebe5d73048" />
-              <attribute id="a66cac18d758447c5b83df262f77cb21f773" cid="PROP032" name="address" creation-date="05/28/2024 19:12:38" property-ref="44ce27f3b1a44a689cb1dbd60e30572f" />
+              <attribute id="a9a4510459a8649a79c4ca2f8182050bf850" cid="PROP021" name="laundry" creation-date="05/09/2024 16:25:38" property-ref="6876a80fcac54c4c8916ae523321de88" />
+              <attribute id="a6d368db8131e4636b9fbc0ad8c3c76ba169" cid="PROP022" name="parking" creation-date="05/09/2024 16:25:39" property-ref="95429b4afb4b4363b4a8b64d1553ea4a" />
+              <attribute id="aced2046202804859819d9535bc94736a891" cid="PROP023" name="rent" creation-date="05/09/2024 16:27:31" property-ref="2ae800de0ebd415a9083efebe5d73048" />
+              <attribute id="a66cac18d758447c5b83df262f77cb21f773" cid="PROP032" name="hydro" creation-date="05/28/2024 19:12:38" property-ref="44ce27f3b1a44a689cb1dbd60e30572f" />
+              <attribute id="aa225063e47544d10a83f47e5e42a186c301" cid="PROP040" name="water" creation-date="05/28/2024 19:27:52" property-ref="fef0ce469c4643e59c39439c47538d32" />
+              <attribute id="a979cb3a41c4d4e2b85eeeaa78880e09a56" cid="PROP041" name="occupied" creation-date="05/28/2024 19:28:14" property-ref="cd570289b5264592995ca082fa460ea5" />
+              <attribute id="a3ec02b7930b045f0981e38dda8be5bca205" cid="PROP043" name="availability" creation-date="05/28/2024 19:29:12" property-ref="87d222cc712e43fdb329f668b9e394e9" />
+              <attribute id="a625403c080b04d1b82c11e64ad2b227f574" cid="PROP042" name="clients" creation-date="05/28/2024 19:29:04" property-ref="d6d656eb43f743ba8bf6aebc2f03f161" />
+              <attribute id="a061e486e91e042e08e8aaa998e429d52441" cid="PROP044" name="pm" creation-date="05/28/2024 19:29:36" property-ref="b3628ff8efee4800b2998cff08208e67" />
             </attributes>
             <source-codes>
               <source-code language="ActionScript" />
@@ -667,7 +801,7 @@
             <relation from="0f3939f9f94042d293f864692c370d04" from-iid="7f74757401e74f069e18ddb3ef511f05" to="5adbd19da3ce4282bc34baf8cf1e4939" to-iid="d8c55ca3ed2748458f257e7228819b03" />
           </item>
           <item id="4a6e0610b15d4d83a3932dae3228a111" iid="2c718dc8ba6f4fc2aaa8af017466bb18" show-fields="true" creation-date="05/09/2024 16:20:54" order-index="7" type="entity">
-            <layout ax="313.5" ay="140" awidth="139" aheight="212" x="313.5" y="140" width="139" height="193" />
+            <layout ax="1037.5" ay="264" awidth="180" aheight="307" x="1037.5" y="264" width="139" height="193" />
             <classifier />
             <class />
           </item>
