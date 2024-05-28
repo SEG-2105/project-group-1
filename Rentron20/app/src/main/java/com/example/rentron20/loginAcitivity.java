@@ -36,37 +36,23 @@ public class loginAcitivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> adapter =ArrayAdapter.createFromResource(this,R.array.user_array,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapter);
-        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                Button login=(Button)findViewById(R.id.loginlog);
-                login.setOnClickListener(new View.OnClickListener(){
-                    public void onClick(View v){
-                        MainActivity.user=login(email,password);
-                        String a=MainActivity.user.getClass().toString();
-                        if(a.equals(new Client().getClass().toString())){
-                            startActivity(new Intent(loginAcitivity.this,ClientActivity.class));
-                        }else if(a.equals(new Landlord().getClass().toString())){
-                            startActivity(new Intent(loginAcitivity.this, LandlordView.class));
-                        }else if(a.equals(new PropertyManager().getClass().toString())){
-                            startActivity(new Intent(loginAcitivity.this,PropertyManagerView.class));
-
+        login.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                MainActivity.user=login(email,password);
+                String a=MainActivity.user.getClass().toString();
+                if(a.equals(new Client().getClass().toString())){
+                    startActivity(new Intent(loginAcitivity.this,ClientActivity.class));
+                }else if(a.equals(new Landlord().getClass().toString())){
+                    startActivity(new Intent(loginAcitivity.this, LandlordView.class));
+                }else if(a.equals(new PropertyManager().getClass().toString())){
+                    startActivity(new Intent(loginAcitivity.this,PropertyManagerView.class));
                         }
                     }
-
                 });
-
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
 
     }
     public User login(EditText email,EditText password){
-        TextView tv=findViewById(R.id.errorbox);
+        TextView tv=(TextView)findViewById(R.id.errorbox);
         try{
             User a=(MainActivity.users.get(MainActivity.checkEmail(email.getEditableText().toString())));
             boolean p=(a.getPassword()).equals(password.getEditableText().toString());
