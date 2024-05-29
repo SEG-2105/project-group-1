@@ -65,6 +65,14 @@ public class Property {
     protected void addOccupant(Client client){
         this.c.add(client);
     }
+    public void setType(String type){
+        boolean test;
+        for(String t:new String[]{"Basement","Studio","Apartment","Townhouse","House"}){
+            if(type.equals(t)){
+             this.type=type;
+            }
+        }
+    }
     protected void removeOccupant(Client client){
         this.c.remove(client);
     }
