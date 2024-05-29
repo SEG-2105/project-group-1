@@ -5,14 +5,13 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.EditText;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
-import org.w3c.dom.Text;
 
 public class LandlordView extends AppCompatActivity {
 
@@ -28,11 +27,24 @@ public class LandlordView extends AppCompatActivity {
         });
         Button logoff=(Button)findViewById(R.id.logofflandlord);
         TextView txt=(TextView)findViewById(R.id.textView3);
+        EditText year=(EditText)findViewById(R.id.editBirthYear);
+        Button setYear=(Button)findViewById(R.id.setBirthYear);
+        setYear.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                setBirthYear(Integer.parseInt(year.getEditableText().toString()));
+                setYear.setVisibility(View.GONE);
+                year.setVisibility(View.GONE);
+            }
+        });
         logoff.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 LogOff();
+
             }
         });
+    }
+    public void setBirthYear(int year){
+        MainActivity.user.setBirthYear(year);
     }
     public void LogOff(){
         Intent i=new Intent(LandlordView.this,MainActivity.class);

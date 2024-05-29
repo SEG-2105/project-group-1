@@ -1,5 +1,7 @@
 package com.example.rentron20;
 
+import androidx.annotation.NonNull;
+
 public class User {
     private String firstName;
     private String lastName;
@@ -24,7 +26,7 @@ public class User {
         this.emailAddress=emailAddress;
         this.password=password;
     }
-    private void setBirthYear(int birthYear){
+    public void setBirthYear(int birthYear){
         this.birthYear=birthYear;
     }
     public String getFirstName(){
@@ -42,6 +44,7 @@ public class User {
     public String getPassword(){
         return password;
     }
+    @NonNull
     public String toString(){
         return firstName+" "+lastName+" "+emailAddress+" "+birthYear;
     }

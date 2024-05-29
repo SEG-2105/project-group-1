@@ -57,11 +57,13 @@ public class loginAcitivity extends AppCompatActivity {
             User a=(MainActivity.users.get(MainActivity.checkEmail(email.getEditableText().toString())));
             boolean p=(a.getPassword()).equals(password.getEditableText().toString());
             tv.setText(String.valueOf(p));
-            return a;
+            if(p){return a;}
+            tv.setText("Your password or email address are incrorrect");
+            return new User();
 
         }catch(Exception e){
             tv.setText("Your password or email address are incorrect");
-            return null;
+            return new User();
         }
 
     }

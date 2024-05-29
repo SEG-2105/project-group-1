@@ -25,7 +25,11 @@ public class AdminActivity extends AppCompatActivity {
         });
         TextView tv = (TextView) findViewById(R.id.adminmenu);
         try {
-            tv.setText(MainActivity.usersToString());
+            if(MainActivity.users.isEmpty()){
+                tv.setText("No current users");
+            }else{
+                tv.setText(MainActivity.usersToString());
+            }
         }catch(Exception e){
             tv.setText("No current users");
         }
