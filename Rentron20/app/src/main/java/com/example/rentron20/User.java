@@ -26,8 +26,15 @@ public class User {
         this.emailAddress=emailAddress;
         this.password=password;
     }
-    public void setBirthYear(int birthYear){
-        this.birthYear=birthYear;
+    public boolean setBirthYear(int birthYear){
+        if(birthYear>1914 && birthYear<2024){
+            this.birthYear=birthYear;
+            return true;
+        }
+        else{
+            this.birthYear=0;
+            return false;
+        }
     }
     public String getFirstName(){
         return firstName;
@@ -47,5 +54,9 @@ public class User {
     @NonNull
     public String toString(){
         return firstName+" "+lastName+" "+emailAddress+" "+birthYear;
+    }
+
+    public int getBirthYear() {
+        return birthYear;
     }
 }

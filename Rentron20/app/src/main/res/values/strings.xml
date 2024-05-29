@@ -26,4 +26,7 @@
     <string name="login">login</string>
     <string name="admin">Admin</string>
     <string name="delete_client">Delete Account</string>
+    <string name="submit">submit</string>
+    <string name="enter_your_birth_year">Enter your birth year</string>
+    <string name="defamation">The filthier the landlord the richer</string>
 </resources>
