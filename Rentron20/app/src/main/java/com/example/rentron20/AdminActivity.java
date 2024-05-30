@@ -1,6 +1,9 @@
 package com.example.rentron20;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -23,6 +26,7 @@ public class AdminActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Button logoff=(Button)findViewById(R.id.logoffAdmin);
         TextView tv = (TextView) findViewById(R.id.adminmenu);
         try {
             if(MainActivity.users.isEmpty()){
@@ -33,5 +37,11 @@ public class AdminActivity extends AppCompatActivity {
         }catch(Exception e){
             tv.setText("No current users");
         }
+        logoff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(AdminActivity.this,MainActivity.class));
+            }
+        });
     }
 }

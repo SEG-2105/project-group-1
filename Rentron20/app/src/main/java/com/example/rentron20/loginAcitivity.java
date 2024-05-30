@@ -49,7 +49,13 @@ public class loginAcitivity extends AppCompatActivity {
                         }
                     }
                 });
-
+        Button back=(Button)findViewById(R.id.backlogin);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(loginAcitivity.this,MainActivity.class));
+            }
+        });
     }
     public User login(EditText email,EditText password){
         TextView tv=(TextView)findViewById(R.id.errorbox);

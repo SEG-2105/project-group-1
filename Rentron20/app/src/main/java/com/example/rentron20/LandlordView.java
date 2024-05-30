@@ -30,6 +30,8 @@ public class LandlordView extends AppCompatActivity {
         EditText year=(EditText)findViewById(R.id.editBirthYear);
         Button setYear=(Button)findViewById(R.id.setBirthYear);
         TextView erroryear=(TextView) findViewById(R.id.erroryear);
+        logoff.setVisibility(View.INVISIBLE);
+        txt.setVisibility(View.INVISIBLE);
         if(MainActivity.user.getBirthYear()==0){
             setYear.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v){
@@ -37,6 +39,8 @@ public class LandlordView extends AppCompatActivity {
                         setYear.setVisibility(View.GONE);
                         year.setVisibility(View.GONE);
                         erroryear.setVisibility(View.GONE);
+                        logoff.setVisibility(View.VISIBLE);
+                        txt.setVisibility(View.VISIBLE);
                         }
                     else{
                         erroryear.setText("Birth year must be between 1915 and 2023");
@@ -47,6 +51,8 @@ public class LandlordView extends AppCompatActivity {
             setYear.setVisibility(View.GONE);
             year.setVisibility(View.GONE);
             erroryear.setVisibility(View.GONE);
+            logoff.setVisibility(View.VISIBLE);
+            txt.setVisibility(View.VISIBLE);
         }
 
 

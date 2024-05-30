@@ -11,12 +11,14 @@
         android:id="@+id/welcometextview"
         android:layout_width="409dp"
         android:layout_height="112dp"
+        android:layout_marginStart="1dp"
         android:layout_marginTop="297dp"
         android:layout_marginEnd="1dp"
         android:layout_marginBottom="322dp"
         android:text="@string/welcome_client"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.0" />
 
@@ -24,21 +26,70 @@
         android:id="@+id/logoutclient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
+        android:layout_marginStart="304dp"
         android:layout_marginTop="486dp"
         android:layout_marginBottom="197dp"
         android:text="@string/logout"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <Button
         android:id="@+id/deleteClient"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginStart="194dp"
+        android:layout_marginTop="108dp"
+        android:layout_marginEnd="71dp"
+        android:layout_marginBottom="575dp"
         android:text="@string/delete_client"
-        tools:layout_editor_absoluteX="162dp"
-        tools:layout_editor_absoluteY="543dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/submitAge"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="131dp"
+        android:layout_marginTop="474dp"
+        android:layout_marginEnd="189dp"
+        android:layout_marginBottom="209dp"
+        android:text="Button"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/setBirthYearC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="76dp"
+        android:layout_marginTop="409dp"
+        android:layout_marginEnd="125dp"
+        android:layout_marginBottom="277dp"
+        android:ems="10"
+        android:inputType="number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/errorinBirth"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="146dp"
+        android:layout_marginTop="454dp"
+        android:layout_marginEnd="207dp"
+        android:layout_marginBottom="258dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

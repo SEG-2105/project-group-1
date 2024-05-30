@@ -133,7 +133,8 @@ public class MainActivity extends AppCompatActivity {
         boolean b= lastname.getEditableText().toString().length()<40;
         boolean c=email.getEditableText().toString().contains("@") & email.getEditableText().toString().contains(".") ;
         boolean d=password.getEditableText().toString().length()<40;
-        return (a & b & c & d);
+        boolean e=checkEmail(email.getEditableText().toString())==(-1);
+        return (a & b & c & d & e);
     }
 
     public static User getUser() {
