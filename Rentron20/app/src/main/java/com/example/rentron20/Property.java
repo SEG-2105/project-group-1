@@ -24,7 +24,9 @@ public class Property {
     private boolean water;
     private boolean occupied=false;
     private boolean availability=false;
+    private ArrayList<Ticket> t;
     private ArrayList<Client> c;
+    private Landlord LLord;
     private PropertyManager pm;
     public Property(Address address,String type,
                     double rooms, double bathrooms, double floors,double rent,int parking,
@@ -32,6 +34,9 @@ public class Property {
         setUtilities(hydro,heating,water);
         setMain(address,type,rooms,bathrooms,floors,area,rent);
         setAmenities(parking,laundry);
+    }
+    private void setLandlord(Landlord landlord){
+        this.LLord=new Landlord();
     }
     private void setUtilities(boolean hydro,boolean heating,boolean water){
         this.hydro=hydro;
