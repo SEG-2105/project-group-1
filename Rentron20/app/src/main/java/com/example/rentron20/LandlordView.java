@@ -25,35 +25,44 @@ public class LandlordView extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        EditText streetNumber=(EditText) findViewById(R.id.streetNumber);
+        EditText streetName=(EditText) findViewById(R.id.streetName);
+        EditText postalCode=(EditText) findViewById(R.id.postalCode);
+        EditText aptNumber=(EditText)findViewById(R.id.aptNumber);
         Button delete=(Button)findViewById(R.id.deleteLandlord);
         Button logoff=(Button)findViewById(R.id.logofflandlord);
         TextView txt=(TextView)findViewById(R.id.textView3);
-        EditText year=(EditText)findViewById(R.id.editBirthYear);
-        Button setYear=(Button)findViewById(R.id.setBirthYear);
-        TextView erroryear=(TextView) findViewById(R.id.erroryear);
+        Button setAddress=(Button)findViewById(R.id.setAddress);
+        TextView errorAddress=(TextView) findViewById(R.id.erroryear);
         logoff.setVisibility(View.INVISIBLE);
         txt.setVisibility(View.INVISIBLE);
         delete.setVisibility(View.INVISIBLE);
-        if(MainActivity.user.getBirthYear()==0){
-            setYear.setOnClickListener(new View.OnClickListener(){
+        if((((Landlord)MainActivity.user).getAddress()==null)){
+            setAddress.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v){
-                    if(setBirthYear(year)){
-                        setYear.setVisibility(View.GONE);
-                        year.setVisibility(View.GONE);
-                        erroryear.setVisibility(View.GONE);
+                    if(setAddress(streetName,streetNumber,postalCode,aptNumber)){
+                        streetNumber.setVisibility(View.GONE);
+                        streetName.setVisibility(View.GONE);
+                        aptNumber.setVisibility(View.GONE);
+                        postalCode.setVisibility(View.GONE);
+                        setAddress.setVisibility(View.GONE);
+                        errorAddress.setVisibility(View.GONE);
                         logoff.setVisibility(View.VISIBLE);
                         txt.setVisibility(View.VISIBLE);
                         delete.setVisibility(View.VISIBLE);
                         }
                     else{
-                        erroryear.setText("Birth year must be between 1915 and 2023");
+                        errorAddress.setText("Something is missing from your address");
                     }
                 }
             });
         }else{
-            setYear.setVisibility(View.GONE);
-            year.setVisibility(View.GONE);
-            erroryear.setVisibility(View.GONE);
+            streetNumber.setVisibility(View.GONE);
+            streetName.setVisibility(View.GONE);
+            aptNumber.setVisibility(View.GONE);
+            postalCode.setVisibility(View.GONE);
+            setAddress.setVisibility(View.GONE);
+            errorAddress.setVisibility(View.GONE);
             logoff.setVisibility(View.VISIBLE);
             txt.setVisibility(View.VISIBLE);
             delete.setVisibility(View.VISIBLE);
@@ -70,9 +79,22 @@ public class LandlordView extends AppCompatActivity {
             }
         });
     }
-    public boolean setBirthYear(EditText year){
+    public boolean validate(EditText name,EditText number,EditText pcode){
+        boolean a=!(name.getEditableText().toString().isEmpty());
+        boolean b=!(number.getEditableText().toString().isEmpty());
+        boolean c=!(pcode.getEditableText().toString().isEmpty());
+        return (a & b & c);
+    }
+    public boolean setAddress(EditText name, EditText number, EditText pcode, EditText apt){
         try{
-            return MainActivity.user.setBirthYear(toInteger(year));
+            if(validate(name,number,pcode)){
+                Address add=new Address(Integer.parseInt(number.getEditableText().toString()),name.getEditableText().toString(),new PostalCode(pcode.getEditableText().toString()),apt.getEditableText().toString());
+                ((Landlord)MainActivity.user).setAddress(add);
+                return true;
+            }
+            else{
+                return false;
+            }
         }catch(Exception e){
             return false;
         }

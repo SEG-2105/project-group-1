@@ -87,7 +87,7 @@ public class MainActivity extends AppCompatActivity {
                                 }
                                 case 1: {
                                     tv.setText((String) spinner.getItemAtPosition(position));
-                                    user = new Landlord(first_name.getEditableText().toString(), last_name.getEditableText().toString(), 0, email_address.getEditableText().toString(), password.getEditableText().toString());
+                                    user = new Landlord(first_name.getEditableText().toString(), last_name.getEditableText().toString(), email_address.getEditableText().toString(), password.getEditableText().toString());
                                     add(user);
                                     Intent j = new Intent(MainActivity.this, LandlordView.class);
                                     startActivity(j);
@@ -132,10 +132,10 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
     public boolean validate(EditText firstName,EditText lastname,EditText email,EditText password){
-        boolean a=firstName.getEditableText().toString().length()<40;
-        boolean b= lastname.getEditableText().toString().length()<40;
+        boolean a=(firstName.getEditableText().toString().length()<40) & !(firstName.getEditableText().toString().isEmpty());
+        boolean b= lastname.getEditableText().toString().length()<40 & !(lastname.getEditableText().toString().isEmpty());
         boolean c=email.getEditableText().toString().contains("@") & email.getEditableText().toString().contains(".") ;
-        boolean d=password.getEditableText().toString().length()<40;
+        boolean d=password.getEditableText().toString().length()<40 & !(password.getEditableText().toString().isEmpty());
         boolean e=checkEmail(email.getEditableText().toString())==(-1);
         return (a & b & c & d & e);
     }

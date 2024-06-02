@@ -32,4 +32,9 @@
     <string name="back">back</string>
     <string name="property_manager">Property Manager</string>
     <string name="client">Client</string>
+    <string name="street_number">Street Number</string>
+    <string name="street_name">Street Name</string>
+    <string name="postal_code_a1a1a1">Postal Code...A1A1A1</string>
+    <string name="apartment_number">Apartment Number</string>
+    <string name="welcome_oh_lord_of_the_land">Welcome oh lord of the land</string>
 </resources>

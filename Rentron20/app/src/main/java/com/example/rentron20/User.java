@@ -6,16 +6,10 @@ public class User {
     private String firstName;
     private String lastName;
     private String emailAddress;
-    private int birthYear;
     private String password;
-    public User(String firstName,String lastName,int birthYear,String emailAddress,String password){
+    public User(String firstName,String lastName,String emailAddress,String password){
         setName(firstName,lastName);
-        setBirthYear(birthYear);
         setCredentials(emailAddress,password);
-    }
-    public User(String firstName,String lastName,String emailAddress, String password){
-        setName(firstName, lastName);
-        setCredentials(emailAddress, password);
     }
     public User(String email,String password){
         this.emailAddress=email;
@@ -29,16 +23,6 @@ public class User {
     private void setCredentials(String emailAddress,String password){
         this.emailAddress=emailAddress;
         this.password=password;
-    }
-    public boolean setBirthYear(int birthYear){
-        if(birthYear>1914 && birthYear<2024){
-            this.birthYear=birthYear;
-            return true;
-        }
-        else{
-            this.birthYear=0;
-            return false;
-        }
     }
     public String getFirstName(){
         return firstName;
@@ -57,10 +41,6 @@ public class User {
     }
     @NonNull
     public String toString(){
-        return firstName+" "+lastName+" "+emailAddress+" "+birthYear;
-    }
-
-    public int getBirthYear() {
-        return birthYear;
+        return firstName+" "+lastName+" "+emailAddress;
     }
 }

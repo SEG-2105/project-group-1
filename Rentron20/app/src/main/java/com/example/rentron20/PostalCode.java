@@ -10,4 +10,7 @@ public class PostalCode {
             this.postalCode=postalCode;
         }
     }
+    public String toString(){
+        return postalCode;
+    }
 }

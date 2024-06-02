@@ -4,15 +4,22 @@ import java.util.ArrayList;
 import java.util.Properties;
 
 public class Landlord extends User{
+    Address address;
     private ArrayList<Property> properties;
-    public Landlord(String firstName,String lastName,int birthYear,String emailAddress,String password){
-        super(firstName, lastName, birthYear, emailAddress, password);
+    public Landlord(String firstName,String lastName,String emailAddress,String password){
+        super(firstName, lastName, emailAddress, password);
     }
     public Landlord(){
         super();
     }
     private void createProperty(){
 
+    }
+    public void setAddress(Address address){
+        this.address=address;
+    }
+    public Address getAddress(){
+        return address;
     }
     private void requestManager(Property property,PropertyManager propertyManager){
         // This method sends a request to the property manager as to a specific property
@@ -33,5 +40,8 @@ public class Landlord extends User{
     }
     private void changeAvailability(Property p){
         p.changeAvailability();
+    }
+    public String toString(){
+        return super.toString()+address.toString();
     }
 }

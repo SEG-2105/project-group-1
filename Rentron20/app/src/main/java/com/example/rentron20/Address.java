@@ -16,4 +16,7 @@ public class Address {
         this.streetNumber=streetNumber;
         this.aptNumber=aptNumber;
     }
+    public String toString(){
+        return aptNumber+"-"+streetNumber+" "+streetName+" "+postalCode.toString();
+    }
 }

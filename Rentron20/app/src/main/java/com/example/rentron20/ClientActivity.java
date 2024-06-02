@@ -39,7 +39,7 @@ public class ClientActivity extends AppCompatActivity {
         logoff.setVisibility(View.INVISIBLE);
         tv.setVisibility(View.INVISIBLE);
         deleteClient.setVisibility(View.INVISIBLE);
-        if(MainActivity.user.getBirthYear()==0){
+        if(getBirthYear()==0){
             submit.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v){
                     if(setBirthYear(year)){
@@ -80,7 +80,7 @@ public class ClientActivity extends AppCompatActivity {
 
     public boolean setBirthYear(EditText year){
         try{
-            return MainActivity.user.setBirthYear(toInteger(year));
+            return  Client.setBirthYear(toInteger(year),(Client)MainActivity.user);
         }catch(Exception e){
             return false;
         }
@@ -91,6 +91,9 @@ public class ClientActivity extends AppCompatActivity {
         }catch(Exception e){
             return 0;
         }
+    }
+    public int getBirthYear(){
+        return ((Client)MainActivity.user).getBirthYear();
     }
     public void deleteAccount(){
         MainActivity.remove(MainActivity.getUser());
