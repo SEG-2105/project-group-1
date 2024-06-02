@@ -54,9 +54,12 @@ public class MainActivity extends AppCompatActivity {
         EditText email_address=(EditText)findViewById(R.id.email);
         EditText password=(EditText)findViewById(R.id.password);
         Button admin=(Button)findViewById(R.id.adminbutton);
+        if(validateAdmin()){
+            add(new Admin("admin","admin"));
+        }
         admin.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i=new Intent(MainActivity.this,AdminActivity.class);
+                Intent i=new Intent(MainActivity.this,loginAcitivity.class);
                 startActivity(i);
             }
         });
@@ -157,6 +160,14 @@ public class MainActivity extends AppCompatActivity {
 
         }
 
+    }
+    public boolean validateAdmin(){
+        for(User u:users){
+            if(u.getEmailAddress().equals(new Admin("admin","admin").getEmailAddress())){
+                return false;
+            }
+        }
+        return true;
     }
     public static String usersToString(){
        String temp="";

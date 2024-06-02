@@ -17,6 +17,10 @@ public class User {
         setName(firstName, lastName);
         setCredentials(emailAddress, password);
     }
+    public User(String email,String password){
+        this.emailAddress=email;
+        this.password=password;
+    }
     public User(){}
     private void setName(String firstName,String lastName) {
         this.firstName = firstName;

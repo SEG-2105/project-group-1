@@ -32,10 +32,8 @@ public class loginAcitivity extends AppCompatActivity {
         EditText email=(EditText)findViewById(R.id.editemail);
         EditText password=(EditText)findViewById(R.id.editpassword);
         Button login=(Button)findViewById(R.id.loginlog);
-        Spinner spinner=(Spinner)findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapter =ArrayAdapter.createFromResource(this,R.array.user_array,android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
         login.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 MainActivity.user=login(email,password);
@@ -47,6 +45,9 @@ public class loginAcitivity extends AppCompatActivity {
                 }else if(a.equals(new PropertyManager().getClass().toString())){
                     startActivity(new Intent(loginAcitivity.this,PropertyManagerView.class));
                         }
+                else if(a.equals(new Admin().getClass().toString())){
+                    startActivity(new Intent(loginAcitivity.this,AdminActivity.class));
+                }
                     }
                 });
         Button back=(Button)findViewById(R.id.backlogin);

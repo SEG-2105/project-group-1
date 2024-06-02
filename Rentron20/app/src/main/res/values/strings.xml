@@ -30,4 +30,6 @@
     <string name="enter_your_birth_year">Enter your birth year</string>
     <string name="defamation">The filthier the landlord the richer</string>
     <string name="back">back</string>
+    <string name="property_manager">Property Manager</string>
+    <string name="client">Client</string>
 </resources>

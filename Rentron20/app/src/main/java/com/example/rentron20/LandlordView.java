@@ -25,6 +25,7 @@ public class LandlordView extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Button delete=(Button)findViewById(R.id.deleteLandlord);
         Button logoff=(Button)findViewById(R.id.logofflandlord);
         TextView txt=(TextView)findViewById(R.id.textView3);
         EditText year=(EditText)findViewById(R.id.editBirthYear);
@@ -32,6 +33,7 @@ public class LandlordView extends AppCompatActivity {
         TextView erroryear=(TextView) findViewById(R.id.erroryear);
         logoff.setVisibility(View.INVISIBLE);
         txt.setVisibility(View.INVISIBLE);
+        delete.setVisibility(View.INVISIBLE);
         if(MainActivity.user.getBirthYear()==0){
             setYear.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v){
@@ -41,6 +43,7 @@ public class LandlordView extends AppCompatActivity {
                         erroryear.setVisibility(View.GONE);
                         logoff.setVisibility(View.VISIBLE);
                         txt.setVisibility(View.VISIBLE);
+                        delete.setVisibility(View.VISIBLE);
                         }
                     else{
                         erroryear.setText("Birth year must be between 1915 and 2023");
@@ -53,9 +56,14 @@ public class LandlordView extends AppCompatActivity {
             erroryear.setVisibility(View.GONE);
             logoff.setVisibility(View.VISIBLE);
             txt.setVisibility(View.VISIBLE);
+            delete.setVisibility(View.VISIBLE);
         }
-
-
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteAccount();
+            }
+        });
         logoff.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
                 LogOff();
@@ -79,5 +87,9 @@ public class LandlordView extends AppCompatActivity {
     public void LogOff(){
         Intent i=new Intent(LandlordView.this,MainActivity.class);
         startActivity(i);
+    }
+    public void deleteAccount(){
+        MainActivity.remove(MainActivity.user);
+        LogOff();
     }
 }

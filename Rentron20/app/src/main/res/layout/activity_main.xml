@@ -19,9 +19,17 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="59dp"
+            android:text="@string/app_name"
+            android:textSize="50dp" />
+
         <EditText
             android:id="@+id/firstname"
             android:layout_width="match_parent"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_height="57dp"
             android:ems="10"
             android:hint="@string/first_name"
@@ -31,6 +39,7 @@
         <EditText
             android:id="@+id/lastname"
             android:layout_width="match_parent"
+            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_height="56dp"
             android:ems="10"
             android:hint="@string/last_name"
@@ -67,7 +76,7 @@
         <TextView
             android:id="@+id/textView"
             android:layout_width="403dp"
-            android:layout_height="228dp"
+            android:layout_height="120dp"
             android:text="@string/textview" />
 
         <Button

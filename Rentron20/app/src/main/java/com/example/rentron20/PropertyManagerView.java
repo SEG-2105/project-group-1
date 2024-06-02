@@ -24,6 +24,7 @@ public class PropertyManagerView extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        Button delete=(Button)findViewById(R.id.deletePM);
         Button logoff=(Button)findViewById(R.id.logoffPropMan);
         TextView txt=(TextView)findViewById(R.id.textView4);
         logoff.setOnClickListener(new View.OnClickListener(){
@@ -31,9 +32,19 @@ public class PropertyManagerView extends AppCompatActivity {
                 LogOff();
             }
         });
+        delete.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteAccount();
+            }
+        });
     }
     public void LogOff(){
         Intent i=new Intent(PropertyManagerView.this,MainActivity.class);
         startActivity(i);
+    }
+    public void deleteAccount(){
+        MainActivity.remove(MainActivity.user);
+        startActivity(new Intent(getApplicationContext(),MainActivity.class));
     }
 }
