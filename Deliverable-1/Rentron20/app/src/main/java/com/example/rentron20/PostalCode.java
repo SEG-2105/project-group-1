@@ -2,6 +2,9 @@ package com.example.rentron20;
 
 public class PostalCode {
     private String postalCode;
+    public PostalCode(){
+        this.postalCode="";
+    }
     public PostalCode(String postalCode){
         setPostalCode(postalCode);
     }

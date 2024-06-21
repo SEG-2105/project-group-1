@@ -2,6 +2,7 @@ package com.example.rentron20;
 
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -24,8 +25,61 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     public static User user;
-    public static ArrayList<User> users=new ArrayList<User>();
+    EditText first_name;
+    EditText last_name;
+    EditText email_address;
+    EditText password;
+    Button admin;
+    Spinner spinner;
+    Button bt3;
+    TextView tv;
+    UserHelper userHelper;
 
+    public void init(){
+        first_name=(EditText)findViewById(R.id.firstname);
+        last_name=(EditText)findViewById(R.id.lastname);
+        email_address=(EditText)findViewById(R.id.email);
+        password=(EditText)findViewById(R.id.password);
+        admin=(Button)findViewById(R.id.adminbutton);
+        spinner=(Spinner)findViewById(R.id.spinner3);
+        bt3=(Button)findViewById(R.id.button3);
+        tv=(TextView)findViewById(R.id.textView);
+        ArrayAdapter<CharSequence> adapter =ArrayAdapter.createFromResource(this,R.array.user_array,android.R.layout.simple_spinner_item);
+        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        spinner.setAdapter(adapter);
+        if(validateAdmin()){
+            add(new Admin("admin","admin"));
+        }
+    }
+    public void createClient(int position){
+        tv.setText((String) spinner.getItemAtPosition(position));
+        user = new Client(first_name.getEditableText().toString(), last_name.getEditableText().toString(), 0, email_address.getEditableText().toString(), password.getEditableText().toString());
+        Intent i = new Intent(MainActivity.this, ClientActivity.class);
+        add(user);
+        startActivity(i);
+        tv.setText(user.toString());
+    }
+    public void createLandlord(int position){
+        tv.setText((String) spinner.getItemAtPosition(position));
+        user = new Landlord(first_name.getEditableText().toString(), last_name.getEditableText().toString(), email_address.getEditableText().toString(), password.getEditableText().toString());
+        add(user);
+        Intent j = new Intent(MainActivity.this, LandlordView.class);
+        startActivity(j);
+    }
+    public void createPropertyManager(int position){
+        tv.setText((String) spinner.getItemAtPosition(position));
+        user = new PropertyManager(first_name.getEditableText().toString(), last_name.getEditableText().toString(), email_address.getEditableText().toString(), password.getEditableText().toString());
+        add(user);
+        addToUserBase(first_name.getEditableText().toString(), last_name.getEditableText().toString(), email_address.getEditableText().toString());
+        Intent k = new Intent(MainActivity.this, PropertyManagerView.class);
+        startActivity(k);
+    }
+    public void addToUserBase(String firstName, String lastName,String emailAddress) {
+        UserModel userModel = new UserModel("PropertyManager",firstName, lastName, emailAddress);
+        userHelper=new UserHelper(this);
+        userHelper.addUser(userModel);
+    }
+    public static ArrayList<User> users=new ArrayList<User>();
     public static int checkEmail(String email) {
         int i=0;
         for(User u:users){
@@ -38,7 +92,6 @@ public class MainActivity extends AppCompatActivity {
         }
         return -1;
     }
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,26 +102,15 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        EditText first_name=(EditText)findViewById(R.id.firstname);
-        EditText last_name=(EditText)findViewById(R.id.lastname);
-        EditText email_address=(EditText)findViewById(R.id.email);
-        EditText password=(EditText)findViewById(R.id.password);
-        Button admin=(Button)findViewById(R.id.adminbutton);
-        if(validateAdmin()){
-            add(new Admin("admin","admin"));
-        }
+        init();
+        //Admin button
         admin.setOnClickListener(new View.OnClickListener(){
             public void onClick(View v){
-                Intent i=new Intent(MainActivity.this,loginAcitivity.class);
+                Intent i=new Intent(MainActivity.this,AdminActivity.class);
                 startActivity(i);
             }
         });
-        Spinner spinner=(Spinner)findViewById(R.id.spinner3);
-        ArrayAdapter<CharSequence> adapter =ArrayAdapter.createFromResource(this,R.array.user_array,android.R.layout.simple_spinner_item);
-        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spinner.setAdapter(adapter);
-        Button bt3=(Button)findViewById(R.id.button3);
-        TextView tv=(TextView)findViewById(R.id.textView);
+
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
@@ -77,28 +119,15 @@ public class MainActivity extends AppCompatActivity {
                         if(validate(first_name,last_name,email_address,password)){
                             switch (position) {
                                 case 0: {
-                                    tv.setText((String) spinner.getItemAtPosition(position));
-                                    user = new Client(first_name.getEditableText().toString(), last_name.getEditableText().toString(), 0, email_address.getEditableText().toString(), password.getEditableText().toString());
-                                    Intent i = new Intent(MainActivity.this, ClientActivity.class);
-                                    add(user);
-                                    startActivity(i);
-                                    tv.setText(user.toString());
+                                    createClient(position);
                                     break;
                                 }
                                 case 1: {
-                                    tv.setText((String) spinner.getItemAtPosition(position));
-                                    user = new Landlord(first_name.getEditableText().toString(), last_name.getEditableText().toString(), email_address.getEditableText().toString(), password.getEditableText().toString());
-                                    add(user);
-                                    Intent j = new Intent(MainActivity.this, LandlordView.class);
-                                    startActivity(j);
+                                    createLandlord(position);
                                     break;
                                 }
                                 case 2: {
-                                    tv.setText((String) spinner.getItemAtPosition(position));
-                                    user = new PropertyManager(first_name.getEditableText().toString(), last_name.getEditableText().toString(), email_address.getEditableText().toString(), password.getEditableText().toString());
-                                    add(user);
-                                    Intent k = new Intent(MainActivity.this, PropertyManagerView.class);
-                                    startActivity(k);
+                                    createPropertyManager(position);
                                     break;
                                 }
                             }
@@ -122,12 +151,12 @@ public class MainActivity extends AppCompatActivity {
 
 
             }
-
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
             }
         });
     }
+
     public boolean isEmpty(){
         return true;
     }

@@ -3,7 +3,9 @@ package com.example.rentron20;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -14,8 +16,12 @@ import androidx.core.view.WindowInsetsCompat;
 
 import org.w3c.dom.Text;
 
-public class AdminActivity extends AppCompatActivity {
+import java.util.List;
 
+public class AdminActivity extends AppCompatActivity {
+    Button logoff;
+    private ListView users_listView;
+    private UserHelper userhelper;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,17 +32,30 @@ public class AdminActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        Button logoff=(Button)findViewById(R.id.logoffAdmin);
-        TextView tv = (TextView) findViewById(R.id.adminmenu);
-        try {
-            if(MainActivity.users.isEmpty()){
-                tv.setText("No current users");
-            }else{
-                tv.setText(MainActivity.usersToString());
-            }
-        }catch(Exception e){
-            tv.setText("No current users");
-        }
+        userhelper=new UserHelper(this);
+        init();
+        updateDisplayedUsers();
+        setEventListeners();
+    }
+    public void addUser(UserModel userModel){
+        userhelper.addUser(userModel);
+        updateDisplayedUsers();
+    }
+    private void updateDisplayedUsers() {
+        List<UserModel> users=userhelper.getAllUsers();
+        updateDisplayedUsers(users);
+    }
+    private void updateDisplayedUsers(List<UserModel> users) {
+        ArrayAdapter<UserModel> adapter =new ArrayAdapter<>(users_listView.getContext(),
+                android.R.layout.simple_list_item_1,users);
+        users_listView.setAdapter(adapter);
+    }
+
+    protected void init(){
+        logoff=findViewById(R.id.logoffAdmin);
+        users_listView=findViewById(R.id.userlist);
+    }
+    protected void setEventListeners(){
         logoff.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

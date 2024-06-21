@@ -17,7 +17,10 @@ import org.w3c.dom.Text;
 
 public class ClientActivity extends AppCompatActivity {
     MainActivity main;
-
+    User user;
+    Button deleteClient,submit,logoff;
+    EditText year;
+    TextView tv,error;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,17 +31,44 @@ public class ClientActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        User user=MainActivity.getUser();
-        Button deleteClient=findViewById(R.id.deleteClient);
-        TextView tv=(TextView)findViewById(R.id.welcometextview);
+        init();
+        setBirthYearView();
+        deleteClient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                deleteAccount();
+            }
+        });
+        logoff.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                MainActivity.resetUser();
+                startActivity(new Intent(ClientActivity.this,MainActivity.class));
+            }
+        });
+
+    }
+    public void init(){
+        //Access to user
+        user=MainActivity.getUser();
+
+        //Button Initialization
+        deleteClient=findViewById(R.id.deleteClient);
+        logoff=findViewById(R.id.logoutclient);
+        submit=findViewById(R.id.submitAge);
+
+        //TextView setting somehow
+        tv=findViewById(R.id.welcometextview);
         tv.setText("We welcome you ,"+user.getFirstName());
-        Button logoff=(Button)findViewById(R.id.logoutclient);
-        EditText year=(EditText) findViewById(R.id.setBirthYearC);
-        TextView error=(TextView)findViewById(R.id.errorinBirth);
-        Button submit=(Button)findViewById(R.id.submitAge);
+
+        //EditViews
+        year=findViewById(R.id.setBirthYearC);
+        error=findViewById(R.id.errorinBirth);
+        //
         logoff.setVisibility(View.INVISIBLE);
         tv.setVisibility(View.INVISIBLE);
         deleteClient.setVisibility(View.INVISIBLE);
+    }
+    public void setBirthYearView(){
         if(getBirthYear()==0){
             submit.setOnClickListener(new View.OnClickListener(){
                 public void onClick(View v){
@@ -63,19 +93,6 @@ public class ClientActivity extends AppCompatActivity {
             tv.setVisibility(View.VISIBLE);
             deleteClient.setVisibility(View.VISIBLE);
         }
-        deleteClient.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                deleteAccount();
-            }
-        });
-        logoff.setOnClickListener(new View.OnClickListener(){
-            public void onClick(View v){
-                MainActivity.resetUser();
-                startActivity(new Intent(ClientActivity.this,MainActivity.class));
-            }
-        });
-
     }
 
     public boolean setBirthYear(EditText year){

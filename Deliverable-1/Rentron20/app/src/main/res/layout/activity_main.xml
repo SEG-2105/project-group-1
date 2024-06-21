@@ -29,21 +29,19 @@
         <EditText
             android:id="@+id/firstname"
             android:layout_width="match_parent"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_height="57dp"
             android:ems="10"
             android:hint="@string/first_name"
-            android:inputType="text"
+            android:inputType="textPersonName"
             tools:text="@tools:sample/first_names" />
 
         <EditText
             android:id="@+id/lastname"
             android:layout_width="match_parent"
-            android:digits="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
             android:layout_height="56dp"
             android:ems="10"
             android:hint="@string/last_name"
-            android:inputType="text"
+            android:inputType="text|textPersonName"
             tools:text="@tools:sample/last_names" />
 
         <EditText
