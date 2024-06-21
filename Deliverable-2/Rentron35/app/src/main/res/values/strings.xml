@@ -1,3 +1,28 @@
 <resources>
-    <string name="app_name">Rentron 3.5</string>
+    <string name="app_name">Rentron3.0</string>
+    <string name="errorEmailorPassword">Email or Password are incorrect</string>
+    <string name="register">Register</string>
+    <string-array name="hydro">
+        <item>Hydro Is Included</item>
+        <item>Hydro Isnt Included</item>
+    </string-array>
+
+    <string-array name="heating">
+        <item>Heating Is Included</item>
+        <item>Heating Isnt Included</item>
+    </string-array>
+
+    <string-array name="water">
+        <item>Water Is Included</item>
+        <item>Water isnt included</item>
+    </string-array>
+
+    <string-array name="property_type">
+        <item>Basement</item>
+        <item>Studio</item>
+        <item>Apartment</item>
+        <item>Townhouse</item>
+        <item>House</item>
+    </string-array>
+
 </resources>
