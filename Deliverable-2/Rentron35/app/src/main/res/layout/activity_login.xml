@@ -5,43 +5,40 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".LoginActivity">
 
     <LinearLayout
         android:layout_width="409dp"
         android:layout_height="729dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
 
-        <Button
-            android:id="@+id/CreateClientButton"
+        <EditText
+            android:id="@+id/editEmailLoginUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Client" />
+            android:ems="10"
+            android:inputType="textEmailAddress" />
 
-        <Button
-            android:id="@+id/CreateLandlordButton"
+        <EditText
+            android:id="@+id/editPasswordLoginUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Landlord" />
+            android:ems="10"
+            android:inputType="textPassword" />
 
         <Button
-            android:id="@+id/CreatePropertyManagerButton"
+            android:id="@+id/btnLogInUser"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Property Manager" />
+            android:text="Button" />
 
-        <Button
-            android:id="@+id/mainLoginButton"
+        <TextView
+            android:id="@+id/textView2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Login" />
+            android:textSize="50sp"
+            android:text="TextView" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
