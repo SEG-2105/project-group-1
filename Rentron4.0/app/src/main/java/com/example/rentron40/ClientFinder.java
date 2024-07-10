@@ -23,7 +23,7 @@ public class ClientFinder extends AppCompatActivity {
     PropertyHelper propertyHelper;
     ListView clientList;
     TextView name,birthyear;
-    Button add,evict;
+    Button add,previous;
     UserModel user;
 
     @Override
@@ -47,6 +47,7 @@ public class ClientFinder extends AppCompatActivity {
         name=findViewById(R.id.clientFinderName);
         birthyear=findViewById(R.id.clientFinderBirthYear);
         add=findViewById(R.id.clientFinderButtonAdd);
+        previous=findViewById(R.id.clientFinderButtonPrevious);
     }
     private void setEventListeners(){
         clientList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -58,16 +59,20 @@ public class ClientFinder extends AppCompatActivity {
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                propertyHelper.updateClient(LandlordActivity.property.getId(),user.getId());
-                startActivity(new Intent(getApplicationContext(),LandlordActivity.class));
+                if(user!=null) {
+                    propertyHelper.updateClient(LandlordActivity.property.getId(), user.getId());
+                    startActivity(new Intent(getApplicationContext(), LandlordActivity.class));
+                }
+                else{
+                    Toast.makeText(getApplicationContext(), "PLEASE SELECT CLIENT", Toast.LENGTH_SHORT).show();
+                }
             }
         });
-        evict.setOnClickListener(new View.OnClickListener() {
+        previous.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                propertyHelper.removeClient(LandlordActivity.property.getId());
-                Toast.makeText(getApplicationContext(),"Client has been evicted",Toast.LENGTH_LONG).show();
-                startActivity(new Intent(getApplicationContext(),LandlordActivity.class));
+                user=null;
+                startActivity(new Intent(getApplicationContext(),PropertyMenu.class));
             }
         });
     }

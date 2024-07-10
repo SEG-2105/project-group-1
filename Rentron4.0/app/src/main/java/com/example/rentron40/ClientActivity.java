@@ -3,7 +3,7 @@ package com.example.rentron40;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
+import android.widget.*;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -13,6 +13,10 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class ClientActivity extends AppCompatActivity {
     Button logoff;
+    ListView propertyList;
+    PropertyHelper propertyHelper;
+    UserHelper userHelper;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -15,7 +15,8 @@ import androidx.core.view.WindowInsetsCompat;
 public class PropertyMenu extends AppCompatActivity {
     TextView address,rent,client,landlord,propertyManager,floors,rooms,type,bathrooms,area;
     UserHelper userHelper;
-    Button back, getPm,getCl,edit;
+    Button back, getPm,getCl,edit,evict;
+    PropertyHelper propertyHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,6 +29,7 @@ public class PropertyMenu extends AppCompatActivity {
             return insets;
         });
         userHelper=new UserHelper(this);
+        propertyHelper=new PropertyHelper(this);
         init();
         setTextViews();
         setEventListeners();
@@ -47,6 +49,7 @@ public class PropertyMenu extends AppCompatActivity {
         edit=findViewById(R.id.editButtonPropertyMenu);
         bathrooms=findViewById(R.id.propertyMenuBathrooms);
         area=findViewById(R.id.propertyMenuArea);
+        evict=findViewById(R.id.evictButtonPropertyMenu);
     }
     private void setTextViews(){
         address.setText("Address :"+LandlordActivity.property.getAddress().toString());
@@ -85,6 +88,14 @@ public class PropertyMenu extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(),EditProperty.class));
+            }
+        });
+        evict.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                propertyHelper.updateClient(LandlordActivity.property.getId(),-1);
+                LandlordActivity.property=propertyHelper.getPropertyModel(LandlordActivity.property.getId());
+                setTextViews();
             }
         });
     }

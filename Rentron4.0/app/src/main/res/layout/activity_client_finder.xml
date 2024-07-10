@@ -34,6 +34,12 @@
             android:layout_height="wrap_content"
             android:text="Button" />
 
+        <Button
+            android:id="@+id/clientFinderButtonPrevious"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
         <ListView
             android:id="@+id/clientFinderClientList"
             android:layout_width="match_parent"

@@ -110,13 +110,19 @@
             android:id="@+id/propertyMenuGetClient"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Find Clients" />
+            android:text="Find Client" />
 
         <Button
             android:id="@+id/editButtonPropertyMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Edit Property" />
+
+        <Button
+            android:id="@+id/evictButtonPropertyMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Evict Client" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
