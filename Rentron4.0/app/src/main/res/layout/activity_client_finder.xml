@@ -5,43 +5,38 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context="com.example.rentron30.Client$ClientFinder">
 
     <LinearLayout
         android:layout_width="409dp"
         android:layout_height="729dp"
-        android:layout_marginStart="1dp"
-        android:layout_marginTop="1dp"
-        android:layout_marginEnd="1dp"
-        android:layout_marginBottom="1dp"
         android:orientation="vertical"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
 
-        <Button
-            android:id="@+id/CreateClientButton"
+        <TextView
+            android:id="@+id/clientFinderName"
+            android:textSize="@dimen/defaultTextSize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Client" />
+            android:text="TextView" />
 
-        <Button
-            android:id="@+id/CreateLandlordButton"
+        <TextView
+            android:id="@+id/clientFinderBirthYear"
+            android:textSize="@dimen/defaultTextSize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Landlord" />
+            android:text="TextView" />
 
         <Button
-            android:id="@+id/CreatePropertyManagerButton"
+            android:id="@+id/clientFinderButtonAdd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Property Manager" />
+            android:text="Button" />
 
-        <Button
-            android:id="@+id/mainLoginButton"
+        <ListView
+            android:id="@+id/clientFinderClientList"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Login" />
+            android:layout_height="match_parent" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
