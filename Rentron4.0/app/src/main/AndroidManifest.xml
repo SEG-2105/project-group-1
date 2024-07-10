@@ -13,6 +13,27 @@
         android:theme="@style/Theme.Rentron35"
         tools:targetApi="31">
         <activity
+            android:name=".ClientRequestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ClientRequestMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".LandlordRequestMenuActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RequestActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ClientPropertyFilterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".ClientPropertyMenu"
+            android:exported="false" />
+        <activity
+            android:name=".SearchPropertyActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
@@ -23,57 +44,43 @@
         </activity>
         <activity
             android:name=".ClientActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".Client$ClientFinder"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".CreateClientActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".ClientFinder"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".PropertyManagerSelector"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".PropertyMenu"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".PropertyResigrationActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".CreateLandlordActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".LoginActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".PropertyManagerActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".CreatePropertyManagerActivity"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".EditProperty"
-            android:exported="false">
-        </activity>
+            android:exported="false" />
         <activity
             android:name=".LandlordActivity"
-            android:exported="false">
-        </activity>
-
+            android:exported="false" />
     </application>
 
 </manifest>

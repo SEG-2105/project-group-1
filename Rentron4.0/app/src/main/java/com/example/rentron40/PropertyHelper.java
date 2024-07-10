@@ -1,5 +1,6 @@
 package com.example.rentron40;
 
+import android.app.admin.DevicePolicyManager;
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -183,6 +184,31 @@ public class PropertyHelper extends SQLiteOpenHelper {
             String query="UPDATE "+TABLE_NAME+" SET "+RENT_COLUMN+" = "+rent+ " WHERE "+ID_COLUMN+"="+id;
             db.execSQL(query);
         }
+    }
+    public List<PropertyModel> findPropertyForClients(PropertyModel property){
+        if(property!=null){
+            return findProperty(property.getRent(),1);
+        }
+        return findProperty(5000,0);
+    }
+    public List<PropertyModel> findProperty(int rent,int occupancy){
+        String query="SELECT*FROM "+TABLE_NAME;
+        boolean selectByRent=false;
+        if(rent!=0){
+            query+=" WHERE "+RENT_COLUMN+"<="+rent;
+            selectByRent=true;
+        }
+        if(occupancy==0){
+            if(selectByRent) {
+                query += " AND " + OCCUPIED_COLUMN + "=" + occupancy;
+
+            }
+            else {
+                query+=" WHERE "+ OCCUPIED_COLUMN +"="+occupancy;
+            }
+        }
+
+        return getProperties(query);
     }
 
     public PropertyModel getPropertyModel(int id) {

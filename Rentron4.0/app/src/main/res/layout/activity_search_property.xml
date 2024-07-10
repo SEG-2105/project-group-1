@@ -5,31 +5,31 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ClientActivity">
+    tools:context=".SearchPropertyActivity">
 
     <LinearLayout
-        android:layout_width="410dp"
-        android:layout_height="724dp"
+        android:layout_width="409dp"
+        android:layout_height="729dp"
         android:orientation="vertical"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="6dp">
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
 
         <Button
-            android:id="@+id/clientLogOff"
+            android:id="@+id/previousSearchButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Button" />
 
         <Button
-            android:id="@+id/clientSearchProperty"
+            android:id="@+id/filterSearchButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Search" />
+            android:text="Button" />
 
-        <Button
-            android:id="@+id/clientRequestMenu"
+        <ListView
+            android:id="@+id/propertyListSearch"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Requests" />
+            android:layout_height="match_parent" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

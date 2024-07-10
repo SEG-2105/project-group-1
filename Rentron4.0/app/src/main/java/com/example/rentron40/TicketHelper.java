@@ -1,7 +1,5 @@
 package com.example.rentron40;
 
-import static com.example.rentron40.RequestHelper.PROPERTYID_COLUMN;
-
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
@@ -42,19 +40,19 @@ public class TicketHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         onCreate(db);
     }
-    public void addRequest(RequestModel request){
+    public void addRequest(TicketModel ticket){
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues cv=new ContentValues();
-        cv.put(SENDERID_COLUMN,request.getSenderId());
-        cv.put(PROPERTYID_COLUMN,request.getPropertyId());
-        cv.put(RECIPIENTID_COLUMN,request.getRecipientId());
-        cv.put(ISACTIVE_COLUMN,request.getIsActive());
-        cv.put(TYPE_COLUMN,request.getType());
-        if(request.getRequestId()!=-1){
-            cv.put(RECIPIENTID_COLUMN,request.getRequestId());
+        cv.put(PROPERTYID_COLUMN,ticket.getPropertyId());
+        cv.put(TYPE_COLUMN,ticket.getType());
+        cv.put(URGENCY_COLUMN,ticket.getUrgency());
+        cv.put(MESSAGE_COLUMN,ticket.getMessage());
+        cv.put(DATE_COLUMN,ticket.getDate());
+        cv.put(STATUS_COLUMN,ticket.getStatus());
+        if(ticket.getId()!=-1){
+            cv.put(TICKETID_COLUMN,ticket.getId());
         }
         db.insert(TABLE_NAME,null,cv);
-
     }
     public List<TicketModel> getTickets(String query){
         SQLiteDatabase db=this.getReadableDatabase();

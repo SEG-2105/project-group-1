@@ -76,4 +76,16 @@ public class RequestModel {
     public void setType(int type) {
         this.type = type;
     }
+
+    @Override
+    public String toString() {
+        return "RequestModel{" +
+                "requestId=" + requestId +
+                ", senderId=" + senderId +
+                ", propertyId=" + propertyId +
+                ", recipientId=" + recipientId +
+                ", isActive=" + isActive +
+                ", type=" + type +
+                '}';
+    }
 }
