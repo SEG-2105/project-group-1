@@ -14,7 +14,7 @@ import androidx.core.view.WindowInsetsCompat;
 import org.w3c.dom.Text;
 
 public class ClientPropertyMenu extends AppCompatActivity {
-    Button previous,request;
+    Button previous,request,active,inactive;
     TextView rent;
     PropertyHelper propertyHelper;
     RequestHelper requestHelper;
@@ -45,6 +45,8 @@ public class ClientPropertyMenu extends AppCompatActivity {
         previous=findViewById(R.id.clientPropertyMenuPrevious);
         rent=findViewById(R.id.clientPropertyMenuRent);
         request=findViewById(R.id.clientPropertyMenuRequest);
+        active=findViewById(R.id.clientRequestMenuActive);
+        inactive=findViewById(R.id.clientRequestMenuInactive);
     }
     private void setEventListeners() {
         previous.setOnClickListener(new View.OnClickListener() {
@@ -65,7 +67,10 @@ public class ClientPropertyMenu extends AppCompatActivity {
                 RequestModel request=new RequestModel(propertyId,
                         senderId,recipientId,type,isActive);
                 requestHelper.addRequest(request);
+                SearchPropertyActivity.property=null;
+                startActivity(new Intent(getApplicationContext(),SearchPropertyActivity.class));
             }});
+
 
     }
 

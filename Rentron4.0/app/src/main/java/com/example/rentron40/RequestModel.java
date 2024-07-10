@@ -35,6 +35,7 @@ public class RequestModel {
         this.recipientId = recipientId;
         this.type = type;
         this.isActive=1;
+        this.requestId=-1;
     }
 
     public int getRequestId() {

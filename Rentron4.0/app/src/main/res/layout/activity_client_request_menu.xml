@@ -20,6 +20,24 @@
             android:layout_height="wrap_content"
             android:text="Button" />
 
+        <Button
+            android:id="@+id/clientRequestMenuActive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/clientRequestMenuInactive"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/clientRequestMenuAll"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
         <ListView
             android:id="@+id/clientRequestMenuList"
             android:layout_width="match_parent"

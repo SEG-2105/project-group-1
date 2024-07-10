@@ -18,8 +18,9 @@ import java.util.List;
 
 public class ClientRequestMenuActivity extends AppCompatActivity {
     ListView requestList;
-    Button previous;
+    Button previous,active,inactive,all;
     RequestHelper requestHelper;
+
     public static RequestModel request;
 
     @Override
@@ -41,6 +42,9 @@ public class ClientRequestMenuActivity extends AppCompatActivity {
     private void init() {
         requestList = findViewById(R.id.clientRequestMenuList);
         previous = findViewById(R.id.clientRequestMenuPrevious);
+        active=findViewById(R.id.clientRequestMenuActive);
+        inactive=findViewById(R.id.clientRequestMenuInactive);
+        all=findViewById(R.id.clientRequestMenuAll);
     }
 
     private void setEventListeners() {
@@ -57,6 +61,28 @@ public class ClientRequestMenuActivity extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(), ClientActivity.class));
             }
         });
+        active.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateDisplayedRequests(1);
+            }
+        });
+        inactive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateDisplayedRequests(0);
+            }
+        });
+        all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateDisplayedRequests();
+            }
+        });
+    }
+    private void updateDisplayedRequests(int active){
+        List<RequestModel> requests=requestHelper.findRequests(-1,MainActivity.user.getId(),-1,-1,-1,-1);
+        updateDisplayedRequests(requests);
     }
     private void updateDisplayedRequests(){
         List<RequestModel> requests=requestHelper.findRequests(-1,MainActivity.user.getId(),-1,-1,-1,-1);
