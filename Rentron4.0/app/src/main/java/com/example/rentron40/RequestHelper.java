@@ -19,7 +19,7 @@ public class RequestHelper extends SQLiteOpenHelper {
     private static final String PROPERTYID_COLUMN = "property" ;
     private static final String RECIPIENTID_COLUMN = "recipient" ;
     private static final String ISACTIVE_COLUMN = "active" ;
-
+    private static final String TYPE_COLUMN = "type";
 
     public RequestHelper(@Nullable Context context) {
         super(context, TABLE_NAME+"s.db",null,1);
@@ -30,7 +30,7 @@ public class RequestHelper extends SQLiteOpenHelper {
         String tableCreationStatement="CREATE TABLE "+ TABLE_NAME+
                 "("+REQUESTID_COLUMN+" INTEGER PRIMARY KEY AUTOINCREMENT , " +
                 SENDERID_COLUMN+" INTEGER ,"+PROPERTYID_COLUMN +"INTEGER ,"+
-                RECIPIENTID_COLUMN +" INTEGER ,"+ ISACTIVE_COLUMN+" INTEGER);";
+                RECIPIENTID_COLUMN +" INTEGER ,"+TYPE_COLUMN+" INTEGER,"+ ISACTIVE_COLUMN+" INTEGER);";
         db.execSQL(tableCreationStatement);
     }
 
@@ -46,6 +46,7 @@ public class RequestHelper extends SQLiteOpenHelper {
         cv.put(PROPERTYID_COLUMN,request.getPropertyId());
         cv.put(RECIPIENTID_COLUMN,request.getRecipientId());
         cv.put(ISACTIVE_COLUMN,request.getIsActive());
+        cv.put(TYPE_COLUMN,request.getType());
         if(request.getRequestId()!=-1){
             cv.put(RECIPIENTID_COLUMN,request.getRequestId());
         }
@@ -63,7 +64,8 @@ public class RequestHelper extends SQLiteOpenHelper {
                         cursor.getInt(1),
                         cursor.getInt(2),
                         cursor.getInt(3),
-                        cursor.getInt(4)
+                        cursor.getInt(4),
+                        cursor.getInt(5)
                 );
                 requests.add(property);
             }while(cursor.moveToNext());
@@ -75,9 +77,10 @@ public class RequestHelper extends SQLiteOpenHelper {
         return getRequests(query);
     }
     public List<RequestModel> getPropertyClientRequests(int landlordId,int propertyId){
-        findRequests(-1,-1,propertyId,landlordId,1);
+        return findRequests(-1,-1,propertyId,landlordId,0,1);
     }
-    public List<RequestModel> findRequests(int requestId,int senderId, int propertyId,int recipientId,int active){
+    public List<RequestModel> findRequests(int requestId,int senderId, int propertyId
+            ,int recipientId,int type,int active){
         String query="SELECT * FROM "+TABLE_NAME;
         boolean selectById=false;
         if(requestId!=-1){
@@ -115,8 +118,18 @@ public class RequestHelper extends SQLiteOpenHelper {
             }
             selectByRecipient=true;
         }
-        if(active!=-1){
+        boolean selectByType=false;
+        if(type!=-1){
             if(selectById || selectByProperty || selectBySender || selectByRecipient){
+                query+=" AND "+TYPE_COLUMN+"="+type;
+            }
+            else{
+                query+=" WHERE "+TYPE_COLUMN+"="+type;
+            }
+            selectByType=true;
+        }
+        if(active!=-1){
+            if(selectById || selectByProperty || selectBySender || selectByRecipient||selectByType){
                 query+=" AND "+ISACTIVE_COLUMN+"="+active;
             }
             else{

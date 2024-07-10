@@ -47,4 +47,5 @@ public class Ticket {
             throw new IllegalArgumentException("Urgency must be between 1 and 5 where 1 is low urgency and 5 is high urgency");
         }
     }
+
 }
