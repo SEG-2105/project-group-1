@@ -18,59 +18,67 @@
             android:id="@+id/filtersPrevious"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Previous" />
 
         <EditText
             android:id="@+id/filtersRent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="number"
+            android:hint="Rent"/>
 
         <EditText
             android:id="@+id/filtersRooms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="number"
+            android:hint="Rooms"/>
 
         <EditText
             android:id="@+id/filtersBathrooms"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="number"
+            android:hint="Bathrooms"/>
 
         <EditText
             android:id="@+id/filtersFloors"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="number"
+            android:hint="Floors"/>
 
         <EditText
             android:id="@+id/filtersArea"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="number"
+            android:hint="Area"/>
 
         <EditText
             android:id="@+id/filtersParking"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number" />
+            android:inputType="number"
+            android:hint="Parking"/>
 
         <Spinner
             android:id="@+id/filtersType"
             android:layout_width="match_parent"
-            android:layout_height="65dp" />
+            android:layout_height="65dp"
+            android:hint="Type"/>
 
         <Button
-            android:id="@+id/filtersSet"
+            android:id="@+id/filtersSubmit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Button" />
+
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

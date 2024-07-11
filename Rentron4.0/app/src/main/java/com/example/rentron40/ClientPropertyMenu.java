@@ -15,7 +15,7 @@ import org.w3c.dom.Text;
 
 public class ClientPropertyMenu extends AppCompatActivity {
     Button previous,request,active,inactive;
-    TextView rent;
+    TextView rent,rooms,bathrooms,floors,parking,area;
     PropertyHelper propertyHelper;
     RequestHelper requestHelper;
     UserHelper userHelper;
@@ -39,6 +39,11 @@ public class ClientPropertyMenu extends AppCompatActivity {
     }
     private void setTextViews(){
         rent.setText(String.valueOf(SearchPropertyActivity.property.getRent()));
+        rooms.setText(String.valueOf(SearchPropertyActivity.property.getRooms()));
+        bathrooms.setText(String.valueOf(SearchPropertyActivity.property.getBathrooms()));
+        floors.setText(String.valueOf(SearchPropertyActivity.property.getFloors()));
+        parking.setText(String.valueOf(SearchPropertyActivity.property.getParking()));
+        area.setText(String.valueOf(SearchPropertyActivity.property.getArea()));
     }
 
     private void init(){
@@ -47,6 +52,11 @@ public class ClientPropertyMenu extends AppCompatActivity {
         request=findViewById(R.id.clientPropertyMenuRequest);
         active=findViewById(R.id.clientRequestMenuActive);
         inactive=findViewById(R.id.clientRequestMenuInactive);
+        rooms=findViewById(R.id.clientPropertyMenuRooms);
+        bathrooms=findViewById(R.id.clientPropertyMenuBathrooms);
+        floors=findViewById(R.id.clientPropertyMenuFloors);
+        parking=findViewById(R.id.clientPropertyMenuParking);
+        area=findViewById(R.id.clientPropertyMenuArea);
     }
     private void setEventListeners() {
         previous.setOnClickListener(new View.OnClickListener() {
@@ -70,8 +80,6 @@ public class ClientPropertyMenu extends AppCompatActivity {
                 SearchPropertyActivity.property=null;
                 startActivity(new Intent(getApplicationContext(),SearchPropertyActivity.class));
             }});
-
-
     }
 
 

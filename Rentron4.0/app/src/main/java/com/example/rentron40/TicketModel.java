@@ -20,6 +20,7 @@ public class TicketModel {
     }
 
     public TicketModel(int propertyId, String type, int urgency, String message, String date) {
+        this.id=-1;
         this.propertyId = propertyId;
         this.type = type;
         this.urgency = urgency;

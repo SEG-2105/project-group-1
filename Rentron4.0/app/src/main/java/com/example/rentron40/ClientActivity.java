@@ -34,6 +34,7 @@ public class ClientActivity extends AppCompatActivity {
         logoff=findViewById(R.id.clientLogOff);
         search=findViewById(R.id.clientSearchProperty);
         requests=findViewById(R.id.clientRequestMenu);
+        tickets=findViewById(R.id.clientPropertyManager);
     }
     private void setEventListeners(){
         logoff.setOnClickListener(new View.OnClickListener() {
@@ -53,6 +54,12 @@ public class ClientActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(getApplicationContext(), ClientRequestMenuActivity.class));
+            }
+        });
+        tickets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),ClientPropertyManager.class));
             }
         });
 

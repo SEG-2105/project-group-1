@@ -23,8 +23,9 @@ public class ClientFinder extends AppCompatActivity {
     PropertyHelper propertyHelper;
     ListView clientList;
     TextView name,birthyear;
-    Button add,previous;
-    UserModel user;
+    Button add,previous,active,inactive,all;
+    RequestModel user;
+    public static RequestHelper requestHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +39,7 @@ public class ClientFinder extends AppCompatActivity {
         });
         userHelper=new UserHelper(this);
         propertyHelper=new PropertyHelper(this);
+        requestHelper=new RequestHelper(this);
         init();
         setEventListeners();
         updateDisplayedClients();
@@ -48,19 +50,27 @@ public class ClientFinder extends AppCompatActivity {
         birthyear=findViewById(R.id.clientFinderBirthYear);
         add=findViewById(R.id.clientFinderButtonAdd);
         previous=findViewById(R.id.clientFinderButtonPrevious);
+        active=findViewById(R.id.clientFinderActive);
+        inactive=findViewById(R.id.clientFinderInactive);
+        all=findViewById(R.id.clientFinderAll);
+
     }
     private void setEventListeners(){
         clientList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                user=(UserModel) clientList.getItemAtPosition(position);
+                user=(RequestModel) clientList.getItemAtPosition(position);
+                name.setText(userHelper.getName(user.getSenderId()));
+                birthyear.setText(String.valueOf(userHelper.getBirthYear(user.getSenderId())));
             }
         });
         add.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 if(user!=null) {
-                    propertyHelper.updateClient(LandlordActivity.property.getId(), user.getId());
+                    propertyHelper.updateClient(LandlordActivity.property.getId(), user.getSenderId());
+                    requestHelper.updateActive(user.getPropertyId(),user.getSenderId());
+                    requestHelper.deleteUserByProperty(LandlordActivity.property.getId(),user.getRecipientId());
                     startActivity(new Intent(getApplicationContext(), LandlordActivity.class));
                 }
                 else{
@@ -75,15 +85,38 @@ public class ClientFinder extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),PropertyMenu.class));
             }
         });
+        active.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateDisplayedClients(1);
+            }
+        });
+        inactive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateDisplayedClients(0);
+            }
+        });
+        all.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                updateDisplayedClients();
+            }
+        });
+    }
+    private void updateDisplayedClients(int active){
+        List<RequestModel> requests=requestHelper.findRequests(-1,MainActivity.user.getId(),-1,-1,-1,active);
+        updateDisplayedClients(requests);
     }
 
     private void updateDisplayedClients(){
-        List<UserModel> properties=userHelper.getClients();
-        updateDisplayedClients(properties);
+        List<RequestModel> request=requestHelper.findRequests(-1,-1,
+                LandlordActivity.property.getId(),MainActivity.user.getId(),-1,-1);
+        updateDisplayedClients(request);
     }
-    private void updateDisplayedClients(List<UserModel> users){
-        ArrayAdapter<UserModel> adapter=new ArrayAdapter<UserModel>(getApplicationContext(),
-                android.R.layout.simple_list_item_1,users);
+    private void updateDisplayedClients(List<RequestModel> request){
+        ArrayAdapter<RequestModel> adapter=new ArrayAdapter<RequestModel>(getApplicationContext(),
+                android.R.layout.simple_list_item_1,request);
         clientList.setAdapter(adapter);
     }
 }

@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.rentron40.Client$ClientFinder">
+    tools:context=".TicketMenuActivity">
 
     <LinearLayout
         android:layout_width="409dp"
@@ -14,53 +14,44 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
-        <TextView
-            android:id="@+id/clientFinderName"
-            android:textSize="@dimen/defaultTextSize"
+        <EditText
+            android:id="@+id/clientTicketMakerType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name" />
+            android:hint="Type"
+            />
 
-        <TextView
-            android:id="@+id/clientFinderBirthYear"
-            android:textSize="@dimen/defaultTextSize"
+        <EditText
+            android:id="@+id/clientTicketMakerUrgency"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="BirthYear" />
+            android:inputType="number"
+            android:hint="Urgency"/>
 
+        <EditText
+            android:id="@+id/clientTicketMakerMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Message"
+            />
+
+        <EditText
+            android:id="@+id/clientTicketMakerDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Date"
+            />
         <Button
-            android:id="@+id/clientFinderButtonAdd"
+            android:id="@+id/clientTicketMakerAdd"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add" />
-
+            android:text="Add"
+            />
         <Button
-            android:id="@+id/clientFinderButtonPrevious"
+            android:id="@+id/clientTicketMakerPrevious"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Previous" />
-
-        <Button
-            android:id="@+id/clientFinderActive"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="View Active" />
-
-        <Button
-            android:id="@+id/clientFinderInactive"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="View Inactive" />
-
-        <Button
-            android:id="@+id/clientFinderAll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="View All" />
-
-        <ListView
-            android:id="@+id/clientFinderClientList"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:text="Previous"
+            android:textSize="23dp"/>
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

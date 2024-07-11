@@ -22,7 +22,7 @@ public class TicketHelper extends SQLiteOpenHelper {
     private static final String URGENCY_COLUMN = "urgency";
     private static final String STATUS_COLUMN = "status";
 
-    public TicketHelper(@Nullable Context context, @Nullable String name, @Nullable SQLiteDatabase.CursorFactory factory, int version) {
+    public TicketHelper(@Nullable Context context) {
         super(context, "s.db", null, 1);
     }
 
@@ -40,7 +40,7 @@ public class TicketHelper extends SQLiteOpenHelper {
         db.execSQL("DROP TABLE IF EXISTS "+TABLE_NAME);
         onCreate(db);
     }
-    public void addRequest(TicketModel ticket){
+    public void addTicket(TicketModel ticket){
         SQLiteDatabase db=this.getWritableDatabase();
         ContentValues cv=new ContentValues();
         cv.put(PROPERTYID_COLUMN,ticket.getPropertyId());
@@ -74,7 +74,7 @@ public class TicketHelper extends SQLiteOpenHelper {
         }
         return tickets;
     }
-    public List<TicketModel> getAllRequests() {
+    public List<TicketModel> getAllTickets() {
         String query="SELECT * FROM "+TABLE_NAME;
         return getTickets(query);
     }
@@ -116,7 +116,7 @@ public class TicketHelper extends SQLiteOpenHelper {
     public void updateTicketStatus(int id,int status){
         SQLiteDatabase db=getWritableDatabase();
         String query="UPDATE "+TABLE_NAME+" SET "+STATUS_COLUMN+"="+status
-                +"WHERE "+TICKETID_COLUMN+"="+id;
+                +" WHERE "+TICKETID_COLUMN+"="+id;
         db.execSQL(query);
     }
 }

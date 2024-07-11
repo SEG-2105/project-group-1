@@ -18,13 +18,13 @@
             android:id="@+id/previousSearchButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Previous" />
 
         <Button
             android:id="@+id/filterSearchButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="Filter" />
 
         <ListView
             android:id="@+id/propertyListSearch"

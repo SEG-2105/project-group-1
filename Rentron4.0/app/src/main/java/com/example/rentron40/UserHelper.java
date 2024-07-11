@@ -74,7 +74,7 @@ public class UserHelper extends SQLiteOpenHelper {
                         cursor.getString(4),//email
                         cursor.getString(5),//password
                         cursor.getString(6),//address
-                        cursor.getInt(7)//birthyear
+                        cursor.getInt(7) //birthyear
                 );
                 users.add(user);
             }while(cursor.moveToNext());
@@ -175,6 +175,15 @@ public class UserHelper extends SQLiteOpenHelper {
         return firstName+" "+lastName;}
         catch(Exception e){
             return "This isn't assigned";
+        }
+    }
+    public int getBirthYear(int id){
+        try{
+            UserModel user=getUserModel(id);
+            return user.getBirthYear();
+
+        }catch(Exception e){
+            return -1;
         }
     }
     public List<UserModel> findEmail(String email){

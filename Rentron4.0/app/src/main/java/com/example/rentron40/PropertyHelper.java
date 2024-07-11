@@ -216,4 +216,14 @@ public class PropertyHelper extends SQLiteOpenHelper {
         String query="SELECT * FROM "+TABLE_NAME+" WHERE "+ID_COLUMN+"="+id;
         return getProperties(query).get(0);
     }
+    public PropertyModel getPropertyModel(int clientId,int m) {
+        SQLiteDatabase db=getReadableDatabase();
+        String query="SELECT * FROM "+TABLE_NAME+" WHERE "+CLIENT_COLUMN+"="+clientId;
+        return getProperties(query).get(0);
+    }
+    public List<PropertyModel> getProperties(int clientId) {
+        SQLiteDatabase db=getReadableDatabase();
+        String query="SELECT * FROM "+TABLE_NAME+" WHERE "+CLIENT_COLUMN+"="+clientId;
+        return getProperties(query);
+    }
 }

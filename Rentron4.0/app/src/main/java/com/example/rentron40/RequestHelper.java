@@ -141,4 +141,16 @@ public class RequestHelper extends SQLiteOpenHelper {
         }
         return getRequests(query);
     }
+    public void updateActive(int propertyId,int senderId){
+        SQLiteDatabase db=getWritableDatabase();
+        String query="UPDATE "+TABLE_NAME+" SET " +ISACTIVE_COLUMN +"="+0 +" WHERE "
+                +PROPERTYID_COLUMN+"="+propertyId + " AND " + SENDERID_COLUMN + "="+senderId;
+        db.execSQL(query);
+    }
+    public void deleteUserByProperty(int propertyId,int recipientId){
+        SQLiteDatabase db=getWritableDatabase();
+         String query="DELETE FROM "+TABLE_NAME+" WHERE "+PROPERTYID_COLUMN+"="+propertyId +" AND "
+                 +RECIPIENTID_COLUMN+"="+recipientId+" AND "+ISACTIVE_COLUMN+"="+1;
+         db.execSQL(query);
+    }
 }

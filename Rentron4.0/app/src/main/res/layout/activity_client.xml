@@ -18,7 +18,7 @@
             android:id="@+id/clientLogOff"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Button" />
+            android:text="LogOff" />
 
         <Button
             android:id="@+id/clientSearchProperty"
@@ -31,5 +31,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Requests" />
+
+        <Button
+            android:id="@+id/clientPropertyManager"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tickets" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -15,7 +15,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class PropertyMenu extends AppCompatActivity {
     TextView address,rent,client,landlord,propertyManager,floors,rooms,type,bathrooms,area;
     UserHelper userHelper;
-    Button back, getPm,getCl,edit,evict;
+    Button back, getPm,getCl,edit,evict,tickets;
     PropertyHelper propertyHelper;
 
     @Override
@@ -50,6 +50,7 @@ public class PropertyMenu extends AppCompatActivity {
         bathrooms=findViewById(R.id.propertyMenuBathrooms);
         area=findViewById(R.id.propertyMenuArea);
         evict=findViewById(R.id.evictButtonPropertyMenu);
+        tickets=findViewById(R.id.ticketButtonPropertyMenu);
     }
     private void setTextViews(){
         address.setText("Address :"+LandlordActivity.property.getAddress().toString());
@@ -96,6 +97,12 @@ public class PropertyMenu extends AppCompatActivity {
                 propertyHelper.updateClient(LandlordActivity.property.getId(),-1);
                 LandlordActivity.property=propertyHelper.getPropertyModel(LandlordActivity.property.getId());
                 setTextViews();
+            }
+        });
+        tickets.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),TicketMenuActivity.class));
             }
         });
     }

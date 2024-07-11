@@ -41,7 +41,7 @@ public class ClientPropertyFilterActivity extends AppCompatActivity {
         parking=findViewById(R.id.filtersParking);
         type=findViewById(R.id.filtersType);
         previous=findViewById(R.id.filtersPrevious);
-        submit=findViewById(R.id.filtersSet);
+        submit=findViewById(R.id.filtersSubmit);
     }
     private void setEventListeners(){
         previous.setOnClickListener(new View.OnClickListener() {

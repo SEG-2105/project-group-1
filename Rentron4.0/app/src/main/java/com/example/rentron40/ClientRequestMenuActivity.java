@@ -81,7 +81,7 @@ public class ClientRequestMenuActivity extends AppCompatActivity {
         });
     }
     private void updateDisplayedRequests(int active){
-        List<RequestModel> requests=requestHelper.findRequests(-1,MainActivity.user.getId(),-1,-1,-1,-1);
+        List<RequestModel> requests=requestHelper.findRequests(-1,MainActivity.user.getId(),-1,-1,-1,active);
         updateDisplayedRequests(requests);
     }
     private void updateDisplayedRequests(){

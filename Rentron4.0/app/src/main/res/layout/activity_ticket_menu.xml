@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.rentron40.Client$ClientFinder">
+    tools:context=".TicketMenuActivity">
 
     <LinearLayout
         android:layout_width="409dp"
@@ -15,51 +15,48 @@
         tools:layout_editor_absoluteY="1dp">
 
         <TextView
-            android:id="@+id/clientFinderName"
-            android:textSize="@dimen/defaultTextSize"
+            android:id="@+id/ticketMenuType"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Name" />
+            android:hint="Type"
+            android:textSize="23dp"/>
 
         <TextView
-            android:id="@+id/clientFinderBirthYear"
-            android:textSize="@dimen/defaultTextSize"
+            android:id="@+id/ticketMenuUrgency"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="BirthYear" />
+            android:hint="Urgency"
+            android:textSize="23dp"/>
+
+        <TextView
+            android:id="@+id/ticketMenuMessage"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Message"
+            android:textSize="23dp"/>
+
+        <TextView
+            android:id="@+id/ticketMenuDate"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Date"
+            android:textSize="23dp"/>
+        <TextView
+            android:id="@+id/ticketMenuStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Status"
+            android:textSize="23dp"/>
 
         <Button
-            android:id="@+id/clientFinderButtonAdd"
+            android:id="@+id/ticketMenuPrevious"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Add" />
-
-        <Button
-            android:id="@+id/clientFinderButtonPrevious"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Previous" />
-
-        <Button
-            android:id="@+id/clientFinderActive"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="View Active" />
-
-        <Button
-            android:id="@+id/clientFinderInactive"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="View Inactive" />
-
-        <Button
-            android:id="@+id/clientFinderAll"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="View All" />
+            android:text="Previous"
+            android:textSize="23dp"/>
 
         <ListView
-            android:id="@+id/clientFinderClientList"
+            android:id="@+id/ticketMenuList"
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
     </LinearLayout>

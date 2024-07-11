@@ -2,6 +2,7 @@ package com.example.rentron40;
 
 import android.os.Bundle;
 import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +11,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class RequestActivity extends AppCompatActivity {
-    EditText message,email;
+    TextView firstName,lastName,birthYear;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,5 +23,7 @@ public class RequestActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+    }
+    public void init(){
     }
 }
