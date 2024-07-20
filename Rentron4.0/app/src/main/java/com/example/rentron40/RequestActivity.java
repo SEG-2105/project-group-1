@@ -25,5 +25,6 @@ public class RequestActivity extends AppCompatActivity {
         });
     }
     public void init(){
+
     }
 }

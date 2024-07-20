@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".activities.PropertyRequestActivity">
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <TextView
+            android:id="@+id/rentTextPropertyRequest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="@dimen/defaultTextSize" />
+
+        <TextView
+            android:id="@+id/floorsTextPropertyRequest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="@dimen/defaultTextSize" />
+
+        <TextView
+            android:id="@+id/bathroomsTextPropertyRequest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="@dimen/defaultTextSize" />
+
+        <TextView
+            android:id="@+id/clientTextPropertyRequest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="@dimen/defaultTextSize" />
+
+        <TextView
+            android:id="@+id/roomsTextPropertyRequest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="@dimen/defaultTextSize" />
+
+        <TextView
+            android:id="@+id/typeTextPropertyRequest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="@dimen/defaultTextSize" />
+
+        <TextView
+            android:id="@+id/addressTextPropertyRequest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="@dimen/defaultTextSize" />
+
+        <TextView
+            android:id="@+id/areaTextPropertyRequest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="@dimen/defaultTextSize" />
+
+        <TextView
+            android:id="@+id/pmTextPropertyRequest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="@dimen/defaultTextSize" />
+
+        <TextView
+            android:id="@+id/landlordTextPropertyRequest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TextView"
+            android:textSize="@dimen/defaultTextSize" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="49dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/hydroTextPropertyRequest"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/heatingTextPropertyRequest"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="TextView" />
+
+            <TextView
+                android:id="@+id/waterTextPropertyRequest"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="TextView" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/backButtonPropertyRequest"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="previous" />
+
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/requestButtonPropertyRequest"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Tickets" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

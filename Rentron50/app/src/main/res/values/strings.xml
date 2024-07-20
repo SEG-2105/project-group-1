@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">Rentron 5.0</string>
+    <string name="enter_email_address">Enter Email Address</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login">LogIn</string>
+    <string name="signup">Signup</string>
+    <string name="about_us">About Us</string>
+    <string name="loginFailure">Email or Password were incorrect</string>
+    <string name="back">Back</string>
+    <string name="requests">Requests</string>
+    <string name="filter">Filter</string>
+    <string name="my_properties">My Properties</string>
+    <string name="log_out">Log Out</string>
+    <string name="sign_up">Sign Up</string>
+    <string name="apartment_number">Apartment Number</string>
+    <string name="first_name">First Name</string>
+    <string name="last_name">Last Name</string>
+    <string name="email_address">Email Address</string>
+    <string name="password">Password</string>
+    <string name="birthyear">BirthYear</string>
+    <string name="street_number">Street Number</string>
+    <string name="street_name">Street Name</string>
+    <string name="postal_code">Postal Code</string>
+    <string name="rent">Rent</string>
+    <string name="rooms">Rooms</string>
+    <string name="bathrooms">Bathrooms</string>
+    <string name="floors">Floors</string>
+    <string name="area">Area</string>
+    <string name="parking">Parking</string>
+    <string name="set_filter">Set Filter</string>
+    <string name="register_property">Register Property</string>
+    <string name="previous">Previous</string>
+    <string name="name">Name</string>
+    <string name="submit">Submit</string>
+    <string name="make_ticket">Make Ticket</string>
+    <string name="resolve_ticket">Resolve Ticket</string>
+    <string name="closed_tickets">Closed Tickets</string>
+    <string name="active_tickets">Active Tickets</string>
+    <array name="userType">
+        <item>Client</item>
+        <item>Landlord</item>
+        <item>PropertyManager</item>
+    </array>
+    <array name="hydro">
+        <item>Hydro Not Included</item>
+        <item>Hydro Included</item>
+    </array>
+    <array name="water">
+        <item>Water Not Included</item>
+        <item>Water Included</item>
+    </array>
+    <array name="heating">
+        <item>Heating Not Included</item>
+        <item>Heating Included</item>
+    </array>
+    <array name="propertyType">
+        <item>Basement</item>
+        <item>Studio</item>
+        <item>Apartment</item>
+        <item>Townhouse</item>
+        <item>House</item>
+    </array>
+    <array name="ticketType">
+        <item>Maintenance</item>
+        <item>Security</item>
+        <item>Damage</item>
+        <item>Infestation</item>
+        <item></item>
+    </array>
+
+</resources>

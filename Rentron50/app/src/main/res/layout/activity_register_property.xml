@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activities.RegisterPropertyActivity">
+
+    <LinearLayout
+        android:layout_width="409dp"
+        android:layout_height="729dp"
+        android:orientation="vertical"
+        tools:layout_editor_absoluteX="1dp"
+        tools:layout_editor_absoluteY="1dp">
+
+        <Button
+            android:id="@+id/backButtonRegisterProperty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/back" />
+
+        <EditText
+            android:id="@+id/streetNumberEditRegisterProperty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/street_number"
+            android:text="0"/>
+
+        <EditText
+            android:id="@+id/streetNameEditRegisterProperty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/street_name"
+            android:text="0"/>
+
+
+        <EditText
+            android:id="@+id/postalCodeEditRegisterProperty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPostalAddress"
+            android:hint="@string/postal_code"
+            android:text="-1"/>
+
+        <EditText
+            android:id="@+id/aptNumberEditRegisterProperty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="text"
+            android:hint="@string/apartment_number"
+            android:text="A00"/>
+
+        <Spinner
+            android:id="@+id/typeSpinnerRegisterProperty"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:hint="What is the Property Type"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:text="0">
+
+            <Spinner
+                android:id="@+id/hydroSpinnerRegisterProperty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Is Hyrdo Included"/>
+
+            <Spinner
+                android:id="@+id/heatingSpinnerRegisterProperty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Is Heating Inclduded"/>
+
+            <Spinner
+                android:id="@+id/waterSpinnerRegisterProperty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:hint="Is Water Included"/>
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/rentEditRegisterProperty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/rent"
+            android:text="0"/>
+
+        <EditText
+            android:id="@+id/roomsEditRegisterProperty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/rooms"
+            android:text="0"/>
+
+        <EditText
+            android:id="@+id/bathroomsEditRegisterProperty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/bathrooms"
+            android:text="0"/>
+
+        <EditText
+            android:id="@+id/floorsEditRegisterProperty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/floors"
+            android:text="0"/>
+
+        <EditText
+            android:id="@+id/areaEditRegisterProperty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/area"
+            android:text="0"/>
+
+        <EditText
+            android:id="@+id/parkingEditRegisterProperty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="number"
+            android:hint="@string/parking"
+            android:text="0"/>
+
+        <Button
+            android:id="@+id/registerButtonRegisterProperty"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/set_filter" />
+
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
