@@ -27,54 +27,12 @@
                 android:layout_height="wrap_content"
                 android:text="@string/back" />
 
-            <EditText
-                android:id="@+id/streetNumberEditEditProperty"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/street_number"
-                android:inputType="number"
-                android:text="0" />
-
-            <EditText
-                android:id="@+id/streetNameEditEditProperty"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/street_name"
-                android:inputType="text"
-                android:text="0" />
-
-
-            <EditText
-                android:id="@+id/postalCodeEditEditProperty"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/postal_code"
-                android:inputType="textPostalAddress"
-                android:text="-1" />
-
-            <EditText
-                android:id="@+id/aptNumberEditEditProperty"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:ems="10"
-                android:hint="@string/apartment_number"
-                android:inputType="text"
-                android:text="A00" />
-
-            <Spinner
-                android:id="@+id/typeSpinnerEditProperty"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:hint="What is the Property Type" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="50dp"
                 android:orientation="horizontal"
-                android:text="0">
+                >
 
                 <Spinner
                     android:id="@+id/hydroSpinnerEditProperty"
@@ -105,7 +63,7 @@
                 android:ems="10"
                 android:hint="@string/rent"
                 android:inputType="number"
-                android:text="0" />
+                 />
 
             <EditText
                 android:id="@+id/roomsEditEditProperty"
@@ -114,7 +72,7 @@
                 android:ems="10"
                 android:hint="@string/rooms"
                 android:inputType="number"
-                android:text="0" />
+                 />
 
             <EditText
                 android:id="@+id/bathroomsEditEditProperty"
@@ -123,7 +81,7 @@
                 android:ems="10"
                 android:hint="@string/bathrooms"
                 android:inputType="number"
-                android:text="0" />
+                 />
 
             <EditText
                 android:id="@+id/floorsEditEditProperty"
@@ -132,7 +90,7 @@
                 android:ems="10"
                 android:hint="@string/floors"
                 android:inputType="number"
-                android:text="0" />
+                 />
 
             <EditText
                 android:id="@+id/areaEditEditProperty"
@@ -141,7 +99,7 @@
                 android:ems="10"
                 android:hint="@string/area"
                 android:inputType="number"
-                android:text="0" />
+                 />
 
             <EditText
                 android:id="@+id/parkingEditEditProperty"
@@ -150,13 +108,13 @@
                 android:ems="10"
                 android:hint="@string/parking"
                 android:inputType="number"
-                android:text="0" />
+                 />
 
             <Button
                 android:id="@+id/editButtonEditProperty"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/set_filter" />
+                android:text="Edit Property" />
 
         </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
