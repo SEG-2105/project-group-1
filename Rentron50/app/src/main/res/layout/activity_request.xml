@@ -14,6 +14,13 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
+        <TextView
+            android:id="@+id/textView11"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Request"
+            android:textSize="@dimen/defaultTextSize"/>
+
         <Button
             android:id="@+id/backButtonRequest"
             android:layout_width="match_parent"

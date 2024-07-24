@@ -1,6 +1,7 @@
 package com.example.rentron50.activities;
 
 import android.content.Intent;
+
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
@@ -18,13 +19,14 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.rentron50.R;
 import com.example.rentron50.classes.Client;
 import com.example.rentron50.classes.PropertyModel;
+import com.example.rentron50.classes.Address;
 
 import java.util.Locale;
 
 public class PropertyFilterClientActivity extends AppCompatActivity {
-    EditText streetName,streetNumber,postalCode,aptNumber,rent,rooms,bathrooms,floors,area,parking;
+    EditText city,country,rent,rooms,bathrooms,floors,area,parking;
     Spinner hydro, heating,water,type;
-    Button filter,back;
+    Button filter,back,reset;
     int hydroTemp,heatingTemp,waterTemp;
     String typeTemp;
 
@@ -55,6 +57,9 @@ public class PropertyFilterClientActivity extends AppCompatActivity {
         type=findViewById(R.id.typeSpinnerFilter);
         filter=findViewById(R.id.filterButtonFilter);
         back=findViewById(R.id.backButtonFilter);
+        city=findViewById(R.id.cityEditFilter);
+        country=findViewById(R.id.countryEditFilter);
+        reset=findViewById(R.id.resetButtonFilter);
     }
     private void setEventListeners(){
         back.setOnClickListener(new View.OnClickListener() {
@@ -96,12 +101,17 @@ public class PropertyFilterClientActivity extends AppCompatActivity {
                 } else {
                     ClientActivity.propertyFilter.setArea(Integer.parseInt(area.getEditableText().toString()));
                 }
-
+                Address ad=new Address();
+                if(!city.getEditableText().toString().isEmpty()){
+                    ad.setCity(city.getEditableText().toString());
+                }
+                if(!country.getEditableText().toString().isEmpty()){
+                    ad.setCountry(country.getEditableText().toString());
+                }
                 ClientActivity.propertyFilter.setType(typeTemp);
                 ClientActivity.propertyFilter.setHeating(heatingTemp);
                 ClientActivity.propertyFilter.setHeating(hydroTemp);
                 ClientActivity.propertyFilter.setWater(waterTemp);
-
                 startActivity(new Intent(getApplicationContext(),ClientActivity.class));
             }
         });
@@ -147,6 +157,13 @@ public class PropertyFilterClientActivity extends AppCompatActivity {
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
 
+            }
+        });
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ClientActivity.propertyFilter=null;
+                startActivity(new Intent(getApplicationContext(),ClientActivity.class));
             }
         });
     }

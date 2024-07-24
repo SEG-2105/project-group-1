@@ -14,6 +14,13 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
+        <TextView
+            android:id="@+id/textView8"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Property Manager Finder"
+            android:textSize="@dimen/defaultTextSize"/>
+
         <Button
             android:id="@+id/backButtonPropertyManagerFinder"
             android:layout_width="match_parent"
@@ -30,7 +37,13 @@
             android:id="@+id/emailTextPropertyManagerFinder"
             android:layout_width="match_parent"
             android:layout_height="42dp"
-            android:text="TextView" />
+            android:text="Email" />
+
+        <TextView
+            android:id="@+id/ratingTextPropertyManagerFinder"
+            android:layout_width="match_parent"
+            android:layout_height="42dp"
+            android:text="Rating" />
 
         <EditText
             android:id="@+id/commissionEditPropertyManagerFinder"
@@ -42,7 +55,7 @@
         <ListView
             android:id="@+id/propertyManagerListPropertyManagerFinder"
             android:layout_width="match_parent"
-            android:layout_height="459dp" />
+            android:layout_height="389dp" />
 
         <Button
             android:id="@+id/submitButtonPropertyManagerFinder"

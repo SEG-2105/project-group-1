@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -24,7 +25,8 @@ import com.example.rentron50.classes.UserHelper;
 import com.example.rentron50.classes.UserModel;
 
 public class RegisterPropertyActivity extends AppCompatActivity {
-    EditText streetName,streetNumber,postalCode,aptNumber,rent,rooms,bathrooms,floors,area,parking;
+    EditText streetName,streetNumber,postalCode,aptNumber,rent,rooms,bathrooms,floors,area,parking,
+    city,country;
     Spinner hydro, heating,water,type;
     Button register,back;
     int hydroTemp,heatingTemp,waterTemp;
@@ -67,6 +69,8 @@ public class RegisterPropertyActivity extends AppCompatActivity {
         type=findViewById(R.id.typeSpinnerRegisterProperty);
         register=findViewById(R.id.registerButtonRegisterProperty);
         back=findViewById(R.id.backButtonRegisterProperty);
+        city=findViewById(R.id.cityEditRegisterProperty);
+        country=findViewById(R.id.countryEditRegisterProperty);
     }
     private void setEventListeners(){
         back.setOnClickListener(new View.OnClickListener() {
@@ -78,29 +82,37 @@ public class RegisterPropertyActivity extends AppCompatActivity {
         register.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Address address=new Address(
-                        Integer.parseInt(streetNumber.getEditableText().toString()),
-                        streetName.getEditableText().toString(),
-                        new PostalCode(postalCode.getEditableText().toString()),
-                        aptNumber.getEditableText().toString()
-                );
-                PropertyModel property=new PropertyModel(
-                        Integer.parseInt(rent.getEditableText().toString()),
-                        typeTemp,
-                        address.toString(),
-                        Double.parseDouble(rooms.getEditableText().toString()),
-                        Double.parseDouble(bathrooms.getEditableText().toString()),
-                        Double.parseDouble(floors.getEditableText().toString()),
-                        Integer.parseInt(area.getEditableText().toString()),
-                        Integer.parseInt(parking.getEditableText().toString()),
-                        hydroTemp
-                        ,heatingTemp,
-                        waterTemp,
-                        user.getId()
-                );
-                propertyHelper.addProperty(property);
-                startActivity(new Intent(getApplicationContext(),LandlordActivity.class));
-            }
+                if(validate()){
+                    Address address=new Address(
+                            Integer.parseInt(streetNumber.getEditableText().toString()),
+                            streetName.getEditableText().toString(),
+                            new PostalCode(postalCode.getEditableText().toString()),
+                            aptNumber.getEditableText().toString(),
+                            city.getEditableText().toString(),
+                            country.getEditableText().toString()
+                    );
+                    PropertyModel property=new PropertyModel(
+                            Integer.parseInt(rent.getEditableText().toString()),
+                            typeTemp,
+                            address.toString(),
+                            Double.parseDouble(rooms.getEditableText().toString()),
+                            Double.parseDouble(bathrooms.getEditableText().toString()),
+                            Double.parseDouble(floors.getEditableText().toString()),
+                            Integer.parseInt(area.getEditableText().toString()),
+                            Integer.parseInt(parking.getEditableText().toString()),
+                            hydroTemp
+                            ,heatingTemp,
+                            waterTemp,
+                            user.getId()
+                    );
+                    propertyHelper.addProperty(property);
+                    startActivity(new Intent(getApplicationContext(),LandlordActivity.class));
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Make sur all fields are filled correctly",Toast.LENGTH_LONG).show();
+                }
+                }
+
         });
         hydro.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
@@ -164,6 +176,14 @@ public class RegisterPropertyActivity extends AppCompatActivity {
         water.setAdapter(waterAdapter);
         heating.setAdapter(heatingAdapter);
         type.setAdapter(typeAdapter);
+    }
+    private boolean validate(){
+        return !(streetName.getEditableText().toString().isEmpty()|| streetNumber.getEditableText().toString().isEmpty() ||
+                postalCode.getEditableText().toString().isEmpty() || rent.getEditableText().toString().isEmpty() ||
+                city.getEditableText().toString().isEmpty() || country.getEditableText().toString().isEmpty() ||
+                rooms.getEditableText().toString().isEmpty() || bathrooms.getEditableText().toString().isEmpty() ||
+                floors.getEditableText().toString().isEmpty() || area.getEditableText().toString().isEmpty() ||
+                parking.getEditableText().toString().isEmpty());
     }
 
 }

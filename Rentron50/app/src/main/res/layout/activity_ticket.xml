@@ -14,6 +14,12 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
+        <TextView
+            android:id="@+id/textView15"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Ticket"
+            android:textSize="@dimen/defaultTextSize"/>
         <Button
             android:id="@+id/backButtonTicket"
             android:layout_width="match_parent"
@@ -72,14 +78,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="Accept" />
 
             <Button
                 android:id="@+id/rejectButtonTicket"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="Button" />
+                android:text="Reject" />
         </LinearLayout>
 
         <Button
@@ -87,6 +93,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/resolve_ticket" />
+
+        <Spinner
+            android:id="@+id/ratingSpinnerTicket"
+            android:layout_width="match_parent"
+            android:layout_height="37dp" />
+
+        <Button
+            android:id="@+id/ratingButtonTicket"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Rate" />
 
         <ListView
             android:id="@+id/logListTicket"

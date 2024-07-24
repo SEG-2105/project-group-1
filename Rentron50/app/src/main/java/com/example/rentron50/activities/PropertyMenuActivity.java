@@ -19,6 +19,7 @@ import androidx.core.view.WindowInsetsCompat;
 import com.example.rentron50.R;
 import com.example.rentron50.classes.PropertyHelper;
 import com.example.rentron50.classes.PropertyModel;
+import com.example.rentron50.classes.TicketHelper;
 import com.example.rentron50.classes.UserHelper;
 import com.example.rentron50.classes.UserModel;
 
@@ -29,6 +30,7 @@ public class PropertyMenuActivity extends AppCompatActivity {
     Button back, getPm,getCl,edit,evict,tickets;
     PropertyHelper propertyHelper;
     PropertyModel property;
+    TicketHelper ticketHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +45,7 @@ public class PropertyMenuActivity extends AppCompatActivity {
         userHelper=new UserHelper(this);
         propertyHelper=new PropertyHelper(this);
         property=propertyHelper.getPropertyModel(MyPropertyActivity.propertyId);
+        ticketHelper=new TicketHelper(this);
         init();
         setTextViews();
         setEventListeners();
@@ -107,6 +110,7 @@ public class PropertyMenuActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(),"Client Could Not Be Evicted For Some Reason",Toast.LENGTH_LONG).show();
                 }
                 property=propertyHelper.getPropertyModel(MyPropertyActivity.propertyId);
+                ticketHelper.deleteTicketsForEviction(MyPropertyActivity.propertyId);
                 setTextViews();
             }
         });

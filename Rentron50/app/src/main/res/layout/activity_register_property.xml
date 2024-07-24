@@ -3,8 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".activities.RegisterPropertyActivity">
 
     <LinearLayout
@@ -13,6 +13,13 @@
         android:orientation="vertical"
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/property_registration_menu"
+            android:textSize="@dimen/defaultTextSize"/>
 
         <Button
             android:id="@+id/backButtonRegisterProperty"
@@ -25,18 +32,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number"
             android:hint="@string/street_number"
-            android:text="0"/>
+            android:inputType="number" />
 
         <EditText
             android:id="@+id/streetNameEditRegisterProperty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
             android:hint="@string/street_name"
-            android:text="0"/>
+            android:inputType="text" />
 
 
         <EditText
@@ -44,112 +49,140 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="textPostalAddress"
             android:hint="@string/postal_code"
-            android:text="-1"/>
+            android:inputType="textPostalAddress"
+            android:maxLength="6" />
 
         <EditText
             android:id="@+id/aptNumberEditRegisterProperty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="text"
             android:hint="@string/apartment_number"
-            android:text="A00"/>
+            android:inputType="text" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="51dp"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/cityEditRegisterProperty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/city"
+                android:inputType="text" />
+
+            <EditText
+                android:id="@+id/countryEditRegisterProperty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:hint="@string/country"
+                android:inputType="text" />
+        </LinearLayout>
 
         <Spinner
             android:id="@+id/typeSpinnerRegisterProperty"
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:hint="What is the Property Type"/>
+            android:hint="What is the Property Type" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="50dp"
-            android:orientation="horizontal"
-            android:text="0">
+            android:orientation="horizontal">
 
             <Spinner
                 android:id="@+id/hydroSpinnerRegisterProperty"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:hint="Is Hyrdo Included"/>
+                android:hint="Is Hyrdo Included" />
 
             <Spinner
                 android:id="@+id/heatingSpinnerRegisterProperty"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:hint="Is Heating Inclduded"/>
+                android:hint="Is Heating Inclduded" />
 
             <Spinner
                 android:id="@+id/waterSpinnerRegisterProperty"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:hint="Is Water Included"/>
+                android:hint="Is Water Included" />
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/rentEditRegisterProperty"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="@string/rent"
-            android:text="0"/>
+            android:layout_height="48dp"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/roomsEditRegisterProperty"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="@string/rooms"
-            android:text="0"/>
+            <EditText
+                android:id="@+id/rentEditRegisterProperty"
+                android:layout_width="194dp"
+                android:layout_height="48dp"
+                android:ems="10"
+                android:hint="@string/rent"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/roomsEditRegisterProperty"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:ems="10"
+                android:hint="@string/rooms"
+                android:inputType="number" />
+        </LinearLayout>
 
         <EditText
             android:id="@+id/bathroomsEditRegisterProperty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number"
             android:hint="@string/bathrooms"
-            android:text="0"/>
+            android:inputType="number" />
 
-        <EditText
-            android:id="@+id/floorsEditRegisterProperty"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="@string/floors"
-            android:text="0"/>
+            android:layout_height="51dp"
+            android:orientation="horizontal">
 
-        <EditText
-            android:id="@+id/areaEditRegisterProperty"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="@string/area"
-            android:text="0"/>
+            <EditText
+                android:id="@+id/floorsEditRegisterProperty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/floors"
+                android:inputType="number" />
+
+            <EditText
+                android:id="@+id/areaEditRegisterProperty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:hint="@string/area"
+                android:inputType="number" />
+        </LinearLayout>
 
         <EditText
             android:id="@+id/parkingEditRegisterProperty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:inputType="number"
             android:hint="@string/parking"
-            android:text="0"/>
+            android:inputType="number" />
 
         <Button
             android:id="@+id/registerButtonRegisterProperty"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/set_filter" />
+            android:text="@string/register_property" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

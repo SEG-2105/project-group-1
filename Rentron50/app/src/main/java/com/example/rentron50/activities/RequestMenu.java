@@ -27,7 +27,7 @@ import java.util.List;
 
 public class RequestMenu extends AppCompatActivity {
     ListView requestList;
-    Button back;
+    Button back,active,inactive;
     RequestHelper requestHelper;
     UserHelper userHelper;
     public static String mode;
@@ -68,6 +68,8 @@ public class RequestMenu extends AppCompatActivity {
     private void init(){
         back=findViewById(R.id.backButtonRequestMenu);
         requestList=findViewById(R.id.requestListRequestMenu);
+        active=findViewById(R.id.activeButtonTicketMenu);
+        inactive=findViewById(R.id.inactiveButtonTicketMenu);
     }
     private void setEventListeners(){
         back.setOnClickListener(new View.OnClickListener() {
@@ -102,6 +104,66 @@ public class RequestMenu extends AppCompatActivity {
                 startActivity(new Intent(getApplicationContext(),RequestActivity.class));
             }
         });
+        active.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch(user.getType()){
+                    case "Client":
+                        updateDisplayedClients(requestHelper.getActiveRequestsBySender(user.getId(),0));
+                        break;
+                    case "Landlord":
+                        switch(RequestMenu.mode){
+                            case "ClientFinder":
+                                updateDisplayedClients(requestHelper.getActiveClientPropertyRequests(property.getId()));
+                                break;
+                            case "PropertyManagerFinder":
+                                updateDisplayedClients(requestHelper.getActiveRequestsBySender(user.getId(),1));
+                                break;
+                        }
+
+
+                    case "PropertyManager":
+                        switch(RequestMenu.mode){
+                            case "ClientFinder":
+                                updateDisplayedClients(requestHelper.getActiveClientPropertyRequests(property.getId()));
+                                break;
+                            case "Normal":
+                                updateDisplayedClients(requestHelper.getActiveRequestsByRecipient(user.getId()));
+
+                        }
+                }
+
+            }
+        });
+        inactive.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                switch(user.getType()){
+                    case "Client":
+                        updateDisplayedClients(requestHelper.getInActiveRequestsBySender(user.getId(),0));
+                        break;
+                    case "Landlord":
+                        switch (RequestMenu.mode){
+                            case "ClientFinder":
+                                updateDisplayedClients(requestHelper.getInActiveClientPropertyRequests(property.getId()));
+                                break;
+                            case "PropertyManagerFinder":
+                                updateDisplayedClients(requestHelper.getInActiveRequestsBySender(user.getId(),1));
+                        }
+
+                        break;
+                    case "PropertyManager":
+                        switch(RequestMenu.mode){
+                            case "ClientFinder":
+                                updateDisplayedClients(requestHelper.getInActiveClientPropertyRequests(property.getId()));
+                                break;
+                            case "Normal":
+                                updateDisplayedClients(requestHelper.getInActiveRequestsByRecipient(user.getId(),1));
+
+                        }
+                }
+            }
+        });
     }
     private void updateDisplayedClients(){
         switch(user.getType()){
@@ -133,7 +195,6 @@ public class RequestMenu extends AppCompatActivity {
                 break;
 
         }
-
     }
     private void updateDisplayedClients(List<RequestModel> requests){
         ArrayAdapter<RequestModel> adapter=new ArrayAdapter<RequestModel>(getApplicationContext(),

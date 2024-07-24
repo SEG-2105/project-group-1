@@ -8,6 +8,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -22,7 +23,8 @@ import com.example.rentron50.classes.UserHelper;
 import com.example.rentron50.classes.UserModel;
 
 public class SignupActivity extends AppCompatActivity {
-    EditText firstName,lastName,password,birthYear,streetNumber, streetName, postalCode, aptNumber ,email;
+    EditText firstName,lastName,password,birthYear,email,
+            streetNumber, streetName, postalCode, aptNumber,city,country;
     Button signup,back;
     Spinner userType;
     UserHelper userHelper;
@@ -50,8 +52,11 @@ public class SignupActivity extends AppCompatActivity {
         streetNumber=findViewById(R.id.streetNumberEditSignup);
         streetName=findViewById(R.id.streetNameEditSignup);
         postalCode=findViewById(R.id.postalCodeEditSignup);
-        aptNumber=findViewById(R.id.emailAddressEditSignup);
+        aptNumber=findViewById(R.id.aptNumberEditSignup);
         email=findViewById(R.id.emailAddressEditSignup);
+        country=findViewById(R.id.countryEditSignup);
+        city=findViewById(R.id.cityEditSignup);
+
 
         signup=findViewById(R.id.signupButtonSignup);
         back=findViewById(R.id.backButtonSignup);
@@ -69,30 +74,38 @@ public class SignupActivity extends AppCompatActivity {
         userType.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                setVisibility(position);
                 signup.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        switch((String)userType.getItemAtPosition(position)){
-                            case "Client":
-                                UserModel user = new UserModel((String)userType.getItemAtPosition(position),firstName.getEditableText().toString(),lastName.getEditableText().toString(),
-                                        email.getEditableText().toString(),password.getEditableText().toString(),Integer.parseInt(birthYear.getEditableText().toString()));
-                                userHelper.addUser(user);
-                                startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                                break;
-                            case "Landlord":
-                                Address address=new Address(Integer.parseInt(streetNumber.getEditableText().toString())
-                                        ,streetName.getEditableText().toString(),new PostalCode(postalCode.getEditableText().toString()),aptNumber.getEditableText().toString());
-                                user = new UserModel((String)userType.getItemAtPosition(position),firstName.getEditableText().toString(),lastName.getEditableText().toString(),
-                                        email.getEditableText().toString(),password.getEditableText().toString(),address.toString());
-                                userHelper.addUser(user);
-                                startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                                break;
-                            case "PropertyManager":
-                                user = new UserModel((String)userType.getItemAtPosition(position),firstName.getEditableText().toString(),lastName.getEditableText().toString(),
-                                        email.getEditableText().toString(),password.getEditableText().toString());
-                                userHelper.addUser(user);
-                                startActivity(new Intent(getApplicationContext(),MainActivity.class));
-                                break;
+                        if(validate(position)){
+                                switch((String)userType.getItemAtPosition(position)){
+                                    case "Client":
+                                        UserModel user = new UserModel((String)userType.getItemAtPosition(position),firstName.getEditableText().toString(),lastName.getEditableText().toString(),
+                                                email.getEditableText().toString(),password.getEditableText().toString(),Integer.parseInt(birthYear.getEditableText().toString()));
+                                        userHelper.addUser(user);
+                                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                        break;
+                                    case "Landlord":
+                                        Address address=new Address(Integer.parseInt(streetNumber.getEditableText().toString())
+                                                ,streetName.getEditableText().toString(),new PostalCode(postalCode.getEditableText().toString())
+                                                ,aptNumber.getEditableText().toString(),city.getEditableText().toString(),country.getEditableText().toString());
+                                        user = new UserModel((String)userType.getItemAtPosition(position),firstName.getEditableText().toString(),lastName.getEditableText().toString(),
+                                                email.getEditableText().toString(),password.getEditableText().toString(),address.toString());
+                                        userHelper.addUser(user);
+                                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                        break;
+                                    case "PropertyManager":
+                                        user = new UserModel((String)userType.getItemAtPosition(position),firstName.getEditableText().toString(),lastName.getEditableText().toString(),
+                                                email.getEditableText().toString(),password.getEditableText().toString());
+                                        userHelper.addUser(user);
+                                        startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                        break;
+                                }
+
+                        }
+                        else{
+                            Toast.makeText(SignupActivity.this, "Make sure all fields are filled correctly", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });
@@ -110,5 +123,60 @@ public class SignupActivity extends AppCompatActivity {
         );
         userType.setAdapter(userTypeAdapter);
     }
+    private boolean validate(int type){
+        boolean ba;
+        boolean a=firstName.getEditableText().toString().isEmpty() || lastName.getEditableText().toString().isEmpty() || password.getEditableText().toString().isEmpty() || email.getEditableText().toString().isEmpty();
+        if(!birthYear.getEditableText().toString().isEmpty()){
+            ba=Integer.parseInt(birthYear.getEditableText().toString())>(2024-18)|| Integer.parseInt(birthYear.getEditableText().toString())<(2024-125);
+        }
+        else{
+            ba=false;
+        }
+
+        boolean b=birthYear.getEditableText().toString().isEmpty();
+        boolean c=streetName.getEditableText().toString().isEmpty() || streetNumber.getEditableText().toString().isEmpty()
+                || postalCode.getEditableText().toString().isEmpty() || city.getEditableText().toString().isEmpty()
+                || country.getEditableText().toString().isEmpty();
+        switch (type) {
+            case 0:
+                return !(a || b || ba);
+            case 1:
+                return !(a || c);
+            case 2:
+                return !a;
+        }
+        return false;
+    }
+    private void setVisibility(int type){
+        switch(type){
+            case 0:
+                birthYear.setVisibility(View.VISIBLE);
+                streetName.setVisibility(View.INVISIBLE);
+                streetNumber.setVisibility(View.INVISIBLE);
+                postalCode.setVisibility(View.INVISIBLE);
+                aptNumber.setVisibility(View.INVISIBLE);
+                country.setVisibility(View.INVISIBLE);
+                city.setVisibility(View.INVISIBLE);
+                break;
+            case 1:
+                birthYear.setVisibility(View.INVISIBLE);
+                streetName.setVisibility(View.VISIBLE);
+                streetNumber.setVisibility(View.VISIBLE);
+                postalCode.setVisibility(View.VISIBLE);
+                aptNumber.setVisibility(View.VISIBLE);
+                country.setVisibility(View.VISIBLE);
+                city.setVisibility(View.VISIBLE);
+                break;
+            case 2:
+                birthYear.setVisibility(View.INVISIBLE);
+                streetName.setVisibility(View.INVISIBLE);
+                streetNumber.setVisibility(View.INVISIBLE);
+                postalCode.setVisibility(View.INVISIBLE);
+                aptNumber.setVisibility(View.INVISIBLE);
+                country.setVisibility(View.INVISIBLE);
+                city.setVisibility(View.INVISIBLE);
+        }
+    }
+
 
 }

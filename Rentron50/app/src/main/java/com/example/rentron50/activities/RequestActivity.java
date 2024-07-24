@@ -93,6 +93,7 @@ public class RequestActivity extends AppCompatActivity {
         accept=findViewById(R.id.acceptButtonRequest);
         decline=findViewById(R.id.declineButtonRequest);
         active=findViewById(R.id.activeTextRequest);
+
     }
 
     private void setEventListeners(){
@@ -118,7 +119,7 @@ public class RequestActivity extends AppCompatActivity {
                                 back.callOnClick();
                                 break;
                             case "Normal":
-                                requestHelper.manageProperty(user.getId(),request.getRequestId());
+                                requestHelper.manageProperty(user.getId(),request.getRequestId(),request.getPropertyId());
                                 propertyHelper.updatePropertyManager(request.getPropertyId(),user.getId());
                                 back.callOnClick();
                                 break;
@@ -145,11 +146,20 @@ public class RequestActivity extends AppCompatActivity {
             case "Landlord":
                 accept.setVisibility(View.VISIBLE);
                 decline.setVisibility(View.VISIBLE);
+                if(request.getIsActive()==0){
+                    accept.setVisibility(View.INVISIBLE);
+                    decline.setVisibility(View.INVISIBLE);
+                }
                 break;
             case "PropertyManager":
                 accept.setVisibility(View.VISIBLE);
                 decline.setVisibility(View.VISIBLE);
+                if(request.getIsActive()==0){
+                    accept.setVisibility(View.INVISIBLE);
+                    decline.setVisibility(View.INVISIBLE);
+                }
                 break;
         }
+
     }
 }

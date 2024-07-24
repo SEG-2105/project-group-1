@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,6 +22,7 @@ import com.example.rentron50.classes.PropertyHelper;
 import com.example.rentron50.classes.PropertyModel;
 import com.example.rentron50.classes.RequestHelper;
 import com.example.rentron50.classes.RequestModel;
+import com.example.rentron50.classes.TicketHelper;
 import com.example.rentron50.classes.UserHelper;
 import com.example.rentron50.classes.UserModel;
 
@@ -28,10 +30,11 @@ import java.util.List;
 
 public class PropertyManagerFinderActivity extends AppCompatActivity {
     ListView pmList;
-    TextView name,email;
+    TextView name,email,rating;
     EditText comission;
     Button back,submit;
     RequestHelper requestHelper;
+    TicketHelper ticketHelper;
     PropertyHelper propertyHelper;
     UserHelper userHelper;
     UserModel user;
@@ -50,6 +53,7 @@ public class PropertyManagerFinderActivity extends AppCompatActivity {
         requestHelper=new RequestHelper(this);
         propertyHelper=new PropertyHelper(this);
         userHelper=new UserHelper(this);
+        ticketHelper=new TicketHelper(this);
         user=userHelper.getUserModel(MainActivity.eMail);
         property=propertyHelper.getPropertyModel(MyPropertyActivity.propertyId);
         init();
@@ -67,18 +71,24 @@ public class PropertyManagerFinderActivity extends AppCompatActivity {
         pmList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                UserModel user=(UserModel)pmList.getItemAtPosition(position);
-                name.setText(user.getName());
-                email.setText(user.getEmailAddress());
+                UserModel pm=(UserModel)pmList.getItemAtPosition(position);
+                name.setText(pm.getName());
+                email.setText(pm.getEmailAddress());
+                rating.setText(String.valueOf(ticketHelper.getPropertyManagerAverageRating(user.getId())));
                 submit.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        RequestModel request=new RequestModel(property.getId(),user.getId()
-                                ,user.getId(),1,1);
-                        requestHelper.addRequest(request);
-                        startActivity(new Intent(getApplicationContext(),PropertyMenuActivity.class));
-                    }
+                        @Override
+                        public void onClick(View v) {
+                            RequestMenu.mode="PropertyManagerFinder";
+                            try{RequestModel request=new RequestModel(property.getId(),user.getId()
+                                    ,pm.getId(),1,Integer.parseInt(comission.getEditableText().toString()));
+                            requestHelper.addRequest(request);
+                            startActivity(new Intent(getApplicationContext(),PropertyMenuActivity.class));}
+                            catch(Exception e){
+                                Toast.makeText(getApplicationContext(),"Please enter comission amount",Toast.LENGTH_LONG).show();
+                            }
+                        }
                 });
+
             }
         });
 
@@ -91,6 +101,7 @@ public class PropertyManagerFinderActivity extends AppCompatActivity {
         comission=findViewById(R.id.commissionEditPropertyManagerFinder);
         back=findViewById(R.id.backButtonPropertyManagerFinder);
         submit=findViewById(R.id.submitButtonPropertyManagerFinder);
+        rating=findViewById(R.id.ratingTextPropertyManagerFinder);
     }
     private void updateDisplayedClients(){
         List<UserModel> pms=userHelper.getPms();

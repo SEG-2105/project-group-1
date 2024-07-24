@@ -8,8 +8,10 @@ public class TicketModel {
     private String message;
     private String date;
     private int status;
+    private int pmID;
+    private int rating;
 
-    public TicketModel(int id, int propertyId, String type, int urgency, String message, String date, int status) {
+    public TicketModel(int id, int propertyId, int pmID,String type, int urgency, String message, String date, int status, int rating) {
         this.id = id;
         this.propertyId = propertyId;
         this.type = type;
@@ -17,9 +19,11 @@ public class TicketModel {
         this.message = message;
         this.date = date;
         this.status = status;
+        this.pmID = pmID;
+        this.rating = rating;
     }
 
-    public TicketModel(int propertyId, String type, int urgency, String message) {
+    public TicketModel(int propertyId,int pmID, String type, int urgency, String message) {
         this.id=-1;
         this.propertyId = propertyId;
         this.type = type;
@@ -27,6 +31,8 @@ public class TicketModel {
         this.message = message;
         this.date = new Date().toString();
         this.status =-1;
+        this.rating=-1;
+        this.pmID=pmID;
     }
 
     public int getId() {
@@ -91,5 +97,21 @@ public class TicketModel {
         String Status= (status==0)?"RESOLVED":(status==1)?"Rejected":(status==2)?"In Progress":"Limbo";
         ticket=ticket+Status;
         return ticket;
+    }
+
+    public int getPmID() {
+        return pmID;
+    }
+
+    public void setPmID(int pmID) {
+        this.pmID = pmID;
+    }
+
+    public int getRating() {
+        return rating;
+    }
+
+    public void setRating(int rating) {
+        this.rating = rating;
     }
 }

@@ -28,7 +28,7 @@ public class MyPropertyActivity extends AppCompatActivity {
     ListView myPropertyList;
     PropertyHelper propertyHelper;
     UserHelper userHelper;
-    public static int propertyId;
+    public static int propertyId=1;
     UserModel user;
 
     @Override
@@ -51,14 +51,6 @@ public class MyPropertyActivity extends AppCompatActivity {
     private void init(){
         back=findViewById(R.id.backButtonMyProperty);
         myPropertyList=findViewById(R.id.myPropertyList);
-    }
-    protected void onStart(){
-        super.onStart();
-        MainActivity.eMail=user.getEmailAddress();
-    }
-    protected void onResume(){
-        super.onResume();
-        MainActivity.eMail=user.getEmailAddress();
     }
     private void setEventListeners(){
         back.setOnClickListener(new View.OnClickListener() {

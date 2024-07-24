@@ -33,6 +33,8 @@ public class PropertyHelper extends SQLiteOpenHelper {
     public static final String CLIENT_COLUMN = "client";
     public static final String LANDLORD_COLUMN = "landlord";
     public static final String PROPERTYMANAGER_COLUMN = "propertymanager";
+    private static final String CITY_COLUMN = "city";
+    private static final String COUNTRY_COLUMN="country";
 
     public PropertyHelper(@Nullable Context context) {
         super(context, TABLE_NAME + "s.db", null, 1);
@@ -43,7 +45,8 @@ public class PropertyHelper extends SQLiteOpenHelper {
         String tableCreationStatement = "CREATE TABLE " + TABLE_NAME + "(" + ID_COLUMN + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 RENT_COLUMN + " INTEGER, " + TYPE_COLUMN + " TEXT, " + ADDRESS_COLUMN + " TEXT, " + ROOMS_COLUMN + " DOUBLE, " + BATHROOM_COLUMN + " DOUBLE, " + FLOORS_COLUMN + " DOUBLE," +
                 AREA_COLUMN + " INTEGER, " + PARKING_COLUMN + " INTEGER, " + HYDRO_COLUMN + " INTEGER, " + HEATING_COLUMN + " INTEGER, " +
-                WATER_COLUMN + " INTEGER, " + OCCUPIED_COLUMN + " INTEGER," + LANDLORD_COLUMN + " INTEGER, " + CLIENT_COLUMN + " INTEGER, " + PROPERTYMANAGER_COLUMN + " INTEGER);";
+                WATER_COLUMN + " INTEGER, " + OCCUPIED_COLUMN + " INTEGER," + LANDLORD_COLUMN + " INTEGER, " + CLIENT_COLUMN + " INTEGER, " +
+                PROPERTYMANAGER_COLUMN + " INTEGER,"+CITY_COLUMN+" TEXT, "+COUNTRY_COLUMN+" TEXT);";
         db.execSQL(tableCreationStatement);
     }
 
@@ -71,6 +74,8 @@ public class PropertyHelper extends SQLiteOpenHelper {
         cv.put(CLIENT_COLUMN, property.getClientId());
         cv.put(LANDLORD_COLUMN, property.getLandlordId());
         cv.put(PROPERTYMANAGER_COLUMN, property.getPropertyManagerId());
+        cv.put(CITY_COLUMN,property.getCity());
+        cv.put(COUNTRY_COLUMN,property.getCountry());
         if (property.getId() != PropertyModel.UNASSIGNED_ID) {
             cv.put(ID_COLUMN, property.getId());
         }
@@ -292,8 +297,37 @@ public class PropertyHelper extends SQLiteOpenHelper {
             }
             selectByWater = true;
         }
-        query += " AND " + OCCUPIED_COLUMN + "=" + 0 + " AND NOT " +
-                PROPERTYMANAGER_COLUMN + " = " + -1;
+        boolean selectByCity=false;
+        try{
+            if(property.getCity()!=null){
+                if (selectByRent || selectByArea || selectByRooms
+                        || selectByBathrooms || selectByFloors
+                        || selectByType || selectByParking || selectByHydro
+                        || selectByHeating||selectByWater) {
+                    query += " AND " + CITY_COLUMN + " LIKE " + property.getCity()+"%";
+                } else {
+                    query += " WHERE " + CITY_COLUMN + "LIKE " + property.getCity()+"%";
+                }
+                selectByCity = true;
+            }
+        }catch (Exception e){
+
+        }
+        boolean selectByCountry=false;
+
+        try{
+            if(property.getCountry()!=null){
+                if (selectByRent || selectByArea || selectByRooms
+                        || selectByBathrooms || selectByFloors
+                        || selectByType || selectByParking || selectByHydro
+                        || selectByHeating||selectByWater||selectByCity) {
+                    query += " AND " + COUNTRY_COLUMN + "LIKE " + property.getCountry()+"%";
+                } else {
+                    query += " WHERE " + COUNTRY_COLUMN + "LIKE " + property.getCountry()+"%";
+                }
+                selectByCountry = true;
+            }
+        }catch (Exception e){}
         return getProperties(query);
     }
 
@@ -364,7 +398,6 @@ public class PropertyHelper extends SQLiteOpenHelper {
         String query = "UPDATE " + TABLE_NAME + " SET " + HEATING_COLUMN + " = " + heating + " WHERE " + ID_COLUMN + "=" + propertyId+" AND "+OCCUPIED_COLUMN+"="+0;
         db.execSQL(query);
     }
-
     private void updateHydro(int hydro, int propertyId) {
         SQLiteDatabase db = getWritableDatabase();
         String query = "UPDATE " + TABLE_NAME + " SET " + HYDRO_COLUMN + " = " + hydro + " WHERE " + ID_COLUMN + "=" + propertyId+" AND "+OCCUPIED_COLUMN+"="+0;

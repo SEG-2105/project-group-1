@@ -36,6 +36,18 @@
     <string name="resolve_ticket">Resolve Ticket</string>
     <string name="closed_tickets">Closed Tickets</string>
     <string name="active_tickets">Active Tickets</string>
+    <string name="city">City</string>
+    <string name="country">Country</string>
+    <string name="client_menu">Client Menu</string>
+    <string name="my_property_menu">My Property Menu</string>
+    <string name="property_filter">Property Filter</string>
+    <string name="property_manager_menu">Property Manager Menu</string>
+    <string name="property_request_menu">Property Request Menu</string>
+    <string name="property_registration_menu">Property Registration Menu</string>
+    <string name="request_menu">Request Menu</string>
+    <string name="create_an_account">Create an Account</string>
+    <string name="ticket_maker">Ticket Maker</string>
+    <string name="reset">Reset</string>
     <array name="userType">
         <item>Client</item>
         <item>Landlord</item>
@@ -67,5 +79,16 @@
         <item>Infestation</item>
         <item></item>
     </array>
+    <string name="aboutUs">
+        We are a small team of developers at who are students at the
+        University of Ottawa. We are composed of people of members of different
+        fields and professions although we are united under one cause to
+        learn as much as we can while we are still here. Our goal is to do as much
+        as we can while we can and this project was indeed a challenge. I hope you enjoy
+        exploring the application and may use it as inspiration if you would like but be
+        wary of plagiarism.
+
+        The Mad Hinau Bases Inc.
+    </string>
 
 </resources>

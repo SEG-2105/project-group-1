@@ -14,48 +14,43 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
+        <TextView
+            android:id="@+id/textView6"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/property_filter"
+            android:textSize="@dimen/defaultTextSize"/>
+
         <Button
             android:id="@+id/backButtonFilter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/back" />
 
-        <EditText
-            android:id="@+id/streetNumberEditFilter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="number"
-            android:hint="@string/street_number"
-            />
 
-        <EditText
-            android:id="@+id/streetNameEditFilter"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:hint="@string/street_name"
-            />
+            android:layout_height="47dp"
+            android:orientation="horizontal">
 
+            <EditText
+                android:id="@+id/cityEditFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Name" />
 
-        <EditText
-            android:id="@+id/postalCodeEditFilter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="textPostalAddress"
-            android:hint="@string/postal_code"
-            android:text="-1"/>
-
-        <EditText
-            android:id="@+id/aptNumberEditFilter"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:ems="10"
-            android:inputType="text"
-            android:hint="@string/apartment_number"
-            android:text="A00"/>
+            <EditText
+                android:id="@+id/countryEditFilter"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:ems="10"
+                android:inputType="text"
+                android:hint="Name" />
+        </LinearLayout>
 
         <Spinner
             android:id="@+id/typeSpinnerFilter"
@@ -150,6 +145,12 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/set_filter" />
+
+        <Button
+            android:id="@+id/resetButtonFilter"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/reset" />
 
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>

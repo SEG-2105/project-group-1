@@ -21,6 +21,8 @@ public class TicketHelper extends SQLiteOpenHelper {
     private static final String PROPERTYID_COLUMN = "property";
     private static final String URGENCY_COLUMN = "urgency";
     private static final String STATUS_COLUMN = "status";
+    private static final String PROPERTYMANAGERID_COLUMN = "pmID";
+    private static final String RATING_COLUMN = "rating";
 
     public TicketHelper(@Nullable Context context) {
         super(context, "s.db", null, 1);
@@ -29,9 +31,9 @@ public class TicketHelper extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase db) {
         String tableCreationStatement="CREATE TABLE "+ TABLE_NAME+"("+TICKETID_COLUMN+
-                " INTEGER PRIMARY KEY AUTOINCREMENT, "+PROPERTYID_COLUMN+" INTEGER, "
+                " INTEGER PRIMARY KEY AUTOINCREMENT, "+PROPERTYID_COLUMN+" INTEGER, "+PROPERTYMANAGERID_COLUMN+" INTEGER,"
                 +TYPE_COLUMN +" TEXT,"+URGENCY_COLUMN+" INTEGER, "+MESSAGE_COLUMN+" TEXT, "
-                +DATE_COLUMN +" TEXT, "+ STATUS_COLUMN +" INTEGER)";
+                +DATE_COLUMN +" TEXT, "+ STATUS_COLUMN +" INTEGER,"+RATING_COLUMN+ " INTEGER)";
         db.execSQL(tableCreationStatement);
     }
 
@@ -49,6 +51,8 @@ public class TicketHelper extends SQLiteOpenHelper {
         cv.put(MESSAGE_COLUMN,ticket.getMessage());
         cv.put(DATE_COLUMN,ticket.getDate());
         cv.put(STATUS_COLUMN,ticket.getStatus());
+        cv.put(PROPERTYMANAGERID_COLUMN,ticket.getPmID());
+        cv.put(DATE_COLUMN,ticket.getDate());
         if(ticket.getId()!=-1){
             cv.put(TICKETID_COLUMN,ticket.getId());
         }
@@ -63,11 +67,13 @@ public class TicketHelper extends SQLiteOpenHelper {
                 TicketModel ticket=new TicketModel(
                         cursor.getInt(0),
                         cursor.getInt(1),
-                        cursor.getString(2),
-                        cursor.getInt(3),
-                        cursor.getString(4),
+                        cursor.getInt(2),
+                        cursor.getString(3),
+                        cursor.getInt(4),
                         cursor.getString(5),
-                        cursor.getInt(6)
+                        cursor.getString(6),
+                        cursor.getInt(7),
+                        cursor.getInt(8)
                 );
                 tickets.add(ticket);
             }while(cursor.moveToNext());
@@ -151,7 +157,7 @@ public class TicketHelper extends SQLiteOpenHelper {
 
     public List<TicketModel> getClosedTickets(int id) {
         String activeTicketStatement="SELECT*FROM "+TABLE_NAME+" WHERE "+PROPERTYID_COLUMN+"="+id+
-                " AND "+STATUS_COLUMN+"="+0;
+                " AND "+STATUS_COLUMN+"="+0+" OR "+STATUS_COLUMN+"="+1;
         return getTickets(activeTicketStatement);
     }
 
@@ -169,5 +175,31 @@ public class TicketHelper extends SQLiteOpenHelper {
     public int getMaxId(int propertyId) {
         List<TicketModel> tickets=getTicketByProperty(propertyId);
         return tickets.get(tickets.size()-1).getId();
+    }
+    public double getPropertyManagerAverageRating(int pmId){
+        try{
+            String propertyManagerRating="SELECT*FROM "+TABLE_NAME+" WHERE "+PROPERTYMANAGERID_COLUMN+"="+pmId;
+            List<TicketModel> tickets=getTickets(propertyManagerRating);
+            double sum=0;
+            for(int i=0;i<tickets.size();i++){
+                sum=tickets.get(i).getRating();
+            }
+            return sum/(tickets.size());
+        }catch (Exception e){
+            return 0;
+        }
+
+}
+
+    public void rateTicket(int ticketID, int pmID, int rat) {
+        SQLiteDatabase db=getWritableDatabase();
+        String updateRatingStatement="UPDATE "+TABLE_NAME+" SET "+RATING_COLUMN+"="+rat+
+                " WHERE "+TICKETID_COLUMN+"="+ticketID+" AND "+PROPERTYMANAGERID_COLUMN+"="+pmID;
+        db.execSQL(updateRatingStatement);
+    }
+    public void deleteTicketsForEviction(int propertyId){
+        SQLiteDatabase db=getWritableDatabase();
+        String deleteForEvictionStatement="DELETE FROM "+TABLE_NAME+" WHERE "+PROPERTYID_COLUMN+"="+propertyId;
+        db.execSQL(deleteForEvictionStatement);
     }
 }

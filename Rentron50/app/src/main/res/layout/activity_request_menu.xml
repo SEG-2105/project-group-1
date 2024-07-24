@@ -14,11 +14,38 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
+        <TextView
+            android:id="@+id/textView12"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/request_menu"
+            android:textSize="@dimen/defaultTextSize"/>
+
         <Button
             android:id="@+id/backButtonRequestMenu"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/previous"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/activeButtonTicketMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/active_tickets" />
+
+            <Button
+                android:id="@+id/inactiveButtonTicketMenu"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/closed_tickets" />
+        </LinearLayout>
 
         <ListView
             android:id="@+id/requestListRequestMenu"

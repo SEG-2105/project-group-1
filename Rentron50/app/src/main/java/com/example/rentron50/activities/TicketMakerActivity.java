@@ -49,6 +49,8 @@ public class TicketMakerActivity extends AppCompatActivity {
         });
         ticketHelper=new TicketHelper(this);
         logHelper=new LogHelper(this);
+        propertyHelper=new PropertyHelper(this);
+        property=propertyHelper.getPropertyModel(MyPropertyActivity.propertyId);
         init();
         setEventListeners();
         setSpinners();
@@ -70,8 +72,8 @@ public class TicketMakerActivity extends AppCompatActivity {
         submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                TicketModel ticketModel=new TicketModel(MyPropertyActivity.propertyId
-                        ,typeTemp,urgencyTemp,message.getEditableText().toString());
+                TicketModel ticketModel=new TicketModel(property.getId(),property.getPropertyManagerId(),
+                        typeTemp,urgencyTemp,message.getEditableText().toString());
                 ticketHelper.addTicket(ticketModel);
                 int ticketId=ticketHelper.getMaxId(MyPropertyActivity.propertyId);
                 logHelper.ticketInLimbo(ticketId);

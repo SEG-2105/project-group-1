@@ -12,6 +12,8 @@ public class PropertyModel {
     private double floors;
     private int area;
     private int parking;
+    private String country;
+    private String city;
 
     public int getHydro() {
         return hydro;
@@ -73,6 +75,8 @@ public class PropertyModel {
         this.clientId = clientId;
         this.occupied=occupied;
         this.propertyManagerId = propertyManagerId;
+        this.city=new Address(address).getCity();
+        this.country=new Address(address).getCountry();
     }
     public PropertyModel(int rent,
                          String type, String address,
@@ -96,13 +100,15 @@ public class PropertyModel {
         this.clientId = UNASSIGNED_CLIENTID;
         this.propertyManagerId = UNASSIGNED_PROPERTYMANAGER;
         this.occupied=UNASSIGNED_OCCUPANCY;
+        this.city=new Address(address).getCity();
+        this.country=new Address(address).getCountry();
     }
     public PropertyModel(int rent,
                          String type,
                          double rooms, double bathrooms, double floors,
                          int area, int parking,
-                         int hydro, int heating, int water
-                         ) {
+                         int hydro, int heating, int water,
+                         String address) {
         this.id = UNASSIGNED_ID;
         this.rent = rent;
         this.type = type;
@@ -119,28 +125,13 @@ public class PropertyModel {
         this.clientId = UNASSIGNED_CLIENTID;
         this.propertyManagerId = UNASSIGNED_PROPERTYMANAGER;
         this.occupied=UNASSIGNED_OCCUPANCY;
+        this.city=new Address(address).getCity();
+        this.country=new Address(address).getCountry();
     }
 
     @Override
-    public String toString() {
-        return "PropertyModel{" +
-                "id=" + id +
-                ", rent=" + rent +
-                ", type='" + type + '\'' +
-                ", address='" + address + '\'' +
-                ", rooms=" + rooms +
-                ", bathrooms=" + bathrooms +
-                ", floors=" + floors +
-                ", area=" + area +
-                ", parking=" + parking +
-                ", hyrdo=" + hydro +
-                ", heating=" + heating +
-                ", water=" + water +
-                ", occupied=" + occupied +
-                ", landlordId=" + landlordId +
-                ", clientId=" + clientId +
-                ", propertyManagerId=" + propertyManagerId +
-                '}';
+    public String toString(){
+        return address+" Rent: $"+rent+" "+type+" Rooms: "+rooms+" Bathrooms: "+bathrooms;
     }
 
     public PropertyModel(int rent,
@@ -161,10 +152,28 @@ public class PropertyModel {
         this.clientId = UNASSIGNED_CLIENTID;
         this.propertyManagerId = UNASSIGNED_PROPERTYMANAGER;
         this.occupied=UNASSIGNED_OCCUPANCY;
+        this.city=new Address(address).getCity();
+        this.country=new Address(address).getCountry();
     }
 
     public int isOccupied() {
         return occupied;
+    }
+
+    public String getCountry() {
+        return country;
+    }
+
+    public void setCountry(String country) {
+        this.country = country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public void setOccupied(int occupied) {

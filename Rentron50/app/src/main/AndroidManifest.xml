@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Rentron50"
         tools:targetApi="31">
         <activity
+            android:name=".activities.AboutUsActivity"
+            android:exported="false" />
+        <activity
             android:name=".activities.EditPropertyActivity"
             android:exported="false" />
         <activity

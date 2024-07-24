@@ -3,9 +3,11 @@ package com.example.rentron50.activities;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
@@ -18,6 +20,7 @@ import com.example.rentron50.R;
 import com.example.rentron50.classes.LogHelper;
 import com.example.rentron50.classes.LogModel;
 import com.example.rentron50.classes.PropertyHelper;
+import com.example.rentron50.classes.PropertyModel;
 import com.example.rentron50.classes.TicketHelper;
 import com.example.rentron50.classes.TicketModel;
 import com.example.rentron50.classes.UserHelper;
@@ -26,7 +29,7 @@ import com.example.rentron50.classes.UserModel;
 import java.util.List;
 
 public class TicketActivity extends AppCompatActivity {
-    Button back,resolve,accept,reject;
+    Button back,resolve,accept,reject,rate;
     TextView date,address,message,type,urgency,status;
     ListView logList;
     public static int ticketId;
@@ -34,9 +37,12 @@ public class TicketActivity extends AppCompatActivity {
     TicketHelper ticketHelper;
     UserHelper userHelper;
     PropertyHelper propertyHelper;
+    Spinner rating;
+    int rat;
+    PropertyModel property;
     LogHelper logHelper;
     UserModel user;
-
+    final String[] ratings={"Ratings","0","1","2","3","4","5"};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,8 +59,10 @@ public class TicketActivity extends AppCompatActivity {
         logHelper=new LogHelper(this);
         ticket=ticketHelper.getTicketById(ticketId);
         user=userHelper.getUserModel(MainActivity.eMail);
+        property=propertyHelper.getPropertyModel(MyPropertyActivity.propertyId);
         init();
         setEventListeners();
+        setSpinners();
         setTextViews();
         setVisibility();
         updateDisplayedLogs();
@@ -71,7 +79,8 @@ public class TicketActivity extends AppCompatActivity {
         logList=findViewById(R.id.logListTicket);
         accept=findViewById(R.id.acceptButtonTicket);
         reject=findViewById(R.id.rejectButtonTicket);
-
+        rating=findViewById(R.id.ratingSpinnerTicket);
+        rate=findViewById(R.id.ratingButtonTicket);
     }
     private void setEventListeners(){
         back.setOnClickListener(new View.OnClickListener() {
@@ -113,6 +122,29 @@ public class TicketActivity extends AppCompatActivity {
                 setVisibility();
             }
         });
+        rating.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                int rat=position-1;
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+
+            }
+        });
+        rate.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                ticketHelper.rateTicket(ticket.getId(),ticket.getPmID(),rat);
+            }
+        });
+    }
+    private void setSpinners(){
+        ArrayAdapter<CharSequence> ratingAdapter=new ArrayAdapter<>(
+                this, android.R.layout.simple_list_item_1,ratings
+        );
+        rating.setAdapter(ratingAdapter);
     }
     private void setTextViews(){
         date.setText(ticket.getDate());
@@ -128,12 +160,18 @@ public class TicketActivity extends AppCompatActivity {
                 resolve.setVisibility(View.VISIBLE);
                 accept.setVisibility(View.INVISIBLE);
                 reject.setVisibility(View.INVISIBLE);
+                rate.setVisibility(View.INVISIBLE);
+                rating.setVisibility(View.INVISIBLE);
                 if(ticket.getStatus()!=2){
                     resolve.setVisibility(View.INVISIBLE);
+                    rating.setVisibility(View.VISIBLE);
+                    rate.setVisibility(View.VISIBLE);
                 }
                 break;
             default:
                 resolve.setVisibility(View.INVISIBLE);
+                rate.setVisibility(View.INVISIBLE);
+                rating.setVisibility(View.INVISIBLE);
                 if(ticket.getStatus()!=-1){
                     accept.setVisibility(View.INVISIBLE);
                     reject.setVisibility(View.INVISIBLE);

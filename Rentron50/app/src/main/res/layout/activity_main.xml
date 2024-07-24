@@ -14,6 +14,13 @@
         tools:layout_editor_absoluteX="1dp"
         tools:layout_editor_absoluteY="1dp">
 
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Main Menu"
+            android:textSize="@dimen/defaultTextSize"/>
+
         <EditText
             android:id="@+id/loginEmail"
             android:layout_width="match_parent"

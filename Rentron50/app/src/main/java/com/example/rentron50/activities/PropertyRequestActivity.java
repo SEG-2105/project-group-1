@@ -51,7 +51,7 @@ public class PropertyRequestActivity extends AppCompatActivity {
     }
     private void init() {
         address=findViewById(R.id.addressTextPropertyRequest);
-        rent=findViewById(R.id.requestButtonPropertyRequest);
+        rent=findViewById(R.id.rentTextPropertyRequest);
         client=findViewById(R.id.clientTextPropertyRequest);
         landlord=findViewById(R.id.landlordTextPropertyRequest);
         propertyManager=findViewById(R.id.pmTextPropertyRequest);

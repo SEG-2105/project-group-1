@@ -19,6 +19,8 @@ public class RequestHelper extends SQLiteOpenHelper {
     private static final String RECIPIENTID_COLUMN = "recipient" ;
     private static final String ISACTIVE_COLUMN = "active" ;
     private static final String TYPE_COLUMN = "type";
+    private static final String COMISSION_COLUMN = "commission";
+    private static final String DATE_COLUMN = "date";
 
     public RequestHelper(@Nullable Context context) {
         super(context, TABLE_NAME+"s.db",null,1);
@@ -29,7 +31,8 @@ public class RequestHelper extends SQLiteOpenHelper {
         String tableCreationStatement="CREATE TABLE "+ TABLE_NAME+
                 "("+REQUESTID_COLUMN+" INTEGER PRIMARY KEY AUTOINCREMENT , " +
                 SENDERID_COLUMN+" INTEGER ,"+PROPERTYID_COLUMN +" INTEGER ,"+
-                RECIPIENTID_COLUMN +" INTEGER ,"+TYPE_COLUMN+" INTEGER,"+ ISACTIVE_COLUMN+" INTEGER);";
+                RECIPIENTID_COLUMN +" INTEGER ,"+TYPE_COLUMN+" INTEGER,"+ ISACTIVE_COLUMN+" INTEGER,"
+                +COMISSION_COLUMN+" INTEGER,"+DATE_COLUMN+" TEXT);";
         db.execSQL(tableCreationStatement);
     }
 
@@ -46,6 +49,8 @@ public class RequestHelper extends SQLiteOpenHelper {
         cv.put(RECIPIENTID_COLUMN,request.getRecipientId());
         cv.put(ISACTIVE_COLUMN,request.getIsActive());
         cv.put(TYPE_COLUMN,request.getType());
+        cv.put(COMISSION_COLUMN,request.getCommission());
+        cv.put(DATE_COLUMN,request.getDate());
         if(request.getRequestId()!=-1){
             cv.put(REQUESTID_COLUMN,request.getRequestId());
         }
@@ -64,7 +69,9 @@ public class RequestHelper extends SQLiteOpenHelper {
                         cursor.getInt(2),
                         cursor.getInt(3),
                         cursor.getInt(4),
-                        cursor.getInt(5)
+                        cursor.getInt(5),
+                        cursor.getInt(6),
+                        cursor.getString(7)
                 );
                 requests.add(property);
             }while(cursor.moveToNext());
@@ -76,13 +83,13 @@ public class RequestHelper extends SQLiteOpenHelper {
         return getRequests(query);
     }
     public List<RequestModel> getPropertyClientRequests(int landlordId,int propertyId){
-        return findRequests(-1,-1,propertyId,landlordId,0,1);
+        return findRequests(-1,-1,propertyId,landlordId,0,1,-1);
     }
     public List<RequestModel> getPropertyLandlordRequests(int propertyId){
-        return findRequests(-1,-1,propertyId,-1,0,1);
+        return findRequests(-1,-1,propertyId,-1,0,1,-1);
     }
     public List<RequestModel> findRequests(int requestId,int senderId, int propertyId
-            ,int recipientId,int type,int active){
+            ,int recipientId,int type,int active,int comission){
         String query="SELECT * FROM "+TABLE_NAME;
         boolean selectById=false;
         if(requestId!=-1){
@@ -130,12 +137,22 @@ public class RequestHelper extends SQLiteOpenHelper {
             }
             selectByType=true;
         }
+        boolean selectByActive=false;
         if(active!=-1){
             if(selectById || selectByProperty || selectBySender || selectByRecipient||selectByType){
                 query+=" AND "+ISACTIVE_COLUMN+"="+active;
             }
             else{
                 query+=" WHERE "+ISACTIVE_COLUMN+"="+active;
+            }
+            selectByActive=true;
+        }
+        if(comission!=-1){
+            if(selectById || selectByProperty || selectBySender || selectByRecipient||selectByType||selectByActive){
+                query+=" AND "+COMISSION_COLUMN+"=>"+comission;
+            }
+            else{
+                query+=" WHERE "+COMISSION_COLUMN+"=>"+comission;
             }
         }
         return getRequests(query);
@@ -146,25 +163,28 @@ public class RequestHelper extends SQLiteOpenHelper {
                 +PROPERTYID_COLUMN+"="+propertyId + " AND " + SENDERID_COLUMN + "="+senderId;
         db.execSQL(query);
     }
-    public void deleteUserByProperty(int propertyId,int recipientId){
+    public void deleteUserByProperty(int propertyId,int recipientId,int requestId){
         SQLiteDatabase db=getWritableDatabase();
          String query="DELETE FROM "+TABLE_NAME+" WHERE "+PROPERTYID_COLUMN+"="+propertyId +" AND "
-                 +RECIPIENTID_COLUMN+"="+recipientId+" AND "+ISACTIVE_COLUMN+"="+1;
+                 +RECIPIENTID_COLUMN+"="+recipientId+" AND "+ISACTIVE_COLUMN+"="+1+" AND "+requestId;
          db.execSQL(query);
     }
     public List<RequestModel> findRequestsBySenderId(int id){
-        return findRequests(-1,id,-1,-1,-1,-1);
+        return findRequests(-1,id,-1,-1,-1,-1,-1);
     }
     public List<RequestModel> findRequestsByUserId(int id){
-        return findRequests(-1,-1,-1,id,-1,-1);
+        return findRequests(-1,-1,-1,id,-1,-1,-1);
     }
 
     public List<RequestModel> getPropertyRequestsToPm(int landlordId, int propertyId) {
-        return findRequests(-1,landlordId,propertyId,-1,-1,-1);
+        return findRequests(-1,landlordId,propertyId,-1,-1,-1,-1);
     }
     public List<RequestModel> getRequestsForPm(int pmId){
-        return findRequests(-1,-1,-1,pmId,-1,-1);
+        String requestRetrievalByPropertyManagerStatement=""+
+                "SELECT*FROM "+TABLE_NAME+" WHERE "+RECIPIENTID_COLUMN+"="+pmId;
+        return getRequests(requestRetrievalByPropertyManagerStatement);
     }
+
 
 
     public void acceptClient(int propertyId,int senderId) {
@@ -180,13 +200,51 @@ public class RequestHelper extends SQLiteOpenHelper {
         db.execSQL(declineClients);
     }
 
-    public void manageProperty(int id, int requestId) {
+    public void manageProperty(int id, int requestId,int propertyId) {
         SQLiteDatabase db=getWritableDatabase();
-        String manageRequestConfirmationStatement="UPDATE "+TABLE_NAME+" SET "+ISACTIVE_COLUMN+"="+0+" WHERE "+requestId+"="+requestId +" AND "+RECIPIENTID_COLUMN+" = "+id;
+        String manageRequestConfirmationStatement="UPDATE "+TABLE_NAME+" SET "+ISACTIVE_COLUMN+"="+0+" WHERE "
+                +requestId+"="+requestId +" AND "+RECIPIENTID_COLUMN+" = "+id+" AND "+PROPERTYID_COLUMN+"="+propertyId;
         db.execSQL(manageRequestConfirmationStatement);
     }
 
     public List<RequestModel> getPropertyClientRequests(int id) {
-        return findRequests(-1,-1,id,-1,0,1);
+        return findRequests(-1,-1,id,-1,0,1,-1);
+    }
+    public List<RequestModel> getRequestByComission(int comission){
+        return findRequests(-1,-1,-1,-1,-1,-1,comission);
+    }
+
+    public List<RequestModel> getActiveRequestsByRecipient(int recipientId) {
+        String query="SELECT*FROM "+TABLE_NAME+" WHERE "+RECIPIENTID_COLUMN+"="+recipientId+" AND "+ISACTIVE_COLUMN+"="+1;
+        return getRequests(query);
+    }
+
+    public List<RequestModel> getInactiveRequestsByRecipient(int id,int type) {
+        String query="SELECT*FROM "+TABLE_NAME+" WHERE "+RECIPIENTID_COLUMN+"="+id+" AND "+ISACTIVE_COLUMN+"="+type;
+        return getRequests(query);
+    }
+
+    public List<RequestModel> getActiveRequestsBySender(int id,int type) {
+        String query="SELECT*FROM "+TABLE_NAME+" WHERE "+SENDERID_COLUMN+"="+id+" AND "+ISACTIVE_COLUMN+"="+0;
+        return getRequests(query);
+    }
+
+    public List<RequestModel> getActiveClientPropertyRequests(int propertyId) {
+        String query="SELECT*FROM "+TABLE_NAME+" WHERE "+PROPERTYID_COLUMN+"="+propertyId+" AND "+ISACTIVE_COLUMN+"="+1+" AND "+TYPE_COLUMN+"="+0;
+        return getRequests(query);
+    }
+    public List<RequestModel> getInActiveClientPropertyRequests(int propertyId) {
+        String query="SELECT*FROM "+TABLE_NAME+" WHERE "+PROPERTYID_COLUMN+"="+propertyId+" AND "+ISACTIVE_COLUMN+"="+0+" AND "+TYPE_COLUMN+"="+0;
+        return getRequests(query);
+    }
+
+    public List<RequestModel> getInActiveRequestsByRecipient(int id,int type) {
+        String query="SELECT*FROM "+TABLE_NAME+" WHERE "+RECIPIENTID_COLUMN+"="+id+" AND "+ISACTIVE_COLUMN+"="+0+" AND "+TYPE_COLUMN+"="+type;
+        return getRequests(query);
+    }
+
+    public List<RequestModel> getInActiveRequestsBySender(int id,int type) {
+        String query="SELECT*FROM "+TABLE_NAME+" WHERE "+SENDERID_COLUMN+"="+id+" AND "+ISACTIVE_COLUMN+"="+0+" AND "+TYPE_COLUMN+"="+type;
+        return getRequests(query);
     }
 }
