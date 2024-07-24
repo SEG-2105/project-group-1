@@ -74,7 +74,7 @@ public class PropertyManagerFinderActivity extends AppCompatActivity {
                 UserModel pm=(UserModel)pmList.getItemAtPosition(position);
                 name.setText(pm.getName());
                 email.setText(pm.getEmailAddress());
-                rating.setText(String.valueOf(ticketHelper.getPropertyManagerAverageRating(user.getId())));
+                rating.setText(String.valueOf(ticketHelper.getPropertyManagerAverageRating(pm.getId())));
                 submit.setOnClickListener(new View.OnClickListener() {
                         @Override
                         public void onClick(View v) {

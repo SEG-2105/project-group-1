@@ -125,7 +125,10 @@ public class TicketActivity extends AppCompatActivity {
         rating.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                int rat=position-1;
+                rat=position-1;
+                if(rat!=-1){
+                    rate.setVisibility(View.VISIBLE);
+                }
             }
 
             @Override
@@ -137,6 +140,8 @@ public class TicketActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 ticketHelper.rateTicket(ticket.getId(),ticket.getPmID(),rat);
+                rate.setVisibility(View.INVISIBLE);
+                rating.setVisibility(View.INVISIBLE);
             }
         });
     }
@@ -157,15 +162,17 @@ public class TicketActivity extends AppCompatActivity {
     private void setVisibility(){
         switch(user.getType()){
             case "Client":
-                resolve.setVisibility(View.VISIBLE);
+                resolve.setVisibility(View.INVISIBLE);
                 accept.setVisibility(View.INVISIBLE);
                 reject.setVisibility(View.INVISIBLE);
                 rate.setVisibility(View.INVISIBLE);
                 rating.setVisibility(View.INVISIBLE);
-                if(ticket.getStatus()!=2){
+                if(ticket.getStatus()==2){
+                    resolve.setVisibility(View.VISIBLE);
+                }
+                if(ticket.getStatus()==0){
                     resolve.setVisibility(View.INVISIBLE);
                     rating.setVisibility(View.VISIBLE);
-                    rate.setVisibility(View.VISIBLE);
                 }
                 break;
             default:

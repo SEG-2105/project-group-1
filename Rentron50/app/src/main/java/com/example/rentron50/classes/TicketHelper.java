@@ -182,7 +182,7 @@ public class TicketHelper extends SQLiteOpenHelper {
             List<TicketModel> tickets=getTickets(propertyManagerRating);
             double sum=0;
             for(int i=0;i<tickets.size();i++){
-                sum=tickets.get(i).getRating();
+                sum+=tickets.get(i).getRating();
             }
             return sum/(tickets.size());
         }catch (Exception e){
