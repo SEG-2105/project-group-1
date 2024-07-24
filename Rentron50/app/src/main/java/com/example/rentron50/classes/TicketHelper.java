@@ -25,7 +25,7 @@ public class TicketHelper extends SQLiteOpenHelper {
     private static final String RATING_COLUMN = "rating";
 
     public TicketHelper(@Nullable Context context) {
-        super(context, "s.db", null, 1);
+        super(context, TABLE_NAME+"s.db", null, 1);
     }
 
     @Override
