@@ -225,7 +225,7 @@ public class RequestHelper extends SQLiteOpenHelper {
     }
 
     public List<RequestModel> getActiveRequestsBySender(int id,int type) {
-        String query="SELECT*FROM "+TABLE_NAME+" WHERE "+SENDERID_COLUMN+"="+id+" AND "+ISACTIVE_COLUMN+"="+0;
+        String query="SELECT*FROM "+TABLE_NAME+" WHERE "+SENDERID_COLUMN+"="+id+" AND "+ISACTIVE_COLUMN+"="+1;
         return getRequests(query);
     }
 
