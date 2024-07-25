@@ -59,7 +59,6 @@ public class EditPropertyActivity extends AppCompatActivity {
         hydro=findViewById(R.id.hydroSpinnerEditProperty);
         heating=findViewById(R.id.heatingSpinnerEditProperty);
         water=findViewById(R.id.waterSpinnerEditProperty);
-        type=findViewById(R.id.typeSpinnerEditProperty);
         edit=findViewById(R.id.editButtonEditProperty);
         back=findViewById(R.id.backButtonEditProperty);
     }
@@ -103,6 +102,9 @@ public class EditPropertyActivity extends AppCompatActivity {
                 } else {
                     editedProperty.setArea(Integer.parseInt(area.getEditableText().toString()));
                 }
+                editedProperty.setHydro(hydroTemp);
+                editedProperty.setHeating(heatingTemp);
+                editedProperty.setWater(waterTemp);
                 propertyHelper.editProperty(editedProperty,MyPropertyActivity.propertyId);
                 startActivity(new Intent(getApplicationContext(),PropertyMenuActivity.class));
             }
@@ -140,17 +142,6 @@ public class EditPropertyActivity extends AppCompatActivity {
 
             }
         });
-        type.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                typeTemp=(String)type.getItemAtPosition(position);
-            }
-
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {
-
-            }
-        });
     }
     private void setSpinners(){
         ArrayAdapter<CharSequence> hydroAdapter=ArrayAdapter.createFromResource(
@@ -162,13 +153,9 @@ public class EditPropertyActivity extends AppCompatActivity {
         ArrayAdapter<CharSequence> waterAdapter=ArrayAdapter.createFromResource(
                 this,R.array.water, android.R.layout.simple_spinner_item
         );
-        ArrayAdapter<CharSequence> typeAdapter=ArrayAdapter.createFromResource(
-                this,R.array.propertyType, android.R.layout.simple_spinner_item
-        );
         hydro.setAdapter(hydroAdapter);
         water.setAdapter(waterAdapter);
         heating.setAdapter(heatingAdapter);
-        type.setAdapter(typeAdapter);
     }
     private void setEditTexts(){
         rent.setText(String.valueOf(property.getRent()));

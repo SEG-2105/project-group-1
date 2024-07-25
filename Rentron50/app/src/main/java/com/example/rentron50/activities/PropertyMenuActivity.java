@@ -124,7 +124,9 @@ public class PropertyMenuActivity extends AppCompatActivity {
         edit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                MyPropertyActivity.propertyId=property.getId();
                 startActivity(new Intent(getApplicationContext(), EditPropertyActivity.class));
+                setTextViews();
             }
         });
     }
